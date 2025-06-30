@@ -1,43 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   PhoneBook.class.hpp                                :+:      :+:    :+:   */
+/*   Zombie.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: badal-la <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/26 11:34:25 by badal-la          #+#    #+#             */
-/*   Updated: 2025/06/29 12:46:05 by badal-la         ###   ########.fr       */
+/*   Created: 2025/06/29 12:23:33 by badal-la          #+#    #+#             */
+/*   Updated: 2025/06/30 12:32:46 by badal-la         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PHONEBOOK_CLASS_H
-# define PHONEBOOK_CLASS_H
+#ifndef ZOMBIE_HPP
+# define ZOMBIE_HPP
 
-#include <iostream>
-#include <iomanip>
-#include "colors.hpp"
-#include "Contact.class.hpp"
+# include <iostream>
+# include <string>
+# include <ctime>
 
-class PhoneBook
+class Zombie
 {
 
 	private:
 
-		Contact	_contacts[8];
-		int		_NbContacts;
-		int		_index;
+		std::string _name;
 
-		int		_getNbContacts(void) const;
-		void	_ShowDetails(void) const;
-		
 	public:
-		
-		PhoneBook(void);
-		~PhoneBook(void);
 
-		void	AddNewContact(void);
-		void	SearchContact(void) const;
+		Zombie(std::string name);
+		Zombie(void);
+		~Zombie(void);
+
+		void	announce() const;
+		void	setname(std::string name);
 
 };
+
+Zombie* zombieHorde( int N, std::string name );
 
 #endif

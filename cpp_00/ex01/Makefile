@@ -7,11 +7,13 @@ SRC = src/main.cpp \
 		src/PhoneBook.class.cpp \
 		src/Contact.class.cpp
 
-OBJ = $(SRC:.cpp=.o)
+OBJ_DIR = obj
+OBJ = $(SRC:%.cpp=$(OBJ_DIR)/%.o)
 
 all: $(NAME)
 
-%.o: %.cpp
+$(OBJ_DIR)/%.o: %.cpp
+	@mkdir -p $(dir $@)
 	@$(CC) $(CFLAGS) -c $< -o $@
 
 $(NAME): $(OBJ)
@@ -19,7 +21,7 @@ $(NAME): $(OBJ)
 	@echo "✅ $(NAME) compiled !"
 
 clean:
-	@rm -f $(OBJ)
+	@rm -rf $(OBJ_DIR)
 	@echo "✅ $(NAME) objects removed !"
 
 fclean: clean

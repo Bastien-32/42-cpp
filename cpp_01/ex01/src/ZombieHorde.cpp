@@ -1,30 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   ZombieHorde.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: badal-la <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/26 10:47:31 by badal-la          #+#    #+#             */
-/*   Updated: 2025/06/30 14:59:59 by badal-la         ###   ########.fr       */
+/*   Created: 2025/06/30 12:07:19 by badal-la          #+#    #+#             */
+/*   Updated: 2025/06/30 12:43:12 by badal-la         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
+#include "../include/Zombie.hpp"
+#include <sstream>
 
-int	main(int argc, char **argv)
+Zombie* zombieHorde(int N, std::string name)
 {
-	if (argc == 1)
-		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" << std::endl;
-	else
+	Zombie* horde;
+
+	horde = new Zombie[N];
+	for(int i = 0; i < N; i++)
 	{
-		for (int i = 1; i < argc; i++)
-		{
-			std::string str = argv[i];
-			for(size_t j = 0; j < str.length(); j++)
-				std::cout << (char)std::toupper(str[j]);
-		}
-		std::cout << std::endl;
+		std::stringstream	ss;
+		ss << "_" << i;
+		horde[i].setname(name + ss.str());
+		horde[i].announce();
 	}
-	return (0);
+	return (horde);
 }

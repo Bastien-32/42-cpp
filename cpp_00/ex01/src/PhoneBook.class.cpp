@@ -6,44 +6,34 @@
 /*   By: badal-la <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/26 11:40:22 by badal-la          #+#    #+#             */
-/*   Updated: 2025/06/27 18:33:39 by badal-la         ###   ########.fr       */
+/*   Updated: 2025/06/29 12:46:30 by badal-la         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/PhoneBook.class.hpp"
 #include "../include/Contact.class.hpp"
 
-/* PhoneBook::PhoneBook( void ){
+PhoneBook::PhoneBook() : _NbContacts(0), _index(0)
+{}
 
-	index = 0;
-	NbContacts = 0;
-	return ;
-} */
+PhoneBook::~PhoneBook()
+{}
 
-PhoneBook::PhoneBook() : NbContacts(0), index(0) {
-
-	return ;
+int PhoneBook::_getNbContacts() const
+{
+	return _NbContacts ;
 }
 
-PhoneBook::~PhoneBook(){
-
-	return ;
+void PhoneBook::AddNewContact()
+{
+	_contacts[_index].AddContact();
+	_index = (_index + 1) % 8;
+	if (_NbContacts < _index)
+		_NbContacts = _index;
 }
 
-int PhoneBook::getNbContacts() {
-
-	return NbContacts ;
-}
-
-void PhoneBook::AddNewContact() {
-
-	contacts[index].AddContact();
-	index = (index + 1) % 8;
-	if (NbContacts < index)
-		NbContacts = index;
-}
-
-void printTableBorder() {
+static void printTableBorder()
+{
 
 	std::cout << "+" << std::string(10, '-') << "+"
 				<< std::string(10, '-') << "+"
@@ -51,17 +41,18 @@ void printTableBorder() {
 				<< std::string(10, '-') << "+" << std::endl;
 }
 
-static std::string formatField(const std::string& str) {
-
+static std::string formatField(const std::string& str)
+{
 	if (str.length() > 10)
 		return str.substr(0, 9) + ".";
 	else
 		return str;
 }
 
-void PhoneBook::ShowDetails() const {
-
+void PhoneBook::_ShowDetails() const
+{
 	std::string	index_tab;
+	int			index;
 	
 	std::cout << FGREEN "Enter the index number of the contact to view details or quit(q): " RESET  << std::endl;
 	std::getline(std::cin, index_tab);
@@ -69,28 +60,28 @@ void PhoneBook::ShowDetails() const {
 		return;
 	if (index_tab.empty()) {
 		std::cout << RED "Index cannot be empty. Please try again." RESET << std::endl;
-		return ShowDetails();
+		return _ShowDetails();
 	}
 	if (!std::all_of(index_tab.begin(), index_tab.end(), ::isdigit)) {
 		std::cout << RED "Enter an index number or q for quit. Please try again." RESET << std::endl;
-		return ShowDetails();
+		return _ShowDetails();
 	}
-	int index = std::stoi(index_tab);
-	if (index < 1 || index > NbContacts) {
+	index = std::stoi(index_tab);
+	if (index < 1 || index > _NbContacts) {
 		std::cout << RED "Enter a contact index number who is existing. Please try again." RESET << std::endl;
-		return ShowDetails();
+		return _ShowDetails();
 	}
 	index -= 1;
 	std::cout << "Contact details:\n" << std::endl;
-	std::cout << "First Name :\t\t" << contacts[index].getFirstName() << std::endl;
-	std::cout << "Last Name :\t\t" << contacts[index].getLastName() << std::endl;
-	std::cout << "Nickname :\t\t" << contacts[index].getNickname() << std::endl;
-	std::cout << "Phone Number :\t\t" << contacts[index].getPhoneNumber() << std::endl;
-	std::cout << "Darkest Secret :\t" << contacts[index].getDarkestSecret() << "\n" << std::endl;
+	std::cout << "First Name :\t\t" << _contacts[index].getFirstName() << std::endl;
+	std::cout << "Last Name :\t\t" << _contacts[index].getLastName() << std::endl;
+	std::cout << "Nickname :\t\t" << _contacts[index].getNickname() << std::endl;
+	std::cout << "Phone Number :\t\t" << _contacts[index].getPhoneNumber() << std::endl;
+	std::cout << "Darkest Secret :\t" << _contacts[index].getDarkestSecret() << "\n" << std::endl;
 }
 
-void PhoneBook::SearchContact(void) const {
-
+void PhoneBook::SearchContact(void) const
+{
 	printTableBorder();
 	std::cout << "|" << std::setw(10) << "Index" << "|"
 				<< std::setw(10) << "First Name" << "|"
@@ -98,13 +89,13 @@ void PhoneBook::SearchContact(void) const {
 				<< std::setw(10) << "Nickname" << "|"
 				<< std::endl;
 	printTableBorder();
-	for (int i = 0; i < NbContacts; ++i) {
+	for (int i = 0; i < _NbContacts; ++i) {
 		std::cout << "|" << std::setw(10) << i + 1 << "|"
-					<< std::setw(10) << formatField(contacts[i].getFirstName()) << "|"
-					<< std::setw(10) << formatField(contacts[i].getLastName()) << "|"
-					<< std::setw(10) << formatField(contacts[i].getNickname()) << "|"
+					<< std::setw(10) << formatField(_contacts[i].getFirstName()) << "|"
+					<< std::setw(10) << formatField(_contacts[i].getLastName()) << "|"
+					<< std::setw(10) << formatField(_contacts[i].getNickname()) << "|"
 					<< std::endl;
 	}
 	printTableBorder();
-	ShowDetails();
+	_ShowDetails();
 }

@@ -6,7 +6,7 @@
 /*   By: badal-la <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/26 11:28:56 by badal-la          #+#    #+#             */
-/*   Updated: 2025/06/27 18:33:16 by badal-la         ###   ########.fr       */
+/*   Updated: 2025/06/28 10:51:12 by badal-la         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	main(void)
 	std::cout << BGREEN "Welcome to the PhoneBook application!" RESET << std::endl;
 	std::cout << GREEN "Use a command : ADD(create a contact), SEARCH(search a contact) or EXIT" RESET << std::endl;
 	std::getline(std::cin, line);
-	while(line != "EXIT")
+	while(line != "EXIT" && line != "exit")
 	{
 		if (line == "ADD" || line == "add")
 			badal_phonebook.AddNewContact();
