@@ -6,7 +6,7 @@
 /*   By: badal-la <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/28 11:32:34 by badal-la          #+#    #+#             */
-/*   Updated: 2025/06/28 17:06:21 by badal-la         ###   ########.fr       */
+/*   Updated: 2025/06/30 09:14:57 by badal-la         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,9 +45,35 @@ Account::~Account()
 				<< ";closed" << std::endl;
 }
 
-void Account::_displayTimestamp() {
-	std::time_t now = std::time(nullptr);
-	std::tm *ltm = std::localtime(&now);
+int	Account::getNbAccounts()
+{
+	return (_nbAccounts);
+}
+
+int	Account::getTotalAmount()
+{
+	return (_totalAmount);
+}
+
+int	Account::getNbDeposits()
+{
+	return (_totalNbDeposits);
+}
+
+int	Account::getNbWithdrawals()
+{
+	return (_totalNbWithdrawals);
+}
+
+int	Account::checkAmount() const
+{
+	return (_amount);
+}
+
+void	Account::_displayTimestamp()
+{
+	std::time_t now = std::time(NULL);
+	std::tm *ltm = std::gmtime(&now);
 
 	std::cout << "[" << 1900 + ltm->tm_year
 				<< std::setw(2) << std::setfill('0') << ltm->tm_mon + 1
@@ -59,7 +85,8 @@ void Account::_displayTimestamp() {
 				<< "] ";
 }
 
-void Account::displayAccountsInfos() {
+void	Account::displayAccountsInfos()
+{
 	_displayTimestamp();
 	std::cout << "accounts:"
 				<< BLUE << _nbAccounts << RESET
@@ -72,7 +99,8 @@ void Account::displayAccountsInfos() {
 				<< std::endl;
 }
 
-void Account::displayStatus() const {
+void	Account::displayStatus() const
+{
 	for(int i = 0; i < _nbAccounts; ++i) {
 		_displayTimestamp();
 		std::cout << "index:"
@@ -88,7 +116,8 @@ void Account::displayStatus() const {
 	}
 }
 
-void Account::makeDeposit(int deposit) {
+void	Account::makeDeposit(int deposit)
+{
 	_displayTimestamp();
 	int	p_amount(_amount);
 	_amount += deposit;
@@ -105,4 +134,33 @@ void Account::makeDeposit(int deposit) {
 				<< std::endl;
 	_totalAmount += deposit;
 	_totalNbDeposits++;
+}
+
+bool	Account::makeWithdrawal(int withdrawal)
+{
+	_displayTimestamp();
+	int	p_amount(_amount);
+	if(withdrawal > _amount) {
+		std::cout << "index:"
+					<< BLUE << _accountIndex << RESET
+					<< ";p_amount:"
+					<< BLUE << p_amount << RESET
+					<< ";withdrawal:refused" << std::endl;
+		return (false);
+	}
+	_amount -= withdrawal;
+	std::cout << "index:"
+				<< BLUE << _accountIndex << RESET
+				<< ";p_amount:"
+				<< BLUE << p_amount << RESET
+				<< ";withdrawal:"
+				<< BLUE << withdrawal << RESET
+				<< ";amount:"
+				<< BLUE << _amount << RESET
+				<< ";nb_withdrawal:"
+				<< BLUE << ++_nbWithdrawals << RESET
+				<< std::endl;
+	_totalAmount -= withdrawal;
+	_totalNbWithdrawals++;
+	return (true);
 }

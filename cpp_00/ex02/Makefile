@@ -1,17 +1,18 @@
-NAME = phonebook
+NAME = GlobalBankster
 
 CC = c++
-#CFLAGS = -Wall -Wextra -Werror -std=c++98
-CFLAGS = -std=c++98
+CFLAGS = -Wall -Wextra -Werror -std=c++98
 
 SRC = src/tests.cpp \
 		src/Account.cpp \
 
-OBJ = $(SRC:.cpp=.o)
+OBJ_DIR = obj
+OBJ = $(SRC:%.cpp=$(OBJ_DIR)/%.o)
 
 all: $(NAME)
 
-%.o: %.cpp
+$(OBJ_DIR)/%.o: %.cpp
+	@mkdir -p $(dir $@)
 	@$(CC) $(CFLAGS) -c $< -o $@
 
 $(NAME): $(OBJ)
@@ -19,7 +20,7 @@ $(NAME): $(OBJ)
 	@echo "✅ $(NAME) compiled !"
 
 clean:
-	@rm -f $(OBJ)
+	@rm -rf $(OBJ_DIR)
 	@echo "✅ $(NAME) objects removed !"
 
 fclean: clean
