@@ -1,10 +1,9 @@
-NAME = Hi_this_is_brain
+NAME = Sed_is_for_losers
 
 CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 
-SRC = src/main.cpp \
-		#src/Zombie.cpp \
+SRC = src/main.cpp
 
 OBJ_DIR = obj
 OBJ = $(SRC:%.cpp=$(OBJ_DIR)/%.o)

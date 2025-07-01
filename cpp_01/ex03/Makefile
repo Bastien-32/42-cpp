@@ -1,10 +1,12 @@
-NAME = Hi_this_is_brain
+NAME = Unnecessary_violence
 
 CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 
 SRC = src/main.cpp \
-		#src/Zombie.cpp \
+		src/HumanA.cpp \
+		src/HumanB.cpp \
+		src/Weapon.cpp
 
 OBJ_DIR = obj
 OBJ = $(SRC:%.cpp=$(OBJ_DIR)/%.o)
