@@ -6,7 +6,7 @@
 /*   By: badal-la <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/07 16:35:49 by badal-la          #+#    #+#             */
-/*   Updated: 2025/07/07 17:52:53 by badal-la         ###   ########.fr       */
+/*   Updated: 2025/07/07 17:59:55 by badal-la         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,10 +91,10 @@ Fixed	Point::getFixedY() const
 
 static Fixed	sign( Point const& p1, Point const& p2, Point const& p3 )
 {
-	return (
-		(p1.getFixedX() - p3.getFixedX()) * (p2.getFixedY() - p3.getFixedY())
-		- (p2.getFixedX() - p3.getFixedX()) * (p1.getFixedY() - p3.getFixedY())
-	);
+	return ((p1.getFixedX() - p3.getFixedX()) *
+		(p2.getFixedY() - p3.getFixedY()) -
+		(p2.getFixedX() - p3.getFixedX()) *
+		(p1.getFixedY() - p3.getFixedY()));
 }
 
 bool	bsp( Point const a, Point const b, Point const c, Point const point )
