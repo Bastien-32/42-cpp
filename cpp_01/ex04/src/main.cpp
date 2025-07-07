@@ -6,7 +6,7 @@
 /*   By: badal-la <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/01 09:20:43 by badal-la          #+#    #+#             */
-/*   Updated: 2025/07/01 11:45:18 by badal-la         ###   ########.fr       */
+/*   Updated: 2025/07/03 09:36:45 by badal-la         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 #include <fstream>
 #include <iterator>
 #include <sys/stat.h>
-
 
 std::string	search_n_replace(const std::string& content, std::string search, std::string replace)
 {
@@ -35,9 +34,11 @@ std::string	search_n_replace(const std::string& content, std::string search, std
 	}
 	return (result);
 }
+
 bool	is_directory(const char* path)
 {
 	struct stat path_stat;
+
 	if (stat(path, &path_stat) != 0)
 		return (false);
 	return (S_ISDIR(path_stat.st_mode));

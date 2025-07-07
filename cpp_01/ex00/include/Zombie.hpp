@@ -6,7 +6,7 @@
 /*   By: badal-la <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/29 12:23:33 by badal-la          #+#    #+#             */
-/*   Updated: 2025/06/30 12:31:04 by badal-la         ###   ########.fr       */
+/*   Updated: 2025/07/02 08:59:16 by badal-la         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ class Zombie
 
 	public:
 
-		Zombie(std::string name);
+		Zombie( std::string name );
 		~Zombie(void);
 
 		void	announce() const;

@@ -6,7 +6,7 @@
 /*   By: badal-la <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/26 19:01:08 by badal-la          #+#    #+#             */
-/*   Updated: 2025/06/29 12:46:15 by badal-la         ###   ########.fr       */
+/*   Updated: 2025/07/02 08:50:54 by badal-la         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ std::string Contact::getDarkestSecret() const
 	return (_darkestsecret);
 }
 
-std::string Contact::_FillString(std::string str)
+std::string Contact::_FillString( std::string str )
  {
 	std::string	filled_str;
 
@@ -57,7 +57,7 @@ std::string Contact::_FillString(std::string str)
 	return (filled_str);
 }
 
-std::string Contact::_FillNumber(std::string str)
+std::string Contact::_FillNumber( std::string str )
 {
 	std::string filled_str;
 
@@ -70,7 +70,7 @@ std::string Contact::_FillNumber(std::string str)
 	return (filled_str);
 }
 
-void	Contact::AddContact(void)
+void	Contact::AddContact( void )
 {
 	_firstname = _FillString("First name");
 	_lastname = _FillString("Last name");

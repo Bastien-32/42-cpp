@@ -1,0 +1,35 @@
+#include "MyClass.hpp"
+#include <iostream>
+
+/* -------------------------------------------------------------------------- */
+/*                            Canonical (mandatory)                           */
+/* -------------------------------------------------------------------------- */
+
+/* --------------------------- Default Constructor -------------------------- */
+
+MyClass::MyClass( void ) :
+// assign values here like _value( 0 ), ...
+{
+}
+
+/* ------------------------------- Destructor ------------------------------- */
+
+MyClass::~MyClass( void )
+{
+}
+
+/* --------------------------- Constructor by copy -------------------------- */
+
+MyClass::MyClass( const MyClass& other )
+{
+	*this = other;
+}
+
+/* ------------------------ Assignation operator copy ----------------------- */
+
+MyClass&	MyClass::operator=( const MyClass& other )
+{
+	if ( this != &other )
+		// assign values here like this->_value = other._value;
+	return ( *this );
+}

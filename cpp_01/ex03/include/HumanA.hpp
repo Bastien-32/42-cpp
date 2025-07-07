@@ -6,7 +6,7 @@
 /*   By: badal-la <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/30 16:05:20 by badal-la          #+#    #+#             */
-/*   Updated: 2025/06/30 17:12:01 by badal-la         ###   ########.fr       */
+/*   Updated: 2025/07/02 09:04:23 by badal-la         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ class HumanA
 
 	public:
 
-		HumanA(std::string name, Weapon& weapon);
+		HumanA( std::string name, Weapon& weapon );
 		~HumanA();
 
 		void	attack() const;

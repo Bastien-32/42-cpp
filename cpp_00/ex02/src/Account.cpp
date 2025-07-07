@@ -6,7 +6,7 @@
 /*   By: badal-la <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/28 11:32:34 by badal-la          #+#    #+#             */
-/*   Updated: 2025/06/30 09:14:57 by badal-la         ###   ########.fr       */
+/*   Updated: 2025/07/02 08:56:52 by badal-la         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int Account::_totalAmount = 0;
 int Account::_totalNbDeposits = 0;
 int Account::_totalNbWithdrawals = 0;
 
-Account::Account(int initial_deposit) :
+Account::Account( int initial_deposit ) :
 	_accountIndex(_nbAccounts++),
 	_amount(initial_deposit),
 	_nbDeposits(0),
@@ -116,7 +116,7 @@ void	Account::displayStatus() const
 	}
 }
 
-void	Account::makeDeposit(int deposit)
+void	Account::makeDeposit( int deposit )
 {
 	_displayTimestamp();
 	int	p_amount(_amount);
@@ -136,7 +136,7 @@ void	Account::makeDeposit(int deposit)
 	_totalNbDeposits++;
 }
 
-bool	Account::makeWithdrawal(int withdrawal)
+bool	Account::makeWithdrawal( int withdrawal )
 {
 	_displayTimestamp();
 	int	p_amount(_amount);

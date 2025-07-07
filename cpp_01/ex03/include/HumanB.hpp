@@ -6,7 +6,7 @@
 /*   By: badal-la <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/30 16:05:20 by badal-la          #+#    #+#             */
-/*   Updated: 2025/06/30 22:07:24 by badal-la         ###   ########.fr       */
+/*   Updated: 2025/07/02 09:04:34 by badal-la         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,11 +28,11 @@ class HumanB
 
 	public:
 
-		HumanB(std::string name);
+		HumanB( std::string name );
 		~HumanB();
 
 		void	attack() const;
-		void	setWeapon(Weapon& weapon);
+		void	setWeapon( Weapon& weapon );
 
 };
 

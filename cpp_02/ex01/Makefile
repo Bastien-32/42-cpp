@@ -1,9 +1,10 @@
-NAME = Megaphone
+NAME = My_first_util_class
 
 CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 
-SRC = main.cpp
+SRC = src/main.cpp \
+		src/Fixed.cpp
 
 OBJ_DIR = obj
 OBJ = $(SRC:%.cpp=$(OBJ_DIR)/%.o)
@@ -28,4 +29,4 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all clean fclean re
+.PHONY: all clean fclean re 

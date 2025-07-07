@@ -6,7 +6,7 @@
 /*   By: badal-la <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/26 19:03:01 by badal-la          #+#    #+#             */
-/*   Updated: 2025/06/29 12:45:46 by badal-la         ###   ########.fr       */
+/*   Updated: 2025/07/02 08:58:01 by badal-la         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,8 @@ class Contact
 		std::string	_phonenumber;
 		std::string	_darkestsecret;
 		
-		std::string	_FillString(std::string str);
-		std::string	_FillNumber(std::string str);
+		std::string	_FillString( std::string str );
+		std::string	_FillNumber( std::string str );
 
 	public:
 
@@ -41,7 +41,7 @@ class Contact
 		std::string	getPhoneNumber() const;
 		std::string	getDarkestSecret() const;
 
-		void	AddContact(void);
+		void	AddContact( void );
 
 };
 

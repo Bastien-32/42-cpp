@@ -6,14 +6,14 @@
 /*   By: badal-la <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/30 12:07:19 by badal-la          #+#    #+#             */
-/*   Updated: 2025/06/30 12:43:12 by badal-la         ###   ########.fr       */
+/*   Updated: 2025/07/02 09:02:33 by badal-la         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/Zombie.hpp"
 #include <sstream>
 
-Zombie* zombieHorde(int N, std::string name)
+Zombie* zombieHorde( int N, std::string name )
 {
 	Zombie* horde;
 

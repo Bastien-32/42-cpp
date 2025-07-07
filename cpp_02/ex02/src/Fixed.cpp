@@ -6,7 +6,7 @@
 /*   By: badal-la <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/01 18:30:49 by badal-la          #+#    #+#             */
-/*   Updated: 2025/07/03 10:12:35 by badal-la         ###   ########.fr       */
+/*   Updated: 2025/07/03 17:32:30 by badal-la         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,12 @@ const int	Fixed::_fractionalBits = 8;
 
 /* --------------------------- Default constructor -------------------------- */
 
-Fixed::Fixed() :
-	_rawBits(0)
+Fixed::Fixed() : _rawBits(0)
 {
 	std::cout << "Default constructor called" << std::endl;
 }
 
-/* -------------------------- Constructor of recopy ------------------------- */
+/* --------------------------- Constructor by copy -------------------------- */
 
 Fixed::Fixed( const Fixed& other )
 {
@@ -41,9 +40,9 @@ Fixed::~Fixed()
 	std::cout << "Destructor called" << std::endl;
 }
 
-/* ------------------------ copy assignment operator ------------------------ */
+/* -------------------------- Assignation operator -------------------------- */
 
-Fixed& Fixed::operator=( const Fixed& other )
+Fixed&	Fixed::operator=( const Fixed& other )
 {
 	std::cout << "Copy assignment operator called" << std::endl;
 	if (this != &other)
@@ -55,6 +54,32 @@ Fixed& Fixed::operator=( const Fixed& other )
 /*                                not mandatory                               */
 /* -------------------------------------------------------------------------- */
 
+/* ------------------------------- Constructor ------------------------------ */
+
+Fixed::Fixed( int value )
+{
+	std::cout << "Int constructor called" << std::endl;
+	_rawBits = value << _fractionalBits;
+}
+
+Fixed::Fixed( float value )
+{
+	std::cout << "Float constructor called" << std::endl;
+	_rawBits = roundf( value * (1 << _fractionalBits) );
+}
+
+/* --------------------------------- Members -------------------------------- */
+
+float	Fixed::toFloat( void ) const
+{
+	return (static_cast<float>(_rawBits) / (1 << _fractionalBits));
+}
+
+int	Fixed::toInt( void ) const
+{
+	return (_rawBits >> _fractionalBits);
+}
+
 /* --------------------------------- Getter --------------------------------- */
 
 int Fixed::getRawBits( void ) const
@@ -64,7 +89,15 @@ int Fixed::getRawBits( void ) const
 }
 
 /* --------------------------------- Setter --------------------------------- */
-void Fixed::setRawBits( int const raw )
+void	Fixed::setRawBits( int const raw )
 {
 	_rawBits = raw;
+}
+
+/* ------------------------ Others methods functions ------------------------ */
+
+std::ostream&	operator<<( std::ostream& os, const Fixed& fixed )
+{
+	os << fixed.toFloat();
+	return (os);
 }

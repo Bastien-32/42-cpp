@@ -6,14 +6,16 @@
 /*   By: badal-la <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/26 11:40:22 by badal-la          #+#    #+#             */
-/*   Updated: 2025/06/29 12:46:30 by badal-la         ###   ########.fr       */
+/*   Updated: 2025/07/04 11:04:22 by badal-la         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/PhoneBook.class.hpp"
 #include "../include/Contact.class.hpp"
 
-PhoneBook::PhoneBook() : _NbContacts(0), _index(0)
+PhoneBook::PhoneBook() :
+	_NbContacts(0),
+	_index(0)
 {}
 
 PhoneBook::~PhoneBook()
@@ -41,12 +43,12 @@ static void printTableBorder()
 				<< std::string(10, '-') << "+" << std::endl;
 }
 
-static std::string formatField(const std::string& str)
+std::string	PhoneBook::_formatField( const std::string& str ) const
 {
 	if (str.length() > 10)
-		return str.substr(0, 9) + ".";
+		return (str.substr(0, 9) + ".");
 	else
-		return str;
+		return (str);
 }
 
 void PhoneBook::_ShowDetails() const
@@ -57,19 +59,29 @@ void PhoneBook::_ShowDetails() const
 	std::cout << FGREEN "Enter the index number of the contact to view details or quit(q): " RESET  << std::endl;
 	std::getline(std::cin, index_tab);
 	if (index_tab == "q" || index_tab == "Q")
-		return;
-	if (index_tab.empty()) {
+		return ;
+	if (index_tab.empty())
+	{
 		std::cout << RED "Index cannot be empty. Please try again." RESET << std::endl;
-		return _ShowDetails();
+		return (_ShowDetails());
 	}
-	if (!std::all_of(index_tab.begin(), index_tab.end(), ::isdigit)) {
-		std::cout << RED "Enter an index number or q for quit. Please try again." RESET << std::endl;
-		return _ShowDetails();
+	for (size_t i = 0; i < index_tab.length(); ++i)
+	{
+		if (!std::isdigit(index_tab[i])) {
+			std::cout << RED "Enter an index number or q for quit. Please try again." RESET << std::endl;
+			return (_ShowDetails());
+		}
 	}
-	index = std::stoi(index_tab);
-	if (index < 1 || index > _NbContacts) {
+	std::istringstream iss(index_tab);
+	iss >> index;
+	if (iss.fail()) {
+		std::cout << RED "Conversion error. Please try again." RESET << std::endl;
+		return (_ShowDetails());
+	}
+	if (index < 1 || index > _NbContacts)
+	{
 		std::cout << RED "Enter a contact index number who is existing. Please try again." RESET << std::endl;
-		return _ShowDetails();
+		return (_ShowDetails());
 	}
 	index -= 1;
 	std::cout << "Contact details:\n" << std::endl;
@@ -80,7 +92,7 @@ void PhoneBook::_ShowDetails() const
 	std::cout << "Darkest Secret :\t" << _contacts[index].getDarkestSecret() << "\n" << std::endl;
 }
 
-void PhoneBook::SearchContact(void) const
+void PhoneBook::SearchContact( void ) const
 {
 	printTableBorder();
 	std::cout << "|" << std::setw(10) << "Index" << "|"
@@ -89,11 +101,12 @@ void PhoneBook::SearchContact(void) const
 				<< std::setw(10) << "Nickname" << "|"
 				<< std::endl;
 	printTableBorder();
-	for (int i = 0; i < _NbContacts; ++i) {
+	for (int i = 0; i < _NbContacts; ++i)
+	{
 		std::cout << "|" << std::setw(10) << i + 1 << "|"
-					<< std::setw(10) << formatField(_contacts[i].getFirstName()) << "|"
-					<< std::setw(10) << formatField(_contacts[i].getLastName()) << "|"
-					<< std::setw(10) << formatField(_contacts[i].getNickname()) << "|"
+					<< std::setw(10) << _formatField(_contacts[i].getFirstName()) << "|"
+					<< std::setw(10) << _formatField(_contacts[i].getLastName()) << "|"
+					<< std::setw(10) << _formatField(_contacts[i].getNickname()) << "|"
 					<< std::endl;
 	}
 	printTableBorder();
