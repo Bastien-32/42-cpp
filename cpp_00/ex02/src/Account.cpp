@@ -6,7 +6,7 @@
 /*   By: badal-la <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/28 11:32:34 by badal-la          #+#    #+#             */
-/*   Updated: 2025/07/02 08:56:52 by badal-la         ###   ########.fr       */
+/*   Updated: 2025/07/07 09:57:13 by badal-la         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #include "../include/colors.hpp"
 #include <iostream>
 #include <iomanip>
+#include <ctime>
 
 int Account::_nbAccounts = 0;
 int Account::_totalAmount = 0;
@@ -72,8 +73,8 @@ int	Account::checkAmount() const
 
 void	Account::_displayTimestamp()
 {
-	std::time_t now = std::time(NULL);
-	std::tm *ltm = std::gmtime(&now);
+	time_t now = time(NULL);
+	tm *ltm = gmtime(&now);
 
 	std::cout << "[" << 1900 + ltm->tm_year
 				<< std::setw(2) << std::setfill('0') << ltm->tm_mon + 1

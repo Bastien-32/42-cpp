@@ -6,7 +6,7 @@
 /*   By: badal-la <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/01 09:20:43 by badal-la          #+#    #+#             */
-/*   Updated: 2025/07/03 09:36:45 by badal-la         ###   ########.fr       */
+/*   Updated: 2025/07/07 10:08:37 by badal-la         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ int	main(int argc, char **argv)
 	}
 
 	std::string file_replace = std::string(argv[1]) + ".replace";
-	std::ofstream outputFile(file_replace);
+	std::ofstream outputFile(file_replace.c_str());
 	if (!outputFile.is_open() || !outputFile.good())
 	{
 		inputFile.close();

@@ -6,7 +6,7 @@
 /*   By: badal-la <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/26 19:01:08 by badal-la          #+#    #+#             */
-/*   Updated: 2025/07/02 08:50:54 by badal-la         ###   ########.fr       */
+/*   Updated: 2025/07/07 09:53:54 by badal-la         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,8 +63,20 @@ std::string Contact::_FillNumber( std::string str )
 
 	std::cout << str << " : ";
 	std::getline(std::cin, filled_str);
-	if (filled_str.empty() || !std::all_of(filled_str.begin(), filled_str.end(), ::isdigit)) {
-		std::cout << RED "Phone number must be exactly 10 digits. Please try again." RESET << std::endl;
+
+	bool is_all_digit = true;
+	for (size_t i = 0; i < filled_str.length(); ++i)
+	{
+		if (!std::isdigit(filled_str[i]))
+		{
+			is_all_digit = false;
+			break;
+		}
+	}
+
+	if (filled_str.empty() || !is_all_digit)
+	{
+		std::cout << RED "Phone number must be contain omly numbers" RESET << std::endl;
 		return (_FillNumber(str));
 	}
 	return (filled_str);

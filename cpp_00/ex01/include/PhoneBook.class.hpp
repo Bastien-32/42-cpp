@@ -6,7 +6,7 @@
 /*   By: badal-la <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/26 11:34:25 by badal-la          #+#    #+#             */
-/*   Updated: 2025/07/02 15:18:47 by badal-la         ###   ########.fr       */
+/*   Updated: 2025/07/07 09:46:08 by badal-la         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 
 #include <iostream>
 #include <iomanip>
+#include <sstream>
+#include <cctype>
 #include "colors.hpp"
 #include "Contact.class.hpp"
 

@@ -6,12 +6,13 @@
 /*   By: badal-la <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/30 11:27:35 by badal-la          #+#    #+#             */
-/*   Updated: 2025/06/30 13:14:24 by badal-la         ###   ########.fr       */
+/*   Updated: 2025/07/07 10:04:01 by badal-la         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include <string>
+#include <cstdlib>
 #include "../include/Zombie.hpp"
 
 int	positive_int(std::string str)
@@ -40,7 +41,7 @@ int	main(int argc, char ** argv)
 		std::cout << "Usage : ./Moar_brainz [positive number of zombies] [zombie name]" << std::endl;
 		return (1);
 	}
-	Horde = zombieHorde(std::stoi(argv[1]), argv[2]);
+	Horde = zombieHorde(atoi(argv[1]), argv[2]);
 	delete[] Horde;
 	return (0);
 }
