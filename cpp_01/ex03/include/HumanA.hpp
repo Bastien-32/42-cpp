@@ -6,12 +6,11 @@
 /*   By: badal-la <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/30 16:05:20 by badal-la          #+#    #+#             */
-/*   Updated: 2025/07/02 09:04:23 by badal-la         ###   ########.fr       */
+/*   Updated: 2025/07/08 16:02:22 by badal-la         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef HUMANA_HPP
-#define HUMANA_HPP
+#pragma once
 
 #include "../include/colors.hpp"
 #include "../include/Weapon.hpp"
@@ -34,5 +33,3 @@ class HumanA
 		void	attack() const;
 
 };
-
-#endif

@@ -6,12 +6,11 @@
 /*   By: badal-la <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/30 16:05:20 by badal-la          #+#    #+#             */
-/*   Updated: 2025/07/02 09:04:34 by badal-la         ###   ########.fr       */
+/*   Updated: 2025/07/08 16:02:37 by badal-la         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef HUMANB_HPP
-#define HUMANB_HPP
+#pragma once
 
 #include "../include/colors.hpp"
 #include "../include/Weapon.hpp"
@@ -35,5 +34,3 @@ class HumanB
 		void	setWeapon( Weapon& weapon );
 
 };
-
-#endif

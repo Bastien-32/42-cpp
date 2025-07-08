@@ -6,12 +6,11 @@
 /*   By: badal-la <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/26 11:34:25 by badal-la          #+#    #+#             */
-/*   Updated: 2025/07/07 09:46:08 by badal-la         ###   ########.fr       */
+/*   Updated: 2025/07/08 13:56:30 by badal-la         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PHONEBOOK_CLASS_H
-# define PHONEBOOK_CLASS_H
+#pragma once
 
 #include <iostream>
 #include <iomanip>
@@ -26,13 +25,13 @@ class PhoneBook
 	private:
 
 		Contact	_contacts[8];
-		int			_NbContacts;
-		int			_index;
+		int		_NbContacts;
+		int		_index;
 
 		int			_getNbContacts( void ) const;
 		void		_ShowDetails( void ) const;
 		std::string	_formatField(const std::string& str) const;
-		
+
 	public:
 		
 		PhoneBook( void );
@@ -42,5 +41,3 @@ class PhoneBook
 		void		SearchContact( void ) const;
 
 };
-
-#endif

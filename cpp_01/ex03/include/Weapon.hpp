@@ -6,12 +6,11 @@
 /*   By: badal-la <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/30 15:36:02 by badal-la          #+#    #+#             */
-/*   Updated: 2025/07/02 09:04:47 by badal-la         ###   ########.fr       */
+/*   Updated: 2025/07/08 16:02:52 by badal-la         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef WEAPON_HPP
-#define WEAPON_HPP
+#pragma once
 
 #include <iostream>
 
@@ -32,5 +31,3 @@ class	Weapon
 		void		setType( std::string weapon_type );
 
 };
-
-#endif

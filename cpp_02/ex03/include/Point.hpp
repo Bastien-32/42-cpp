@@ -6,12 +6,11 @@
 /*   By: badal-la <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/07 16:24:26 by badal-la          #+#    #+#             */
-/*   Updated: 2025/07/07 17:51:37 by badal-la         ###   ########.fr       */
+/*   Updated: 2025/07/08 16:06:03 by badal-la         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef POINT_HPP
-# define POINT_HPP
+#pragma once
 
 # include "../include/Fixed.hpp"
 # include <iostream>
@@ -43,5 +42,3 @@ class Point
 };
 
 bool bsp( Point const a, Point const b, Point const c, Point const point );
-
-#endif

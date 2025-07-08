@@ -6,7 +6,7 @@
 /*   By: badal-la <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/26 19:01:08 by badal-la          #+#    #+#             */
-/*   Updated: 2025/07/07 09:53:54 by badal-la         ###   ########.fr       */
+/*   Updated: 2025/07/08 15:50:31 by badal-la         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ std::string Contact::_FillNumber( std::string str )
 
 	if (filled_str.empty() || !is_all_digit)
 	{
-		std::cout << RED "Phone number must be contain omly numbers" RESET << std::endl;
+		std::cout << RED "Phone number must be contain only numbers" RESET << std::endl;
 		return (_FillNumber(str));
 	}
 	return (filled_str);

@@ -6,12 +6,11 @@
 /*   By: badal-la <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/26 19:03:01 by badal-la          #+#    #+#             */
-/*   Updated: 2025/07/02 08:58:01 by badal-la         ###   ########.fr       */
+/*   Updated: 2025/07/08 13:55:46 by badal-la         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CONTACT_CLASS_H
-# define CONTACT_CLASS_H
+#pragma once
 
 #include <iostream>
 #include <string>
@@ -44,5 +43,3 @@ class Contact
 		void	AddContact( void );
 
 };
-
-#endif

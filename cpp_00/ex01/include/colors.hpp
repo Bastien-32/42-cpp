@@ -11,8 +11,7 @@
 /* ************************************************************************** */
 
 
-#ifndef COLORS_HPP
-# define COLORS_HPP
+#pragma once
 
 // Reset
 # define RESET		"\033[0m"
@@ -76,5 +75,3 @@
 # define BGMAGENTA	"\033[45m"
 # define BGCYAN		"\033[46m"
 # define BGWHITE	"\033[47m"
-
-#endif

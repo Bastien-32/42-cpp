@@ -6,12 +6,11 @@
 /*   By: badal-la <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/01 12:01:26 by badal-la          #+#    #+#             */
-/*   Updated: 2025/07/01 12:12:22 by badal-la         ###   ########.fr       */
+/*   Updated: 2025/07/08 16:03:47 by badal-la         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef HARL_HPP
-# define HARL_HPP
+#pragma once
 
 #include <iostream>
 #include <string>
@@ -33,5 +32,3 @@ class Harl
 		void	complain( std::string level );
 
 };
-
-#endif
