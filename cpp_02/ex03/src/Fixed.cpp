@@ -6,7 +6,7 @@
 /*   By: badal-la <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/01 18:30:49 by badal-la          #+#    #+#             */
-/*   Updated: 2025/07/07 14:09:14 by badal-la         ###   ########.fr       */
+/*   Updated: 2025/07/09 11:00:31 by badal-la         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,21 +20,15 @@ const int	Fixed::_fractionalBits = 8;
 
 /* --------------------------- Default constructor -------------------------- */
 
-Fixed::Fixed() : _rawBits(0)
-{
-}
+Fixed::Fixed() :
+	_rawBits(0)
+{}
 
-/* --------------------------- Constructor by copy -------------------------- */
+/* ---------------------------- Copy constructor ---------------------------- */
 
 Fixed::Fixed( const Fixed& other )
 {
 	this->_rawBits = other.getRawBits();
-}
-
-/* ------------------------------- Destructor ------------------------------- */
-
-Fixed::~Fixed()
-{
 }
 
 /* -------------------------- Assignation operator -------------------------- */
@@ -45,6 +39,11 @@ Fixed&	Fixed::operator=( const Fixed& other )
 		this->_rawBits = other.getRawBits();
 	return (*this);
 }
+
+/* ------------------------------- Destructor ------------------------------- */
+
+Fixed::~Fixed()
+{}
 
 /* -------------------------------------------------------------------------- */
 /*                                not mandatory                               */
@@ -82,6 +81,7 @@ int Fixed::getRawBits( void ) const
 }
 
 /* --------------------------------- Setter --------------------------------- */
+
 void	Fixed::setRawBits( int const raw )
 {
 	_rawBits = raw;
@@ -212,6 +212,7 @@ const Fixed& Fixed::max( const Fixed& nb1, const Fixed& nb2 )
 		return (nb1);
 	return (nb2);
 }
+
 /* ------------------------ Others methods functions ------------------------ */
 
 std::ostream&	operator<<( std::ostream& os, const Fixed& fixed )

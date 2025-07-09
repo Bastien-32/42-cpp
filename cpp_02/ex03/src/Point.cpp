@@ -6,7 +6,7 @@
 /*   By: badal-la <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/07 16:35:49 by badal-la          #+#    #+#             */
-/*   Updated: 2025/07/07 17:59:55 by badal-la         ###   ########.fr       */
+/*   Updated: 2025/07/09 11:46:51 by badal-la         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,16 +22,9 @@
 Point::Point( void ) :
 	_x(0),
 	_y(0)
-{
-}
+{}
 
-/* ------------------------------- Destructor ------------------------------- */
-
-Point::~Point( void )
-{
-}
-
-/* --------------------------- Constructor by copy -------------------------- */
+/* ---------------------------- Copy constructor ---------------------------- */
 
 Point::Point( const Point& other ) :
 	_x(other._x),
@@ -48,6 +41,11 @@ Point&	Point::operator=( const Point& other )
 	(void)other;
 	return ( *this );
 }
+
+/* ------------------------------- Destructor ------------------------------- */
+
+Point::~Point( void )
+{}
 
 /* -------------------------------------------------------------------------- */
 /*                                not mandatory                               */
@@ -89,25 +87,4 @@ Fixed	Point::getFixedY() const
 
 /* --------------------------------- Methods -------------------------------- */
 
-static Fixed	sign( Point const& p1, Point const& p2, Point const& p3 )
-{
-	return ((p1.getFixedX() - p3.getFixedX()) *
-		(p2.getFixedY() - p3.getFixedY()) -
-		(p2.getFixedX() - p3.getFixedX()) *
-		(p1.getFixedY() - p3.getFixedY()));
-}
-
-bool	bsp( Point const a, Point const b, Point const c, Point const point )
-{
-	Fixed	d1 = sign(point, a, b);
-	Fixed	d2 = sign(point, b, c);
-	Fixed	d3 = sign(point, c, a);
-
-	if ((d1 < 0) && (d2 < 0) && (d3 < 0))
-		return (1);
-	if ((d1 > 0) && (d2 > 0) && (d3 > 0))
-		return (1);
-
-	return (0);
-}
-
+bool	bsp( Point const a, Point const b, Point const c, Point const point );

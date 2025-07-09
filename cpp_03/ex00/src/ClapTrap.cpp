@@ -1,4 +1,16 @@
-#include "MyClass.hpp"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ClapTrap.cpp                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: badal-la <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/07/09 13:29:05 by badal-la          #+#    #+#             */
+/*   Updated: 2025/07/09 13:56:37 by badal-la         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "../include/ClapTrap.hpp"
 #include <iostream>
 
 /* -------------------------------------------------------------------------- */
@@ -7,13 +19,16 @@
 
 /* --------------------------- Default Constructor -------------------------- */
 
-MyClass::MyClass( void ) :
-// assign values here like _value( 0 ), ...
+ClapTrap::ClapTrap( std::string name ) :
+	_name(name),
+	_hit_p(10),
+	_energy_p(10),
+	_attack_d(0)
 {}
 
 /* ------------------------ Assignation operator copy ----------------------- */
 
-MyClass&	MyClass::operator=( const MyClass& other )
+ClapTrap&	ClapTrap::operator=( const ClapTrap& other )
 {
 	if ( this != &other )
 		// assign values here like this->_value = other._value;
@@ -22,14 +37,14 @@ MyClass&	MyClass::operator=( const MyClass& other )
 
 /* ---------------------------- Copy constructor ---------------------------- */
 
-MyClass::MyClass( const MyClass& other )
+ClapTrap::ClapTrap( const ClapTrap& other )
 {
 	*this = other;
 }
 
 /* ------------------------------- Destructor ------------------------------- */
 
-MyClass::~MyClass( void )
+ClapTrap::~ClapTrap( void )
 {}
 
 /* -------------------------------------------------------------------------- */
@@ -40,6 +55,11 @@ MyClass::~MyClass( void )
 /* --------------------------------- getters -------------------------------- */
 /* --------------------------------- setters -------------------------------- */
 /* --------------------------------- Methods -------------------------------- */
+
+void attack(const std::string& target)
+{
+	
+}
 
 /* -------------------------------------------------------------------------- */
 /*                                Outside class                               */

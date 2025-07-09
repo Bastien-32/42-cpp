@@ -1,5 +1,4 @@
-#ifndef MYCLASS_HPP
-# define MYCLASS_HPP
+#pragma once
 
 class MyClass
 {
@@ -17,5 +16,3 @@ class MyClass
 		~MyClass( void );
 
 };
-
-#endif

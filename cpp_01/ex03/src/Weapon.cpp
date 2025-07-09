@@ -6,13 +6,13 @@
 /*   By: badal-la <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/30 15:35:44 by badal-la          #+#    #+#             */
-/*   Updated: 2025/07/02 09:05:38 by badal-la         ###   ########.fr       */
+/*   Updated: 2025/07/09 14:44:05 by badal-la         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/Weapon.hpp"
 
-std::string	Weapon::getType() const
+const std::string&	Weapon::getType() const
 {
 	return (_type);
 }

@@ -4,6 +4,8 @@ CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 
 SRC = src/main.cpp \
+		src/newZombie.cpp \
+		src/randomChump.cpp \
 		src/Zombie.cpp \
 
 OBJ_DIR = obj

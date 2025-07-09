@@ -4,6 +4,7 @@ CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 
 SRC = src/main.cpp \
+		src/bsp.cpp \
 		src/Fixed.cpp \
 		src/Point.cpp
 

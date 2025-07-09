@@ -6,7 +6,7 @@
 /*   By: badal-la <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/01 18:30:49 by badal-la          #+#    #+#             */
-/*   Updated: 2025/07/03 17:32:30 by badal-la         ###   ########.fr       */
+/*   Updated: 2025/07/09 11:00:57 by badal-la         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,24 +20,18 @@ const int	Fixed::_fractionalBits = 8;
 
 /* --------------------------- Default constructor -------------------------- */
 
-Fixed::Fixed() : _rawBits(0)
+Fixed::Fixed() :
+	_rawBits(0)
 {
 	std::cout << "Default constructor called" << std::endl;
 }
 
-/* --------------------------- Constructor by copy -------------------------- */
+/* ---------------------------- Copy constructor ---------------------------- */
 
 Fixed::Fixed( const Fixed& other )
 {
 	std::cout << "Copy constructor called" << std::endl;
 	this->_rawBits = other.getRawBits();
-}
-
-/* ------------------------------- Destructor ------------------------------- */
-
-Fixed::~Fixed()
-{
-	std::cout << "Destructor called" << std::endl;
 }
 
 /* -------------------------- Assignation operator -------------------------- */
@@ -48,6 +42,13 @@ Fixed&	Fixed::operator=( const Fixed& other )
 	if (this != &other)
 		this->_rawBits = other.getRawBits();
 	return (*this);
+}
+
+/* ------------------------------- Destructor ------------------------------- */
+
+Fixed::~Fixed()
+{
+	std::cout << "Destructor called" << std::endl;
 }
 
 /* -------------------------------------------------------------------------- */

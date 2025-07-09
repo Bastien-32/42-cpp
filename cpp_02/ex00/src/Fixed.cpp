@@ -6,7 +6,7 @@
 /*   By: badal-la <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/01 18:30:49 by badal-la          #+#    #+#             */
-/*   Updated: 2025/07/08 16:40:54 by badal-la         ###   ########.fr       */
+/*   Updated: 2025/07/09 10:52:47 by badal-la         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ Fixed::Fixed() :
 	std::cout << "Default constructor called" << std::endl;
 }
 
-/* -------------------------- Constructor of recopy ------------------------- */
+/* ---------------------------- Copy constructor ---------------------------- */
 
 Fixed::Fixed( const Fixed& other ) :
 	_rawBits(other.getRawBits())
@@ -34,14 +34,7 @@ Fixed::Fixed( const Fixed& other ) :
 	std::cout << "Copy constructor called" << std::endl;
 }
 
-/* ------------------------------- Destructor ------------------------------- */
-
-Fixed::~Fixed()
-{
-	std::cout << "Destructor called" << std::endl;
-}
-
-/* ------------------------ copy assignment operator ------------------------ */
+/* ------------------------ Copy assignment operator ------------------------ */
 
 Fixed& Fixed::operator=( const Fixed& other )
 {
@@ -49,6 +42,13 @@ Fixed& Fixed::operator=( const Fixed& other )
 	if (this != &other)
 		_rawBits = other.getRawBits();
 	return (*this);
+}
+
+/* ------------------------------- Destructor ------------------------------- */
+
+Fixed::~Fixed()
+{
+	std::cout << "Destructor called" << std::endl;
 }
 
 /* -------------------------------------------------------------------------- */

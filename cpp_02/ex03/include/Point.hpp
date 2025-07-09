@@ -6,7 +6,7 @@
 /*   By: badal-la <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/07 16:24:26 by badal-la          #+#    #+#             */
-/*   Updated: 2025/07/08 16:06:03 by badal-la         ###   ########.fr       */
+/*   Updated: 2025/07/09 11:04:40 by badal-la         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,10 +31,10 @@ class Point
 		Point&	operator=( const Point& other );
 		~Point( void );
 
-		Point( const int x, const int y);
-		Point( const float x, const int y);
-		Point( const int x, const float y);
-		Point( const float x, const float y);
+		Point( const int x, const int y );
+		Point( const float x, const int y );
+		Point( const int x, const float y );
+		Point( const float x, const float y );
 
 		Fixed	getFixedX() const;
 		Fixed	getFixedY() const;

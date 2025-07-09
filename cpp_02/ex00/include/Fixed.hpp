@@ -6,7 +6,7 @@
 /*   By: badal-la <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/01 18:25:58 by badal-la          #+#    #+#             */
-/*   Updated: 2025/07/08 16:04:28 by badal-la         ###   ########.fr       */
+/*   Updated: 2025/07/09 11:03:36 by badal-la         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,8 @@ class	Fixed
 
 		Fixed();
 		Fixed( const Fixed& other );
-		~Fixed();
-
 		Fixed&	operator=( const Fixed& other );
+		~Fixed();
 
 		int		getRawBits( void ) const;
 		void	setRawBits( int const raw );
