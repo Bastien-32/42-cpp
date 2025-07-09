@@ -6,7 +6,7 @@
 /*   By: badal-la <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/01 18:30:49 by badal-la          #+#    #+#             */
-/*   Updated: 2025/07/09 11:00:20 by badal-la         ###   ########.fr       */
+/*   Updated: 2025/07/09 17:35:55 by badal-la         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,6 +81,7 @@ int Fixed::getRawBits( void ) const
 }
 
 /* --------------------------------- Setter --------------------------------- */
+
 void	Fixed::setRawBits( int const raw )
 {
 	_rawBits = raw;
@@ -148,7 +149,7 @@ Fixed	Fixed::operator/( const Fixed& other ) const
 
 	if (other._rawBits == 0)
 	{
-		std::cerr << "Error: impossible to divde by zero" << std::endl;
+		std::cerr << "Error: impossible to divide by zero" << std::endl;
 		result.setRawBits(0);
 		return (result);
 	}
@@ -211,6 +212,7 @@ const Fixed& Fixed::max( const Fixed& nb1, const Fixed& nb2 )
 		return (nb1);
 	return (nb2);
 }
+
 /* ------------------------ Others methods functions ------------------------ */
 
 std::ostream&	operator<<( std::ostream& os, const Fixed& fixed )

@@ -6,7 +6,7 @@
 /*   By: badal-la <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/01 18:42:48 by badal-la          #+#    #+#             */
-/*   Updated: 2025/07/01 18:54:04 by badal-la         ###   ########.fr       */
+/*   Updated: 2025/07/09 15:37:00 by badal-la         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 int main( void )
 {
 	Fixed a;
+	std::cout << "before creating b" << std::endl;
 	Fixed b( a );
 	std::cout << "before creating c" << std::endl;
 	Fixed c;
