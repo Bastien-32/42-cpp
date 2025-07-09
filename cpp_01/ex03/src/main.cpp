@@ -6,7 +6,7 @@
 /*   By: badal-la <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/30 15:12:08 by badal-la          #+#    #+#             */
-/*   Updated: 2025/06/30 22:25:33 by badal-la         ###   ########.fr       */
+/*   Updated: 2025/07/09 09:32:05 by badal-la         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,26 +35,3 @@ int main()
 	}
 	return (0);
 }
-/* int main(void)
-{
-
-	Weapon	axe("Axe");
-
-	// HumanA on defini weapon par référence 
-	// car il est initialisé dès le debut est n'est donc jamais (null)
-	HumanA bob("Bob", axe);
-	bob.HumanA::attack();
-
-	// HumanB on defini weapon par pointeur
-	// car l'arme n'est pas forcement set au debut
-	// et weapon peut donc etre null
-	// (ce qui est impossible par reference)
-	Weapon bow("Bow");
-	HumanB dylan("Dylan");
-	dylan.HumanB::attack();
-
-	dylan.HumanB::setWeapon(bow);
-	dylan.HumanB::attack();
-
-	return (0);
-} */

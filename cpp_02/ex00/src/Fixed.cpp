@@ -6,7 +6,7 @@
 /*   By: badal-la <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/01 18:30:49 by badal-la          #+#    #+#             */
-/*   Updated: 2025/07/03 10:12:35 by badal-la         ###   ########.fr       */
+/*   Updated: 2025/07/08 16:40:54 by badal-la         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,10 +28,10 @@ Fixed::Fixed() :
 
 /* -------------------------- Constructor of recopy ------------------------- */
 
-Fixed::Fixed( const Fixed& other )
+Fixed::Fixed( const Fixed& other ) :
+	_rawBits(other.getRawBits())
 {
 	std::cout << "Copy constructor called" << std::endl;
-	this->_rawBits = other.getRawBits();
 }
 
 /* ------------------------------- Destructor ------------------------------- */
@@ -47,7 +47,7 @@ Fixed& Fixed::operator=( const Fixed& other )
 {
 	std::cout << "Copy assignment operator called" << std::endl;
 	if (this != &other)
-		this->_rawBits = other.getRawBits();
+		_rawBits = other.getRawBits();
 	return (*this);
 }
 

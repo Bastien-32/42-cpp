@@ -6,7 +6,7 @@
 /*   By: badal-la <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/26 19:03:01 by badal-la          #+#    #+#             */
-/*   Updated: 2025/07/08 13:55:46 by badal-la         ###   ########.fr       */
+/*   Updated: 2025/07/08 17:17:07 by badal-la         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,6 @@ class Contact
 		std::string	getNickname() const;
 		std::string	getPhoneNumber() const;
 		std::string	getDarkestSecret() const;
-
 		void	AddContact( void );
 
 };

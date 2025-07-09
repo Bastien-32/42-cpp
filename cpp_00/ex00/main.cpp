@@ -6,7 +6,7 @@
 /*   By: badal-la <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/26 10:47:31 by badal-la          #+#    #+#             */
-/*   Updated: 2025/06/30 14:59:59 by badal-la         ###   ########.fr       */
+/*   Updated: 2025/07/08 17:13:02 by badal-la         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	main(int argc, char **argv)
 		{
 			std::string str = argv[i];
 			for(size_t j = 0; j < str.length(); j++)
-				std::cout << (char)std::toupper(str[j]);
+				std::cout << static_cast<char>(std::toupper(str[j]));
 		}
 		std::cout << std::endl;
 	}
