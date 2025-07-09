@@ -6,7 +6,7 @@
 /*   By: badal-la <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/01 09:20:43 by badal-la          #+#    #+#             */
-/*   Updated: 2025/07/07 10:08:37 by badal-la         ###   ########.fr       */
+/*   Updated: 2025/07/09 10:06:24 by badal-la         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,19 +67,14 @@ int	main(int argc, char **argv)
 		std::cerr << BRED << file_replace << "File opening failed" RESET << std::endl;
 		return (1);
 	}
-	
-	std::string contentFile((std::istreambuf_iterator<char>(inputFile)),
-							std::istreambuf_iterator<char>());
-	std::string new_file_content = search_n_replace(contentFile, argv[2], argv[3]);
-	outputFile << new_file_content;
-	if (outputFile.fail())
+
+	std::string	line, new_content;
+	while (std::getline(inputFile, line))
 	{
-		std::cerr << BRED "Erreur : échec de l'écriture dans le fichier." RESET << std::endl;
-		inputFile.close();
-		outputFile.close();
-		return (1);
+		new_content = search_n_replace(line, argv[2], argv[3]);
+		outputFile << new_content << std::endl;
 	}
-	
+
 	inputFile.close();
 	outputFile.close();
 
