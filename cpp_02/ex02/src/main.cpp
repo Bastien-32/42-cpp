@@ -6,7 +6,7 @@
 /*   By: badal-la <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/01 18:42:48 by badal-la          #+#    #+#             */
-/*   Updated: 2025/07/07 12:25:55 by badal-la         ###   ########.fr       */
+/*   Updated: 2025/07/10 16:25:21 by badal-la         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,8 @@ int main( void )
 	std::cout << b << std::endl;
 
 	std::cout << Fixed::max( a, b ) << std::endl;
+
+	std::cout << Fixed(10) / Fixed(5) << std::endl;
 
 	return 0;
 }
