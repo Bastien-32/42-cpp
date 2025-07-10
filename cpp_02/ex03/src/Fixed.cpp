@@ -6,7 +6,7 @@
 /*   By: badal-la <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/01 18:30:49 by badal-la          #+#    #+#             */
-/*   Updated: 2025/07/09 11:00:31 by badal-la         ###   ########.fr       */
+/*   Updated: 2025/07/10 16:31:53 by badal-la         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -153,7 +153,7 @@ Fixed	Fixed::operator/( const Fixed& other ) const
 		result.setRawBits(0);
 		return (result);
 	}
-	result.setRawBits(this->_rawBits / other._rawBits);
+	result.setRawBits((this->_rawBits / other._rawBits) * (1 << _fractionalBits));
 	return (result);
 }
 

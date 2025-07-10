@@ -6,7 +6,7 @@
 /*   By: badal-la <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/09 13:58:08 by badal-la          #+#    #+#             */
-/*   Updated: 2025/07/10 14:27:01 by badal-la         ###   ########.fr       */
+/*   Updated: 2025/07/10 17:15:58 by badal-la         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 class ClapTrap
 {
 
-	private:
+	protected:
 
 		std::string		_name;
 		unsigned int	_hitPoints;
@@ -29,7 +29,7 @@ class ClapTrap
 		ClapTrap( void );
 		ClapTrap( const ClapTrap& other );
 		ClapTrap&	operator=( const ClapTrap& other );
-		~ClapTrap( void );
+		virtual ~ClapTrap( void );
 
 		ClapTrap( std::string name );
 
