@@ -6,7 +6,7 @@
 /*   By: badal-la <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/09 13:29:05 by badal-la          #+#    #+#             */
-/*   Updated: 2025/07/16 14:26:31 by badal-la         ###   ########.fr       */
+/*   Updated: 2025/07/16 14:30:07 by badal-la         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -154,7 +154,7 @@ void	ClapTrap::beRepaired(unsigned int amount)
 	}
 	if (_hitPoints <= 0)
 	{
-		std::cout << "ClapTrap " << _name <<  "  is out of hit points - Repair denied!" << std::endl;
+		std::cout  << "ClapTrap " << _name <<  "  is out of hit points - Repair denied!" << std::endl;
 		return ;
 	}
 	_energyPoints--;

@@ -1,10 +1,11 @@
-NAME = Now_its_weird
+NAME = Repetitive_work
 
 CC = c++
-CFLAGS = -Wall -Wextra -Werror -std=c++98
+CFLAGS = -Wall -Wextra -Werror -std=c++98 -Wshadow
 
 SRC = src/main.cpp \
 		src/ClapTrap.cpp \
+		src/DiamondTrap.cpp \
 		src/ScavTrap.cpp \
 		src/FragTrap.cpp
 

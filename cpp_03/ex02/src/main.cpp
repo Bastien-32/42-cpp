@@ -6,20 +6,20 @@
 /*   By: badal-la <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/09 13:57:57 by badal-la          #+#    #+#             */
-/*   Updated: 2025/07/16 11:56:50 by badal-la         ###   ########.fr       */
+/*   Updated: 2025/07/16 13:37:56 by badal-la         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/ClapTrap.hpp"
 #include "../include/ScavTrap.hpp"
-#include "../include/FlagTrap.hpp"
+#include "../include/FragTrap.hpp"
 
 int	main(void)
 {
 	ClapTrap	player1("Bob");
 	ScavTrap	player2("Dylan");
-	FlagTrap	player3("Jimmy");
-	FlagTrap	player4;
+	FragTrap	player3("Jimmy");
+	FragTrap	player4;
 
 	std::cout << std::endl;
 	player4 = player3;

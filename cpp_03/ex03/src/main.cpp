@@ -1,34 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: badal-la <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/10 15:06:41 by badal-la          #+#    #+#             */
-/*   Updated: 2025/07/16 14:51:31 by badal-la         ###   ########.fr       */
+/*   Created: 2025/07/09 13:57:57 by badal-la          #+#    #+#             */
+/*   Updated: 2025/07/16 15:12:52 by badal-la         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#pragma once
-
 #include "../include/ClapTrap.hpp"
-#include <iostream>
+#include "../include/ScavTrap.hpp"
+#include "../include/FragTrap.hpp"
+#include "../include/DiamondTrap.hpp"
 
-class ScavTrap : public ClapTrap
+int	main(void)
 {
+	DiamondTrap	player1;
+	std::cout << std::endl;
+	DiamondTrap	player2("Bobby");
+	std::cout << std::endl;
+	
+	player1.whoAmI();
+	std::cout << std::endl;
+	
+	player2.whoAmI();
+	std::cout << std::endl;
 
-	private:
-
-	public:
-
-		ScavTrap( void );
-		ScavTrap( const ScavTrap& other );
-		ScavTrap&	operator=( const ScavTrap &other );
-		~ScavTrap( void );
-
-		ScavTrap( std::string name );
-
-		void	guardGate();
-
-};
+	return (0);
+}
