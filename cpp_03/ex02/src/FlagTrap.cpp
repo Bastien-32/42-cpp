@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScavTrap.cpp                                       :+:      :+:    :+:   */
+/*   FlagTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: badal-la <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/10 15:07:29 by badal-la          #+#    #+#             */
-/*   Updated: 2025/07/15 22:41:17 by badal-la         ###   ########.fr       */
+/*   Updated: 2025/07/16 12:01:29 by badal-la         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/ScavTrap.hpp"
+#include "../include/FlagTrap.hpp"
 
 /* -------------------------------------------------------------------------- */
 /*                            Canonical (mandatory)                           */
@@ -18,43 +18,43 @@
 
 /* --------------------------- Default Constructor -------------------------- */
 
-ScavTrap::ScavTrap( void ) :
+FlagTrap::FlagTrap( void ) :
 	ClapTrap("Unnamed")
 {
-	std::cout << "Default constructor called" << std::endl;
+	std::cout << "FlagTrap : Default constructor FlagTrap called" << std::endl;
 	_hitPoints = 100;
-	_energyPoints = 50;
-	_attackDamage = 20;
+	_energyPoints = 100;
+	_attackDamage = 30;
 }
 
 /* ---------------------------- Copy constructor ---------------------------- */
 
 // Cela appelle le constructeur de copie de ClapTrap, qui lui, a le droit d’initialiser _name _hitPoints etc
-ScavTrap::ScavTrap( const ScavTrap& other ) : ClapTrap(other)
+FlagTrap::FlagTrap( const FlagTrap& other ) : ClapTrap(other)
 {
-	std::cout << "Copy constructor called" << std::endl;
+	std::cout << "FlagTrap : Copy constructor FlagTrap called" << std::endl;
 }
 
 /* ------------------------ Assignation operator copy ----------------------- */
 
-ScavTrap&	ScavTrap::operator=( const ScavTrap &other )
+FlagTrap&	FlagTrap::operator=( const FlagTrap &other )
 {
-	std::cout << "ScavTrap assignment operator called" << std::endl;
+	std::cout << "FlagTrap : Assignment operator called" << std::endl;
 	if ( this != &other )
 	{
-		ClapTrap::operator=( other );
-		_hitPoints = 100;
-		_energyPoints = 50;
-		_attackDamage = 20;
+		_name = other._name;
+		_hitPoints = other._hitPoints;
+		_energyPoints = other._energyPoints;
+		_attackDamage = other._attackDamage;
 	}
 	return (*this);
 }
 
 /* ------------------------------- Destructor ------------------------------- */
 
-ScavTrap::~ScavTrap( void )
+FlagTrap::~FlagTrap( void )
 {
-	std::cout << "Destructor called" << std::endl;
+	std::cout << "FlagTrap : Destructor called for " << _name << std::endl;
 }
 
 /* -------------------------------------------------------------------------- */
@@ -63,11 +63,16 @@ ScavTrap::~ScavTrap( void )
 
 /* ------------------------------- Constructor ------------------------------ */
 
-ScavTrap::ScavTrap( std::string name ) :
+FlagTrap::FlagTrap( std::string name ) :
 	ClapTrap(name)
 {
-	std::cout << "Constructor called for " << name << std::endl;
+	std::cout << "FlagTrap : Constructor called for " << name << std::endl;
 	_hitPoints = 100;
-	_energyPoints = 50;
-	_attackDamage = 20;
+	_energyPoints = 100;
+	_attackDamage = 30;
+}
+
+void	FlagTrap::highFivesGuys(void)
+{
+	std::cout << _name << " raises his hand and says: \"Give me five, bro!\"" << std::endl;
 }

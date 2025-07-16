@@ -6,7 +6,7 @@
 /*   By: badal-la <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/09 13:29:05 by badal-la          #+#    #+#             */
-/*   Updated: 2025/07/10 14:27:24 by badal-la         ###   ########.fr       */
+/*   Updated: 2025/07/15 21:28:00 by badal-la         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -120,7 +120,7 @@ void	ClapTrap::setAttackDamage( unsigned int attackDamage )
 
 /* --------------------------------- Methods -------------------------------- */
 
-void	ClapTrap::attack(const std::string& target)
+void	ClapTrap::attack( const std::string& target )
 {
 	if (_energyPoints == 0)
 	{
@@ -143,7 +143,7 @@ void	ClapTrap::attack(const std::string& target)
 				<< std::endl;
 }
 
-void	ClapTrap::beRepaired(unsigned int amount)
+void	ClapTrap::beRepaired( unsigned int amount )
 {
 
 	if (_energyPoints == 0)
@@ -164,7 +164,7 @@ void	ClapTrap::beRepaired(unsigned int amount)
 				<< " hit points"
 				<< std::endl;
 }
-void	ClapTrap::takeDamage(unsigned int amount)
+void	ClapTrap::takeDamage( unsigned int amount )
 {
 	if (_hitPoints < amount)
 		_hitPoints = 0;

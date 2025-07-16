@@ -6,7 +6,7 @@
 /*   By: badal-la <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/09 13:29:05 by badal-la          #+#    #+#             */
-/*   Updated: 2025/07/15 22:45:53 by badal-la         ###   ########.fr       */
+/*   Updated: 2025/07/16 11:44:59 by badal-la         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,14 +25,14 @@ ClapTrap::ClapTrap( void ) :
 	_energyPoints(10),
 	_attackDamage(0)
 {
-	std::cout << "Default constructor called" << std::endl;
+	std::cout << "ClapTrap : Default constructor called" << std::endl;
 }
 
 /* ------------------------ Assignation operator copy ----------------------- */
 
 ClapTrap&	ClapTrap::operator=( const ClapTrap& other )
 {
-	std::cout << "Copy assignment operator called" << std::endl;
+	std::cout << "ClapTrap : Copy assignment operator called" << std::endl;
 	if ( this != &other )
 	{
 		this->_name = other._name;
@@ -48,7 +48,7 @@ ClapTrap&	ClapTrap::operator=( const ClapTrap& other )
 // cette formulation est valable si l'opérateur = est défini
 ClapTrap::ClapTrap( const ClapTrap& other )
 {
-	std::cout << "Copy constructor called" << std::endl;
+	std::cout << "ClapTrap : Copy constructor called" << std::endl;
 	*this = other;
 }
 
@@ -56,7 +56,7 @@ ClapTrap::ClapTrap( const ClapTrap& other )
 
 ClapTrap::~ClapTrap( void )
 {
-	std::cout << "Destructor called" << std::endl;
+	std::cout << "ClapTrap : Destructor called for " << _name << std::endl;
 }
 
 /* -------------------------------------------------------------------------- */
@@ -71,7 +71,7 @@ ClapTrap::ClapTrap( std::string name ) :
 	_energyPoints(10),
 	_attackDamage(0)
 {
-	std::cout << "Constructor called for " << name << std::endl;
+	std::cout << "ClapTrap : Constructor called for " << name << std::endl;
 }
 
 /* --------------------------------- getters -------------------------------- */
@@ -139,7 +139,7 @@ void	ClapTrap::attack(const std::string& target)
 				<< " attacks "
 				<< target
 				<< ", causing "
-				<< _attackDamage
+				<< -_attackDamage
 				<< " points of damage!"
 				<< std::endl;
 }
@@ -165,6 +165,7 @@ void	ClapTrap::beRepaired(unsigned int amount)
 				<< " hit points"
 				<< std::endl;
 }
+
 void	ClapTrap::takeDamage(unsigned int amount)
 {
 	if (_hitPoints < amount)
