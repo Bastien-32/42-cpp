@@ -1,4 +1,16 @@
-#include "MyClass.hpp"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Brain.cpp                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: badal-la <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/07/16 18:19:26 by badal-la          #+#    #+#             */
+/*   Updated: 2025/07/16 18:26:24 by badal-la         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "../include/Brain.hpp"
 
 /* -------------------------------------------------------------------------- */
 /*                            Canonical (mandatory)                           */
@@ -6,13 +18,12 @@
 
 /* --------------------------- Default Constructor -------------------------- */
 
-MyClass::MyClass( void ) :
-// assign values here like _value( 0 ), ...
+Brain::Brain( void )
 {}
 
-/* ------------------------ Copy assignment operator ------------------------ */
+/* ------------------------ Assignation operator copy ----------------------- */
 
-MyClass&	MyClass::operator=( const MyClass& other )
+Brain&	Brain::operator=( const Brain& other )
 {
 	if ( this != &other )
 		// assign values here like this->_value = other._value;
@@ -21,14 +32,14 @@ MyClass&	MyClass::operator=( const MyClass& other )
 
 /* ---------------------------- Copy constructor ---------------------------- */
 
-MyClass::MyClass( const MyClass& other )
+Brain::Brain( const Brain& other )
 {
 	*this = other;
 }
 
 /* ------------------------------- Destructor ------------------------------- */
 
-MyClass::~MyClass( void )
+Brain::~Brain( void )
 {}
 
 /* -------------------------------------------------------------------------- */
