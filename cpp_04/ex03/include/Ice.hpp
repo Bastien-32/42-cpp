@@ -6,7 +6,7 @@
 /*   By: badal-la <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/17 11:13:00 by badal-la          #+#    #+#             */
-/*   Updated: 2025/07/17 12:37:34 by badal-la         ###   ########.fr       */
+/*   Updated: 2025/07/17 17:23:14 by badal-la         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,8 @@ class Ice : public AMateria
 		Ice( const Ice& other );
 		Ice&	operator=( const Ice& other );
 		~Ice( void );
-		
-		void Ice::use(ICharacter& target);
+
+		AMateria*	clone() const;
+		void		use(ICharacter& target);
 
 };

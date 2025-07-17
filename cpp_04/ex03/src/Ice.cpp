@@ -6,7 +6,7 @@
 /*   By: badal-la <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/17 11:23:53 by badal-la          #+#    #+#             */
-/*   Updated: 2025/07/17 12:35:59 by badal-la         ###   ########.fr       */
+/*   Updated: 2025/07/17 17:38:33 by badal-la         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,8 @@ Ice&	Ice::operator=( const Ice& other )
 
 /* ---------------------------- Copy constructor ---------------------------- */
 
-Ice::Ice( const Ice& other )
+Ice::Ice( const Ice& other ) :
+	AMateria( other )
 {
 	*this = other;
 }
@@ -56,6 +57,11 @@ void Ice::use(ICharacter& target)
 {
 	std::cout << "* shoots an ice bolt at "
 				<< target.getName() << " *" << std::endl;
+}
+
+AMateria* Ice::clone() const
+{
+	return (new Ice(*this));
 }
 
 /* -------------------------------------------------------------------------- */

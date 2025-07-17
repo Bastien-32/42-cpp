@@ -1,39 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   AMateria.hpp                                       :+:      :+:    :+:   */
+/*   MateriaSource.hpp                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: badal-la <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/17 11:03:40 by badal-la          #+#    #+#             */
-/*   Updated: 2025/07/17 16:36:03 by badal-la         ###   ########.fr       */
+/*   Created: 2025/07/17 15:47:33 by badal-la          #+#    #+#             */
+/*   Updated: 2025/07/17 16:29:03 by badal-la         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
-#include "../include/ICharacter.hpp"
+#include "../include/AMateria.hpp"
+#include "../include/IMateriaSource.hpp"
 
 #include <iostream>
 
-class AMateria
+class MateriaSource : public IMateriaSource
 {
 
-	protected:
+	private:
 
-		std::string	_type;
+		AMateria*	_container[4];
 
 	public:
 
-		AMateria( void );
-		AMateria( const AMateria& other);
-		AMateria&	operator=( const AMateria& other);
-		virtual ~AMateria( void );
+		MateriaSource( void );
+		MateriaSource( const MateriaSource& other );
+		MateriaSource&	operator=( const MateriaSource& other );
+		~MateriaSource( void );
 
-		AMateria(std::string const & type);
-
-		std::string const & getType() const; //Returns the materia type
-		virtual AMateria* clone() const = 0;
-		virtual void use(ICharacter& target);
+		void		learnMateria(AMateria* m);
+		AMateria*	createMateria(std::string const& type);
 
 };

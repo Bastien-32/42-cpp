@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Curse.hpp                                          :+:      :+:    :+:   */
+/*   Cure.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: badal-la <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/17 11:13:42 by badal-la          #+#    #+#             */
-/*   Updated: 2025/07/17 12:38:01 by badal-la         ###   ########.fr       */
+/*   Updated: 2025/07/17 17:23:07 by badal-la         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,8 @@ class Cure : public AMateria
 		Cure( const Cure& other );
 		Cure&	operator=( const Cure& other );
 		~Cure( void );
-		
-		void Cure::use(ICharacter& target);
+
+		AMateria*	clone() const;
+		void		use(ICharacter& target);
 
 };

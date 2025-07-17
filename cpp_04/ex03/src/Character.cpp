@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cure.cpp                                           :+:      :+:    :+:   */
+/*   Character.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: badal-la <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/17 11:23:53 by badal-la          #+#    #+#             */
-/*   Updated: 2025/07/17 17:38:42 by badal-la         ###   ########.fr       */
+/*   Created: 2025/07/17 14:52:41 by badal-la          #+#    #+#             */
+/*   Updated: 2025/07/17 15:43:26 by badal-la         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/Cure.hpp"
+#include "../include/Character.hpp"
 
 /* -------------------------------------------------------------------------- */
 /*                            Canonical (mandatory)                           */
@@ -18,50 +18,110 @@
 
 /* --------------------------- Default Constructor -------------------------- */
 
-Cure::Cure( void ) :
-	AMateria("cure")
-{}
-
-/* ------------------------ Assignation operator copy ----------------------- */
-
-Cure&	Cure::operator=( const Cure& other )
+Character::Character( void ) :
+	_name("Unnamed")
 {
-	if (this != &other)
-		_type = other._type;
-	return (*this);
+	for(int i = 0; i < 4; i++)
+		_inventory[i] = NULL;
+}
+
+/* ------------------------ Copy assignment operator ------------------------ */
+
+Character&	Character::operator=( const Character& other )
+{
+	if ( this != &other )
+	{
+		_name = other._name;
+		for (int i = 0; i < 4; i++)
+		{
+			if (_inventory[i])
+				delete _inventory[i];
+			if (other._inventory[i])
+				_inventory[i] = other._inventory[i]->clone();
+			else
+				_inventory[i] = NULL;
+		}
+	}
+	return ( *this );
 }
 
 /* ---------------------------- Copy constructor ---------------------------- */
 
-Cure::Cure( const Cure& other ) :
-	AMateria( other )
+Character::Character( const Character& other )
 {
-	*this = other;
+	_name = other._name;
+		for (int i = 0; i < 4; i++)
+		{
+			if (other._inventory[i])
+				_inventory[i] = other._inventory[i]->clone();
+			else
+				_inventory[i] = NULL;
+		}
 }
 
 /* ------------------------------- Destructor ------------------------------- */
 
-Cure::~Cure( void )
-{}
+Character::~Character( void )
+{
+	for (int i = 0; i < 4; i++)
+	{
+		if (_inventory[i])
+		{
+			delete _inventory[i];
+			_inventory[i] = NULL;
+		}
+	}
+}
 
 /* -------------------------------------------------------------------------- */
 /*                                not mandatory                               */
 /* -------------------------------------------------------------------------- */
 
 /* ------------------------------- Constructor ------------------------------ */
+
+Character::Character(const std::string name) :
+	_name(name)
+{
+	for(int i = 0; i < 4; i++)
+		_inventory[i] = 0;
+}
+
 /* --------------------------------- getters -------------------------------- */
+
+std::string const&	Character::getName() const
+{
+	return(_name);
+}
+
 /* --------------------------------- setters -------------------------------- */
 /* --------------------------------- Methods -------------------------------- */
 
-void Cure::use(ICharacter& target)
+void	Character::equip(AMateria* m)
 {
-	std::cout << "* heals "
-				<< target.getName() << "’s wounds *" << std::endl;
+	if (!m)
+		return ;
+	for (int i = 0; i < 4; i++)
+	{
+		if (!_inventory[i])
+		{
+			_inventory[i] = m;
+			return ;
+		}
+	}
 }
 
-AMateria* Cure::clone() const
+void	Character::unequip(int idx)
 {
-	return (new Cure(*this));
+	if (idx < 0 || idx >= 4)
+		return ;
+	_inventory[idx] = NULL;
+}
+
+void	Character::use(int idx, ICharacter& target)
+{
+	if (idx < 0 || idx >= 4 || !_inventory[idx])
+		return ;
+	_inventory[idx]->use(target);
 }
 
 /* -------------------------------------------------------------------------- */

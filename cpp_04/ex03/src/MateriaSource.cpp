@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cure.cpp                                           :+:      :+:    :+:   */
+/*   MateriaSource.cpp                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: badal-la <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/17 11:23:53 by badal-la          #+#    #+#             */
-/*   Updated: 2025/07/17 17:38:42 by badal-la         ###   ########.fr       */
+/*   Created: 2025/07/17 15:52:56 by badal-la          #+#    #+#             */
+/*   Updated: 2025/07/17 17:17:45 by badal-la         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/Cure.hpp"
+#include "../include/MateriaSource.hpp"
 
 /* -------------------------------------------------------------------------- */
 /*                            Canonical (mandatory)                           */
@@ -18,31 +18,57 @@
 
 /* --------------------------- Default Constructor -------------------------- */
 
-Cure::Cure( void ) :
-	AMateria("cure")
-{}
-
-/* ------------------------ Assignation operator copy ----------------------- */
-
-Cure&	Cure::operator=( const Cure& other )
+MateriaSource::MateriaSource( void )
 {
-	if (this != &other)
-		_type = other._type;
+	for(int i = 0; i < 4; i++)
+		_container[i] = NULL;
+}
+
+/* ------------------------ Copy assignment operator ------------------------ */
+
+MateriaSource&	MateriaSource::operator=( const MateriaSource& other )
+{
+	if ( this != &other )
+	{
+		for(int i = 0; i < 4; i++)
+		{
+			if (_container[i])
+				delete _container[i];
+			if (other._container[i])
+				_container[i] = other._container[i]->clone();
+			else
+				_container[i] = NULL;
+		}
+	}
 	return (*this);
 }
 
 /* ---------------------------- Copy constructor ---------------------------- */
 
-Cure::Cure( const Cure& other ) :
-	AMateria( other )
+MateriaSource::MateriaSource( const MateriaSource& other )
 {
-	*this = other;
+	for(int i = 0; i < 4; i++)
+	{
+		if (other._container[i])
+			_container[i] = other._container[i]->clone();
+		else
+			_container[i] = NULL;
+	}
 }
 
 /* ------------------------------- Destructor ------------------------------- */
 
-Cure::~Cure( void )
-{}
+MateriaSource::~MateriaSource( void )
+{
+	for(int i = 0; i < 4; i++)
+	{
+		if (_container[i])
+		{
+			delete _container[i];
+			_container[i] = NULL;
+		}
+	}
+}
 
 /* -------------------------------------------------------------------------- */
 /*                                not mandatory                               */
@@ -53,15 +79,28 @@ Cure::~Cure( void )
 /* --------------------------------- setters -------------------------------- */
 /* --------------------------------- Methods -------------------------------- */
 
-void Cure::use(ICharacter& target)
+void	MateriaSource::learnMateria(AMateria* m)
 {
-	std::cout << "* heals "
-				<< target.getName() << "’s wounds *" << std::endl;
+	if (!m)
+		return ;
+	for(int i = 0; i < 4; i++)
+	{
+		if (!_container[i])
+		{
+			_container[i] = m;
+			return ;
+		}
+	}
 }
 
-AMateria* Cure::clone() const
+AMateria*	MateriaSource::createMateria(std::string const& type)
 {
-	return (new Cure(*this));
+	for(int i = 0; i < 4; i++)
+	{
+		if (_container[i] && _container[i]->getType() == type)
+			return (_container[i]->clone());
+	}
+	return (NULL);
 }
 
 /* -------------------------------------------------------------------------- */
