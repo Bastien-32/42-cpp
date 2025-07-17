@@ -23,6 +23,12 @@ Dog::Dog( void )
 	std::cout << "Dog Default constructor called" << std::endl;
 	type = "Dog";
 	_brain = new Brain();
+	for (int i = 0; i < 100; i++)
+	{
+		std::stringstream ss;
+		ss << "Dog_idea_" << i;
+		_brain->setIdea(i, ss.str());
+	}
 }
 
 /* ------------------------ Copy assignment operator ------------------------ */
@@ -39,10 +45,12 @@ Dog&	Dog::operator=( const Dog& other )
 	}
 	return *this;
 }
+
 /* ---------------------------- Copy constructor ---------------------------- */
 
 // On cree un nouveau _brain pour avoir 2 brain differents et ainsi que this._brain ne pointe pas sur celui de other
-Dog::Dog( const Dog& other ) : Animal(other)
+Dog::Dog( const Dog& other ) :
+	Animal(other)
 {
 	std::cout << "Dog Copy constructor called" << std::endl;
 	_brain = new Brain(*other._brain);
@@ -63,6 +71,12 @@ Dog::~Dog( void )
 
 /* ------------------------------- Constructor ------------------------------ */
 /* --------------------------------- getters -------------------------------- */
+
+Brain&	Dog::getBrain( void ) const
+{
+	return (*_brain);
+}
+
 /* --------------------------------- setters -------------------------------- */
 /* --------------------------------- Methods -------------------------------- */
 

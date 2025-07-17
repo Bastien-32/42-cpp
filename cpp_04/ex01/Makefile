@@ -5,6 +5,7 @@ CFLAGS = -Wall -Wextra -Werror -std=c++98 -Wshadow
 
 SRC =	src/main.cpp \
 		src/Animal.cpp \
+		src/Brain.cpp \
 		src/Cat.cpp \
 		src/Dog.cpp \
 		src/WrongAnimal.cpp \

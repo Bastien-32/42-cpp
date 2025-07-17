@@ -6,7 +6,7 @@
 /*   By: badal-la <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/16 16:52:14 by badal-la          #+#    #+#             */
-/*   Updated: 2025/07/16 18:08:10 by badal-la         ###   ########.fr       */
+/*   Updated: 2025/07/17 10:00:47 by badal-la         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,34 +17,35 @@
 #include "../include/WrongCat.hpp"
 
 #include <iostream>
+#include <cstdlib>
 
 int main(void)
 {
-	const Animal* meta = new Animal();
-	const Animal* j = new Dog();
-	const Animal* i = new Cat();
-	std::cout << j->getType() << " " << std::endl;
-	std::cout << i->getType() << " " << std::endl;
-	i->makeSound(); //will output the cat sound!
-	j->makeSound();
-	meta->makeSound();
+	const Animal*	ja = new Dog();
+	const Animal*	ia = new Cat();
+	delete ja;
+	delete ia;
 	std::cout << std::endl;
 
-	delete meta;
-	delete j;
-	delete i;
-	std::cout << std::endl;
-
-	const WrongAnimal* wmeta = new WrongAnimal();
-	const WrongAnimal* wi = new WrongCat();
-	std::cout << wmeta->getType() << " " << std::endl;
-	std::cout << wi->getType() << " " << std::endl;
-	wi->makeSound(); //will output the WrongAnimal sound!
-	wmeta->makeSound();
-	std::cout << std::endl;
-
-	delete wmeta;
-	delete wi;
+	int	nb_animals = 7;
+	Animal* animals[nb_animals];
 	
+	for (int i = 0; i < nb_animals; i++)
+	{
+		if (i < nb_animals / 2)
+			animals[i] = new Dog;
+		else
+			animals[i] = new Cat;
+	}
+
+	for (int i = 0; i < nb_animals; i++)
+	{
+		Brain brain = animals[i]->getBrain();
+		std::cout << brain.getIdea(i) << std::endl;
+	}
+
+	for (int i = 0; i < nb_animals; i++)
+		delete animals[i];
+
 	return (0);
 }

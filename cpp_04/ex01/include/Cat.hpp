@@ -6,7 +6,7 @@
 /*   By: badal-la <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/16 17:03:57 by badal-la          #+#    #+#             */
-/*   Updated: 2025/07/16 18:36:21 by badal-la         ###   ########.fr       */
+/*   Updated: 2025/07/17 08:40:44 by badal-la         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,4 +32,6 @@ class Cat : public Animal
 		~Cat( void );
 
 		void	makeSound() const;
+		Brain&	getBrain( void ) const;
+
 };
