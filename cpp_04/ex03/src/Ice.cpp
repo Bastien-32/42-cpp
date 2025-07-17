@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   WrongCat.cpp                                        :+:      :+:    :+:   */
+/*   Ice.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: badal-la <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/16 16:52:10 by badal-la          #+#    #+#             */
-/*   Updated: 2025/07/16 17:02:50 by badal-la         ###   ########.fr       */
+/*   Created: 2025/07/17 11:23:53 by badal-la          #+#    #+#             */
+/*   Updated: 2025/07/17 12:35:59 by badal-la         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/WrongCat.hpp"
+#include "../include/Ice.hpp"
 
 /* -------------------------------------------------------------------------- */
 /*                            Canonical (mandatory)                           */
@@ -18,37 +18,30 @@
 
 /* --------------------------- Default Constructor -------------------------- */
 
-WrongCat::WrongCat( void )
-{
-	std::cout << "WrongCat Default constructor called" << std::endl;
-	type = "WrongCat";
-}
+Ice::Ice( void ) :
+	AMateria("ice")
+{}
 
 /* ------------------------ Assignation operator copy ----------------------- */
 
-WrongCat&	WrongCat::operator=( const WrongCat& other )
+Ice&	Ice::operator=( const Ice& other )
 {
-	std::cout << "WrongCat Assignation operator copy called" << std::endl;
-	if ( this != &other )
-		type = other.type;
-	return ( *this );
+	if (this != &other)
+		_type = other._type;
+	return (*this);
 }
 
 /* ---------------------------- Copy constructor ---------------------------- */
 
-WrongCat::WrongCat( const WrongCat& other ) :
-	WrongAnimal(other)
+Ice::Ice( const Ice& other )
 {
-	std::cout << "WrongCat Copy constructor called" << std::endl;
 	*this = other;
 }
 
 /* ------------------------------- Destructor ------------------------------- */
 
-WrongCat::~WrongCat( void )
-{
-	std::cout << "WrongCat destructor called" << std::endl;
-}
+Ice::~Ice( void )
+{}
 
 /* -------------------------------------------------------------------------- */
 /*                                not mandatory                               */
@@ -59,9 +52,10 @@ WrongCat::~WrongCat( void )
 /* --------------------------------- setters -------------------------------- */
 /* --------------------------------- Methods -------------------------------- */
 
-void	WrongCat::makeSound() const
+void Ice::use(ICharacter& target)
 {
-	std::cout << type << " said : Miaouw..." << std::endl;
+	std::cout << "* shoots an ice bolt at "
+				<< target.getName() << " *" << std::endl;
 }
 
 /* -------------------------------------------------------------------------- */

@@ -1,38 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.hpp                                        :+:      :+:    :+:   */
+/*   Ice.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: badal-la <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/16 16:52:07 by badal-la          #+#    #+#             */
-/*   Updated: 2025/07/16 17:01:39 by badal-la         ###   ########.fr       */
+/*   Created: 2025/07/17 11:13:00 by badal-la          #+#    #+#             */
+/*   Updated: 2025/07/17 12:37:34 by badal-la         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
-#include "../include/Brain.hpp"
+#include "../include/AMateria.hpp"
 
 #include <iostream>
-#include <cstdlib>
 
-class Animal
+class Ice : public AMateria
 {
-
-	protected:
-
-		std::string type;
 
 	public:
 
-		Animal( void );
-		Animal( const Animal& other );
-		Animal&	operator=( const Animal& other );
-		virtual ~Animal( void );
-
-		std::string		getType( void ) const;
-		virtual void	makeSound() const;
-		virtual Brain&	getBrain() const;
+		Ice( void );
+		Ice( const Ice& other );
+		Ice&	operator=( const Ice& other );
+		~Ice( void );
+		
+		void Ice::use(ICharacter& target);
 
 };

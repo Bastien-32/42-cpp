@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   WrongCat.cpp                                        :+:      :+:    :+:   */
+/*   Cure.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: badal-la <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/16 16:52:10 by badal-la          #+#    #+#             */
-/*   Updated: 2025/07/16 17:02:50 by badal-la         ###   ########.fr       */
+/*   Created: 2025/07/17 11:23:53 by badal-la          #+#    #+#             */
+/*   Updated: 2025/07/17 12:39:52 by badal-la         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/WrongCat.hpp"
+#include "../include/Cure.hpp"
 
 /* -------------------------------------------------------------------------- */
 /*                            Canonical (mandatory)                           */
@@ -18,37 +18,30 @@
 
 /* --------------------------- Default Constructor -------------------------- */
 
-WrongCat::WrongCat( void )
-{
-	std::cout << "WrongCat Default constructor called" << std::endl;
-	type = "WrongCat";
-}
+Cure::Cure( void ) :
+	AMateria("cure")
+{}
 
 /* ------------------------ Assignation operator copy ----------------------- */
 
-WrongCat&	WrongCat::operator=( const WrongCat& other )
+Cure&	Cure::operator=( const Cure& other )
 {
-	std::cout << "WrongCat Assignation operator copy called" << std::endl;
-	if ( this != &other )
-		type = other.type;
-	return ( *this );
+	if (this != &other)
+		_type = other._type;
+	return (*this);
 }
 
 /* ---------------------------- Copy constructor ---------------------------- */
 
-WrongCat::WrongCat( const WrongCat& other ) :
-	WrongAnimal(other)
+Cure::Cure( const Cure& other )
 {
-	std::cout << "WrongCat Copy constructor called" << std::endl;
 	*this = other;
 }
 
 /* ------------------------------- Destructor ------------------------------- */
 
-WrongCat::~WrongCat( void )
-{
-	std::cout << "WrongCat destructor called" << std::endl;
-}
+Cure::~Cure( void )
+{}
 
 /* -------------------------------------------------------------------------- */
 /*                                not mandatory                               */
@@ -59,9 +52,10 @@ WrongCat::~WrongCat( void )
 /* --------------------------------- setters -------------------------------- */
 /* --------------------------------- Methods -------------------------------- */
 
-void	WrongCat::makeSound() const
+void Cure::use(ICharacter& target)
 {
-	std::cout << type << " said : Miaouw..." << std::endl;
+	std::cout << "* heals "
+				<< target.getName() << "’s wounds *" << std::endl;
 }
 
 /* -------------------------------------------------------------------------- */

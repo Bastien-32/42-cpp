@@ -36,7 +36,8 @@ Cat&	Cat::operator=( const Cat& other )
 
 /* ---------------------------- Copy constructor ---------------------------- */
 
-Cat::Cat( const Cat& other )
+Cat::Cat( const Cat& other ) :
+	Animal(other)
 {
 	std::cout << "Cat Copy constructor called" << std::endl;
 	*this = other;

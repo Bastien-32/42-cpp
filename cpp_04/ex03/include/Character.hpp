@@ -1,38 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.hpp                                        :+:      :+:    :+:   */
+/*   Character.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: badal-la <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/16 16:52:07 by badal-la          #+#    #+#             */
-/*   Updated: 2025/07/16 17:01:39 by badal-la         ###   ########.fr       */
+/*   Created: 2025/07/17 11:10:18 by badal-la          #+#    #+#             */
+/*   Updated: 2025/07/17 14:36:36 by badal-la         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
-#include "../include/Brain.hpp"
+#include "../include/ICharacter.hpp"
+#include "../include/AMateria.hpp"
 
 #include <iostream>
-#include <cstdlib>
 
-class Animal
+class Character : public ICharacter
 {
 
 	protected:
 
-		std::string type;
+		AMateria*	_book[4];
+		std::string	_name;
 
 	public:
 
-		Animal( void );
-		Animal( const Animal& other );
-		Animal&	operator=( const Animal& other );
-		virtual ~Animal( void );
+		Character( void );
+		Character( const Character& other );
+		Character&	operator=( const Character& other );
+		~Character( void );
 
-		std::string		getType( void ) const;
-		virtual void	makeSound() const;
-		virtual Brain&	getBrain() const;
+		Character( std::string name );
+
+		std::string const&	getName() const;
+		void				equip(AMateria* m);
+		void				unequip(int idx);
+		void				use(int idx, ICharacter& target);
 
 };

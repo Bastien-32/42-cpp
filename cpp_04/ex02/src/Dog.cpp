@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   WrongCat.cpp                                        :+:      :+:    :+:   */
+/*   Dog.cpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: badal-la <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/WrongCat.hpp"
+#include "../include/Dog.hpp"
 
 /* -------------------------------------------------------------------------- */
 /*                            Canonical (mandatory)                           */
@@ -18,36 +18,51 @@
 
 /* --------------------------- Default Constructor -------------------------- */
 
-WrongCat::WrongCat( void )
+Dog::Dog( void )
 {
-	std::cout << "WrongCat Default constructor called" << std::endl;
-	type = "WrongCat";
+	std::cout << "Dog Default constructor called" << std::endl;
+	type = "Dog";
+	_brain = new Brain();
+	for (int i = 0; i < 100; i++)
+	{
+		std::stringstream ss;
+		ss << "Dog_idea_" << i;
+		_brain->setIdea(i, ss.str());
+	}
 }
 
-/* ------------------------ Assignation operator copy ----------------------- */
+/* ------------------------ Copy assignment operator ------------------------ */
 
-WrongCat&	WrongCat::operator=( const WrongCat& other )
+// Delete supprime le _brain alloué lors de la creation de this et on en cree un autre
+Dog&	Dog::operator=( const Dog& other )
 {
-	std::cout << "WrongCat Assignation operator copy called" << std::endl;
+	std::cout << "Dog Copy assignment operator called" << std::endl;
 	if ( this != &other )
+	{
 		type = other.type;
-	return ( *this );
+		delete _brain;
+		_brain = new Brain(*other._brain);
+	}
+	return *this;
 }
 
 /* ---------------------------- Copy constructor ---------------------------- */
 
-WrongCat::WrongCat( const WrongCat& other ) :
-	WrongAnimal(other)
+// On cree un nouveau _brain pour avoir 2 brain differents et ainsi que this._brain ne pointe pas sur celui de other
+Dog::Dog( const Dog& other ) :
+	AAnimal(other)
 {
-	std::cout << "WrongCat Copy constructor called" << std::endl;
-	*this = other;
+	std::cout << "Dog Copy constructor called" << std::endl;
+	_brain = new Brain(*other._brain);
+	type = other.type;
 }
 
 /* ------------------------------- Destructor ------------------------------- */
 
-WrongCat::~WrongCat( void )
+Dog::~Dog( void )
 {
-	std::cout << "WrongCat destructor called" << std::endl;
+	std::cout << "Dog destructor called" << std::endl;
+	delete _brain;
 }
 
 /* -------------------------------------------------------------------------- */
@@ -56,12 +71,18 @@ WrongCat::~WrongCat( void )
 
 /* ------------------------------- Constructor ------------------------------ */
 /* --------------------------------- getters -------------------------------- */
+
+Brain&	Dog::getBrain( void ) const
+{
+	return (*_brain);
+}
+
 /* --------------------------------- setters -------------------------------- */
 /* --------------------------------- Methods -------------------------------- */
 
-void	WrongCat::makeSound() const
+void	Dog::makeSound() const
 {
-	std::cout << type << " said : Miaouw..." << std::endl;
+	std::cout << type << " said : Waouff..." << std::endl;
 }
 
 /* -------------------------------------------------------------------------- */

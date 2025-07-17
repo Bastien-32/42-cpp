@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   WrongCat.cpp                                        :+:      :+:    :+:   */
+/*   Brain.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: badal-la <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/16 16:52:10 by badal-la          #+#    #+#             */
-/*   Updated: 2025/07/16 17:02:50 by badal-la         ###   ########.fr       */
+/*   Created: 2025/07/16 18:19:26 by badal-la          #+#    #+#             */
+/*   Updated: 2025/07/17 09:04:49 by badal-la         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/WrongCat.hpp"
+#include "../include/Brain.hpp"
 
 /* -------------------------------------------------------------------------- */
 /*                            Canonical (mandatory)                           */
@@ -18,52 +18,53 @@
 
 /* --------------------------- Default Constructor -------------------------- */
 
-WrongCat::WrongCat( void )
-{
-	std::cout << "WrongCat Default constructor called" << std::endl;
-	type = "WrongCat";
-}
+Brain::Brain( void )
+{}
 
 /* ------------------------ Assignation operator copy ----------------------- */
 
-WrongCat&	WrongCat::operator=( const WrongCat& other )
+Brain&	Brain::operator=( const Brain& other )
 {
-	std::cout << "WrongCat Assignation operator copy called" << std::endl;
 	if ( this != &other )
-		type = other.type;
+	{
+		for (int i = 0; i < 100; i++)
+			_ideas[i] = other._ideas[i];
+	}
 	return ( *this );
 }
 
 /* ---------------------------- Copy constructor ---------------------------- */
 
-WrongCat::WrongCat( const WrongCat& other ) :
-	WrongAnimal(other)
+Brain::Brain( const Brain& other )
 {
-	std::cout << "WrongCat Copy constructor called" << std::endl;
-	*this = other;
+	for (int i = 0; i < 100; i++)
+		_ideas[i] = other._ideas[i];
 }
 
 /* ------------------------------- Destructor ------------------------------- */
 
-WrongCat::~WrongCat( void )
-{
-	std::cout << "WrongCat destructor called" << std::endl;
-}
+Brain::~Brain( void )
+{}
 
 /* -------------------------------------------------------------------------- */
 /*                                not mandatory                               */
 /* -------------------------------------------------------------------------- */
-
 /* ------------------------------- Constructor ------------------------------ */
 /* --------------------------------- getters -------------------------------- */
-/* --------------------------------- setters -------------------------------- */
-/* --------------------------------- Methods -------------------------------- */
 
-void	WrongCat::makeSound() const
+std::string	Brain::getIdea(const unsigned int i) const
 {
-	std::cout << type << " said : Miaouw..." << std::endl;
+	return (_ideas[i]);
 }
 
+/* --------------------------------- setters -------------------------------- */
+
+void	Brain::setIdea( int index, const std::string& idea )
+{
+	_ideas[index] = idea;
+}
+
+/* --------------------------------- Methods -------------------------------- */
 /* -------------------------------------------------------------------------- */
 /*                           Function outside class                           */
 /* -------------------------------------------------------------------------- */

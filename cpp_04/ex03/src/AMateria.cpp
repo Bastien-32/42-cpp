@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   WrongCat.cpp                                        :+:      :+:    :+:   */
+/*   AMateria.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: badal-la <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/16 16:52:10 by badal-la          #+#    #+#             */
-/*   Updated: 2025/07/16 17:02:50 by badal-la         ###   ########.fr       */
+/*   Created: 2025/07/17 11:23:53 by badal-la          #+#    #+#             */
+/*   Updated: 2025/07/17 12:33:05 by badal-la         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/WrongCat.hpp"
+#include "../include/AMateria.hpp"
 
 /* -------------------------------------------------------------------------- */
 /*                            Canonical (mandatory)                           */
@@ -18,50 +18,56 @@
 
 /* --------------------------- Default Constructor -------------------------- */
 
-WrongCat::WrongCat( void )
-{
-	std::cout << "WrongCat Default constructor called" << std::endl;
-	type = "WrongCat";
-}
+AMateria::AMateria( void ) :
+	_type("Default")
+{}
 
 /* ------------------------ Assignation operator copy ----------------------- */
 
-WrongCat&	WrongCat::operator=( const WrongCat& other )
+AMateria&	AMateria::operator=( const AMateria& other )
 {
-	std::cout << "WrongCat Assignation operator copy called" << std::endl;
-	if ( this != &other )
-		type = other.type;
-	return ( *this );
+	if (this != &other)
+		_type = other._type;
+	return (*this);
 }
 
 /* ---------------------------- Copy constructor ---------------------------- */
 
-WrongCat::WrongCat( const WrongCat& other ) :
-	WrongAnimal(other)
+AMateria::AMateria( const AMateria& other )
 {
-	std::cout << "WrongCat Copy constructor called" << std::endl;
 	*this = other;
 }
 
 /* ------------------------------- Destructor ------------------------------- */
 
-WrongCat::~WrongCat( void )
-{
-	std::cout << "WrongCat destructor called" << std::endl;
-}
+AMateria::~AMateria( void )
+{}
 
 /* -------------------------------------------------------------------------- */
 /*                                not mandatory                               */
 /* -------------------------------------------------------------------------- */
 
 /* ------------------------------- Constructor ------------------------------ */
+
+AMateria::AMateria(std::string const& type)
+{
+	_type = type;
+}
+
 /* --------------------------------- getters -------------------------------- */
+
+std::string const& AMateria::getType() const
+{
+	return (_type);
+}
+
 /* --------------------------------- setters -------------------------------- */
 /* --------------------------------- Methods -------------------------------- */
 
-void	WrongCat::makeSound() const
+void AMateria::use(ICharacter& target)
 {
-	std::cout << type << " said : Miaouw..." << std::endl;
+	std::cout << "* No specific materia effect applied to "
+				<< target.getName() << " *" << std::endl;
 }
 
 /* -------------------------------------------------------------------------- */

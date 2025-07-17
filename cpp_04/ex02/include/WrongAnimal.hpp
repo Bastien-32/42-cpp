@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.hpp                                        :+:      :+:    :+:   */
+/*   WrongAnimal.hpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: badal-la <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,12 +12,9 @@
 
 #pragma once
 
-#include "../include/Brain.hpp"
-
 #include <iostream>
-#include <cstdlib>
 
-class Animal
+class WrongAnimal
 {
 
 	protected:
@@ -26,13 +23,11 @@ class Animal
 
 	public:
 
-		Animal( void );
-		Animal( const Animal& other );
-		Animal&	operator=( const Animal& other );
-		virtual ~Animal( void );
+		WrongAnimal( void );
+		WrongAnimal( const WrongAnimal& other );
+		WrongAnimal&	operator=( const WrongAnimal& other );
+		virtual ~WrongAnimal( void );
 
 		std::string		getType( void ) const;
-		virtual void	makeSound() const;
-		virtual Brain&	getBrain() const;
-
+		void	makeSound() const;
 };

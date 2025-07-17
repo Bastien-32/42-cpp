@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   WrongCat.cpp                                        :+:      :+:    :+:   */
+/*   AAnimal.cpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: badal-la <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/16 16:52:10 by badal-la          #+#    #+#             */
-/*   Updated: 2025/07/16 17:02:50 by badal-la         ###   ########.fr       */
+/*   Updated: 2025/07/17 10:52:41 by badal-la         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/WrongCat.hpp"
+#include "../include/AAnimal.hpp"
 
 /* -------------------------------------------------------------------------- */
 /*                            Canonical (mandatory)                           */
@@ -18,17 +18,17 @@
 
 /* --------------------------- Default Constructor -------------------------- */
 
-WrongCat::WrongCat( void )
+AAnimal::AAnimal( void ) :
+	type("Default")
 {
-	std::cout << "WrongCat Default constructor called" << std::endl;
-	type = "WrongCat";
+	std::cout << "AAnimal Default constructor called" << std::endl;
 }
 
 /* ------------------------ Assignation operator copy ----------------------- */
 
-WrongCat&	WrongCat::operator=( const WrongCat& other )
+AAnimal&	AAnimal::operator=( const AAnimal& other )
 {
-	std::cout << "WrongCat Assignation operator copy called" << std::endl;
+	std::cout << "AAnimal Assignation operator copy called" << std::endl;
 	if ( this != &other )
 		type = other.type;
 	return ( *this );
@@ -36,18 +36,17 @@ WrongCat&	WrongCat::operator=( const WrongCat& other )
 
 /* ---------------------------- Copy constructor ---------------------------- */
 
-WrongCat::WrongCat( const WrongCat& other ) :
-	WrongAnimal(other)
+AAnimal::AAnimal( const AAnimal& other )
 {
-	std::cout << "WrongCat Copy constructor called" << std::endl;
+	std::cout << "AAnimal Copy constructor called" << std::endl;
 	*this = other;
 }
 
 /* ------------------------------- Destructor ------------------------------- */
 
-WrongCat::~WrongCat( void )
+AAnimal::~AAnimal( void )
 {
-	std::cout << "WrongCat destructor called" << std::endl;
+	std::cout << "AAnimal destructor called" << std::endl;
 }
 
 /* -------------------------------------------------------------------------- */
@@ -56,12 +55,18 @@ WrongCat::~WrongCat( void )
 
 /* ------------------------------- Constructor ------------------------------ */
 /* --------------------------------- getters -------------------------------- */
+
+std::string	AAnimal::getType( void ) const
+{
+	return (type);
+}
+
 /* --------------------------------- setters -------------------------------- */
 /* --------------------------------- Methods -------------------------------- */
 
-void	WrongCat::makeSound() const
+void	AAnimal::makeSound() const
 {
-	std::cout << type << " said : Miaouw..." << std::endl;
+	std::cout << type << " said : ..." << std::endl;
 }
 
 /* -------------------------------------------------------------------------- */

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.hpp                                        :+:      :+:    :+:   */
+/*   AAnimal.hpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: badal-la <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/16 16:52:07 by badal-la          #+#    #+#             */
-/*   Updated: 2025/07/16 17:01:39 by badal-la         ###   ########.fr       */
+/*   Updated: 2025/07/17 10:54:10 by badal-la         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,8 @@
 #include "../include/Brain.hpp"
 
 #include <iostream>
-#include <cstdlib>
 
-class Animal
+class AAnimal
 {
 
 	protected:
@@ -26,13 +25,13 @@ class Animal
 
 	public:
 
-		Animal( void );
-		Animal( const Animal& other );
-		Animal&	operator=( const Animal& other );
-		virtual ~Animal( void );
+		AAnimal( void );
+		AAnimal( const AAnimal& other );
+		AAnimal&	operator=( const AAnimal& other );
+		virtual ~AAnimal( void );
 
 		std::string		getType( void ) const;
-		virtual void	makeSound() const;
-		virtual Brain&	getBrain() const;
+		virtual void	makeSound() const = 0;
+		virtual Brain&	getBrain() const = 0;
 
 };
