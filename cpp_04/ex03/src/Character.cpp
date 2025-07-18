@@ -6,7 +6,7 @@
 /*   By: badal-la <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/17 14:52:41 by badal-la          #+#    #+#             */
-/*   Updated: 2025/07/17 15:43:26 by badal-la         ###   ########.fr       */
+/*   Updated: 2025/07/18 14:47:51 by badal-la         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,10 +66,7 @@ Character::~Character( void )
 	for (int i = 0; i < 4; i++)
 	{
 		if (_inventory[i])
-		{
 			delete _inventory[i];
-			_inventory[i] = NULL;
-		}
 	}
 }
 
@@ -79,7 +76,7 @@ Character::~Character( void )
 
 /* ------------------------------- Constructor ------------------------------ */
 
-Character::Character(const std::string name) :
+Character::Character( const std::string name ) :
 	_name(name)
 {
 	for(int i = 0; i < 4; i++)
@@ -88,7 +85,7 @@ Character::Character(const std::string name) :
 
 /* --------------------------------- getters -------------------------------- */
 
-std::string const&	Character::getName() const
+std::string const&	Character::getName( void ) const
 {
 	return(_name);
 }
@@ -96,7 +93,7 @@ std::string const&	Character::getName() const
 /* --------------------------------- setters -------------------------------- */
 /* --------------------------------- Methods -------------------------------- */
 
-void	Character::equip(AMateria* m)
+void	Character::equip( AMateria* m )
 {
 	if (!m)
 		return ;
@@ -110,14 +107,14 @@ void	Character::equip(AMateria* m)
 	}
 }
 
-void	Character::unequip(int idx)
+void	Character::unequip( int idx )
 {
 	if (idx < 0 || idx >= 4)
 		return ;
 	_inventory[idx] = NULL;
 }
 
-void	Character::use(int idx, ICharacter& target)
+void	Character::use( int idx, ICharacter& target )
 {
 	if (idx < 0 || idx >= 4 || !_inventory[idx])
 		return ;

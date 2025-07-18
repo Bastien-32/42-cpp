@@ -6,7 +6,7 @@
 /*   By: badal-la <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/17 15:52:56 by badal-la          #+#    #+#             */
-/*   Updated: 2025/07/17 17:17:45 by badal-la         ###   ########.fr       */
+/*   Updated: 2025/07/17 22:51:01 by badal-la         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,7 @@ MateriaSource::~MateriaSource( void )
 /* --------------------------------- setters -------------------------------- */
 /* --------------------------------- Methods -------------------------------- */
 
-void	MateriaSource::learnMateria(AMateria* m)
+void	MateriaSource::learnMateria( AMateria* m )
 {
 	if (!m)
 		return ;
@@ -93,7 +93,7 @@ void	MateriaSource::learnMateria(AMateria* m)
 	}
 }
 
-AMateria*	MateriaSource::createMateria(std::string const& type)
+AMateria*	MateriaSource::createMateria( std::string const& type )
 {
 	for(int i = 0; i < 4; i++)
 	{

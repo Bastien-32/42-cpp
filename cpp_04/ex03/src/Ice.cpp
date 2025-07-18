@@ -6,7 +6,7 @@
 /*   By: badal-la <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/17 11:23:53 by badal-la          #+#    #+#             */
-/*   Updated: 2025/07/17 17:38:33 by badal-la         ###   ########.fr       */
+/*   Updated: 2025/07/17 22:50:35 by badal-la         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,13 +53,13 @@ Ice::~Ice( void )
 /* --------------------------------- setters -------------------------------- */
 /* --------------------------------- Methods -------------------------------- */
 
-void Ice::use(ICharacter& target)
+void	Ice::use( ICharacter& target )
 {
 	std::cout << "* shoots an ice bolt at "
 				<< target.getName() << " *" << std::endl;
 }
 
-AMateria* Ice::clone() const
+AMateria*	Ice::clone( void ) const
 {
 	return (new Ice(*this));
 }

@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   AMateria.cpp                                       :+:      :+:    :+:   */
+/*   Bureaucrat.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: badal-la <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/17 11:23:53 by badal-la          #+#    #+#             */
-/*   Updated: 2025/07/17 22:48:48 by badal-la         ###   ########.fr       */
+/*   Created: 2025/07/18 16:22:35 by badal-la          #+#    #+#             */
+/*   Updated: 2025/07/18 17:34:49 by badal-la         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/AMateria.hpp"
+#include "../include/Bureaucrat.hpp"
 
 /* -------------------------------------------------------------------------- */
 /*                            Canonical (mandatory)                           */
@@ -18,29 +18,30 @@
 
 /* --------------------------- Default Constructor -------------------------- */
 
-AMateria::AMateria( void ) :
-	_type("Default")
+Bureaucrat::Bureaucrat( void ) :
+	_name("Default"),
+	_grade(150)
 {}
 
-/* ------------------------ Assignation operator copy ----------------------- */
+/* ------------------------ Copy assignment operator ------------------------ */
 
-AMateria&	AMateria::operator=( const AMateria& other )
+Bureaucrat&	Bureaucrat::operator=( const Bureaucrat& other )
 {
-	if (this != &other)
-		_type = other._type;
-	return (*this);
+	if ( this != &other )
+		_grade = other._grade;
+	return ( *this );
 }
 
 /* ---------------------------- Copy constructor ---------------------------- */
 
-AMateria::AMateria( const AMateria& other )
+Bureaucrat::Bureaucrat( const Bureaucrat& other )
 {
 	*this = other;
 }
 
 /* ------------------------------- Destructor ------------------------------- */
 
-AMateria::~AMateria( void )
+Bureaucrat::~Bureaucrat( void )
 {}
 
 /* -------------------------------------------------------------------------- */
@@ -49,27 +50,61 @@ AMateria::~AMateria( void )
 
 /* ------------------------------- Constructor ------------------------------ */
 
-AMateria::AMateria( std::string const& type )
+Bureaucrat::Bureaucrat( const std::string name, int grade ) :
+	_name(name)
 {
-	_type = type;
+	if (grade < 1)
+		throw Bureaucrat::GradeTooHighException();
+	if (grade >150)
+		throw Bureaucrat::GradeTooLowException();
+	_grade = grade;
 }
 
 /* --------------------------------- getters -------------------------------- */
 
-std::string	const& AMateria::getType( void ) const
+const std::string&	Bureaucrat::getName( void ) const
 {
-	return (_type);
+	return (_name);
+}
+
+int	Bureaucrat::getGrade( void ) const
+{
+	return (_grade);
 }
 
 /* --------------------------------- setters -------------------------------- */
 /* --------------------------------- Methods -------------------------------- */
 
-void	AMateria::use( ICharacter& target )
+const char* Bureaucrat::GradeTooHighException::what() const throw()
 {
-	std::cout << "* No specific materia effect applied to "
-				<< target.getName() << " *" << std::endl;
+	return ("Grade is too high!");
+}
+
+const char* Bureaucrat::GradeTooLowException::what() const throw()
+{
+	return ("Grade is too low!");
+}
+
+void	Bureaucrat::incrementGrade( void )
+{
+	if ( --_grade < 1)
+		throw Bureaucrat::GradeTooHighException();
+}
+
+void	Bureaucrat::decrementGrade( void )
+{
+	if ( ++_grade > 150)
+		throw Bureaucrat::GradeTooLowException();
 }
 
 /* -------------------------------------------------------------------------- */
 /*                           Function outside class                           */
 /* -------------------------------------------------------------------------- */
+
+std::ostream&	operator<<(std::ostream& os, const Bureaucrat& Bureaucrat)
+{
+	os << Bureaucrat.getName()
+		<< ", bureaucrat grade "
+		<< Bureaucrat.getGrade();
+	return (os);
+}

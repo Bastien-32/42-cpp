@@ -1,14 +1,10 @@
-NAME = Interface_and_recap
+NAME = Mommy_when_I_grow_up_I_want_to_be_a_bureaucrat
 
 CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98 -Wshadow
 
 SRC =	src/main.cpp \
-		src/Character.cpp \
-		src/AMateria.cpp \
-		src/Ice.cpp \
-		src/Cure.cpp \
-		src/MateriaSource.cpp
+		src/Bureaucrat.cpp
 
 OBJ_DIR = obj
 OBJ = $(SRC:%.cpp=$(OBJ_DIR)/%.o)

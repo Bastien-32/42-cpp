@@ -6,7 +6,7 @@
 /*   By: badal-la <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/17 11:23:53 by badal-la          #+#    #+#             */
-/*   Updated: 2025/07/17 17:38:42 by badal-la         ###   ########.fr       */
+/*   Updated: 2025/07/17 22:50:15 by badal-la         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,13 +53,13 @@ Cure::~Cure( void )
 /* --------------------------------- setters -------------------------------- */
 /* --------------------------------- Methods -------------------------------- */
 
-void Cure::use(ICharacter& target)
+void	Cure::use( ICharacter& target )
 {
 	std::cout << "* heals "
 				<< target.getName() << "’s wounds *" << std::endl;
 }
 
-AMateria* Cure::clone() const
+AMateria*	Cure::clone( void ) const
 {
 	return (new Cure(*this));
 }
