@@ -1,11 +1,14 @@
-NAME = Form_up_maggots
+NAME = No_you_need_form_28B_not_28C
 
 CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98 -Wshadow
 
 SRC =	src/main.cpp \
+		src/AForm.cpp \
 		src/Bureaucrat.cpp \
-		src/AForm.cpp
+		src/PresidentialPardonForm.cpp \
+		src/RobotomyRequestForm.cpp \
+		src/ShrubberyCreationForm.cpp
 
 OBJ_DIR = obj
 OBJ = $(SRC:%.cpp=$(OBJ_DIR)/%.o)

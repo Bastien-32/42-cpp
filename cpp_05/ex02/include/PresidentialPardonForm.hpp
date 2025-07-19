@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ShrubberyCreationForm.hpp                                          :+:      :+:    :+:   */
+/*   PresidentialPardonForm.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: badal-la <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -19,7 +19,7 @@
 
 class Bureaucrat;
 
-class ShrubberyCreationForm : public AForm
+class PresidentialPardonForm : public AForm
 {
 
 	private:
@@ -28,12 +28,12 @@ class ShrubberyCreationForm : public AForm
 
 	public:
 
-		ShrubberyCreationForm( void );
-		ShrubberyCreationForm( const ShrubberyCreationForm& other );
-		ShrubberyCreationForm&	operator=( const ShrubberyCreationForm& other );
-		~ShrubberyCreationForm( void );
+		PresidentialPardonForm( void );
+		PresidentialPardonForm( const PresidentialPardonForm& other );
+		PresidentialPardonForm&	operator=( const PresidentialPardonForm& other );
+		~PresidentialPardonForm( void );
 
-		ShrubberyCreationForm( const std::string target );
+		PresidentialPardonForm( const std::string target );
 
 		void	execute( Bureaucrat const & executor ) const;
 

@@ -6,7 +6,7 @@
 /*   By: badal-la <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/18 15:50:52 by badal-la          #+#    #+#             */
-/*   Updated: 2025/07/19 14:31:10 by badal-la         ###   ########.fr       */
+/*   Updated: 2025/07/19 18:04:28 by badal-la         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,8 @@ class Bureaucrat
 		void				decrementGrade( void );
 
 		void	signForm(AForm& f);
+		void	executeForm(AForm const & form);
+			
 		class GradeTooHighException : public std::exception
 		{
 			public:
@@ -55,14 +57,6 @@ class Bureaucrat
 
 				virtual const char* what() const throw();
 		};
-		
-		class Answer : public std::exception
-		{
-			public:
-
-				virtual const char* what() const throw();
-		};
-		
 
 };
 

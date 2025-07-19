@@ -6,12 +6,12 @@
 /*   By: badal-la <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/18 16:22:35 by badal-la          #+#    #+#             */
-/*   Updated: 2025/07/19 14:31:10 by badal-la         ###   ########.fr       */
+/*   Updated: 2025/07/19 19:11:54 by badal-la         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/Bureaucrat.hpp"
-#include "../include/Form.hpp"
+#include "../include/AForm.hpp"
 
 /* -------------------------------------------------------------------------- */
 /*                            Canonical (mandatory)                           */
@@ -101,6 +101,21 @@ void	Bureaucrat::signForm(AForm& f)
 		std::cout << _name << " couldn’t sign " << f.getName()
 					<< " because " << e.what() << std::endl;
 	}
+}
+
+void	Bureaucrat::executeForm(AForm const & f)
+{
+	try
+	{
+		f.execute(*this);
+		std::cout << _name << " executed " << f.getName() << std::endl;
+	}
+	catch(const std::exception& e)
+	{
+		std::cout << _name << " couldn't execute "
+		<< f.getName() << " because " << e.what() << std::endl;
+	}
+	
 }
 
 /* ------------------------------- Exceptions ------------------------------- */

@@ -6,11 +6,12 @@
 /*   By: badal-la <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/19 15:05:46 by badal-la          #+#    #+#             */
-/*   Updated: 2025/07/19 16:02:42 by badal-la         ###   ########.fr       */
+/*   Updated: 2025/07/19 18:55:43 by badal-la         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/ShrubberyCreationForm.hpp"
+#include "../include/AForm.hpp"
 #include "../include/Bureaucrat.hpp"
 
 /* -------------------------------------------------------------------------- */
@@ -57,19 +58,19 @@ ShrubberyCreationForm::~ShrubberyCreationForm( void )
 
 ShrubberyCreationForm::ShrubberyCreationForm( const std::string target ) :
 	AForm("Shrubbery creation form", 145, 137),
-	_target ("Default")
+	_target (target)
 {}
 
 /* --------------------------------- getters -------------------------------- */
 /* --------------------------------- setters -------------------------------- */
 /* --------------------------------- Methods -------------------------------- */
 
-void	ShrubberyCreationForm::execute( Bureaucrat const & executor ) const
+void	ShrubberyCreationForm::execute( Bureaucrat const& b ) const
 {
-	//verifier les conditions d'execution
+	executionPermission(b);
 	std::string	of_name = _target +  "shrubbery";
 	std::ofstream of(of_name.c_str());
-	of <<"              *"
+	of <<"             *\n"
 		<< "            /.\\\n"
 		<< "           /..'\\\n"
 		<< "           /'.'\\\n"
@@ -78,7 +79,7 @@ void	ShrubberyCreationForm::execute( Bureaucrat const & executor ) const
 		<< "   \"'\"\"\"\"/'.''.'.\\\"\"'\"'\"\n"
 		<< "         ^^^[_]^^^\n"
 		<< std::endl;
-
+	of.close();
 }
 
 /* -------------------------------------------------------------------------- */
