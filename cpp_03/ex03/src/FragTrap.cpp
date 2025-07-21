@@ -6,7 +6,7 @@
 /*   By: badal-la <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/10 15:07:29 by badal-la          #+#    #+#             */
-/*   Updated: 2025/07/16 15:14:04 by badal-la         ###   ########.fr       */
+/*   Updated: 2025/07/21 18:12:46 by badal-la         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,9 @@
 /* --------------------------- Default Constructor -------------------------- */
 
 FragTrap::FragTrap( void ) :
-	ClapTrap("Unnamed")
+	ClapTrap("Unnamed"),
+	_fragTrapHitPoints(100),
+	_fragTrapAttackDamage(30)
 {
 	std::cout << "FragTrap Default constructor called" << std::endl;
 	_hitPoints = 100;
@@ -46,6 +48,8 @@ FragTrap&	FragTrap::operator=( const FragTrap &other )
 		_hitPoints = other._hitPoints;
 		_energyPoints = other._energyPoints;
 		_attackDamage = other._attackDamage;
+		_fragTrapHitPoints = other._hitPoints;
+		_fragTrapAttackDamage = other._attackDamage;
 	}
 	return (*this);
 }
@@ -63,8 +67,12 @@ FragTrap::~FragTrap( void )
 
 /* ------------------------------- Constructor ------------------------------ */
 
+/// @brief 
+/// @param name 
 FragTrap::FragTrap( std::string name ) :
-	ClapTrap(name)
+	ClapTrap(name),
+	_fragTrapHitPoints(100),
+	_fragTrapAttackDamage(30)
 {
 	std::cout << "FragTrap Constructor called for " << name << std::endl;
 	_hitPoints = 100;
@@ -72,7 +80,21 @@ FragTrap::FragTrap( std::string name ) :
 	_attackDamage = 30;
 }
 
-void	FragTrap::highFivesGuys(void)
+/* --------------------------------- Getters -------------------------------- */
+
+unsigned int		FragTrap::getFragTrapHitPoints( void ) const
+{
+	return (_fragTrapHitPoints);
+}
+
+unsigned int		FragTrap::getFragTrapAttackDamage( void ) const
+{
+	return (_fragTrapAttackDamage);
+}
+
+/* --------------------------------- Methods -------------------------------- */
+
+void	FragTrap::highFivesGuys( void )
 {
 	std::cout << "FragTrap " << _name << " raises his hand and says: \"Give me five, bro!\"" << std::endl;
 }

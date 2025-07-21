@@ -6,7 +6,7 @@
 /*   By: badal-la <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/10 15:06:41 by badal-la          #+#    #+#             */
-/*   Updated: 2025/07/16 14:50:47 by badal-la         ###   ########.fr       */
+/*   Updated: 2025/07/21 18:10:24 by badal-la         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,9 @@ class FragTrap : virtual public ClapTrap
 
 	private:
 
+		unsigned int	_fragTrapHitPoints;
+		unsigned int	_fragTrapAttackDamage;
+
 	public:
 
 		FragTrap( void );
@@ -29,6 +32,8 @@ class FragTrap : virtual public ClapTrap
 
 		FragTrap( std::string name );
 
-		void	highFivesGuys(void);
+		unsigned int		getFragTrapHitPoints( void ) const;
+		unsigned int		getFragTrapAttackDamage( void ) const;
+		void				highFivesGuys( void );
 
 };

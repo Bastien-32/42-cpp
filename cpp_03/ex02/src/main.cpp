@@ -6,7 +6,7 @@
 /*   By: badal-la <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/09 13:57:57 by badal-la          #+#    #+#             */
-/*   Updated: 2025/07/16 13:37:56 by badal-la         ###   ########.fr       */
+/*   Updated: 2025/07/21 15:29:55 by badal-la         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int	main(void)
 	player4.setName("Hendriix");
 	std::cout << std::endl;
 	
-	player1.attack(player2.getName());
+	player3.attack(player2.getName());
 	player3.beRepaired(15);
 	player4.highFivesGuys();
 	std::cout << std::endl;

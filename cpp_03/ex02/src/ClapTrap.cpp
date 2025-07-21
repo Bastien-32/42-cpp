@@ -6,7 +6,7 @@
 /*   By: badal-la <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/09 13:29:05 by badal-la          #+#    #+#             */
-/*   Updated: 2025/07/21 15:24:35 by badal-la         ###   ########.fr       */
+/*   Updated: 2025/07/21 15:28:41 by badal-la         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -139,7 +139,7 @@ void	ClapTrap::attack( const std::string& target )
 				<< " attacks "
 				<< target
 				<< ", causing "
-				<< -_attackDamage
+				<< _attackDamage
 				<< " points of damage!"
 				<< std::endl;
 }

@@ -6,7 +6,7 @@
 /*   By: badal-la <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/10 15:07:29 by badal-la          #+#    #+#             */
-/*   Updated: 2025/07/16 15:14:44 by badal-la         ###   ########.fr       */
+/*   Updated: 2025/07/21 15:26:16 by badal-la         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ FragTrap::FragTrap( std::string name ) :
 	_attackDamage = 30;
 }
 
-void	FragTrap::highFivesGuys(void)
+void	FragTrap::highFivesGuys( void )
 {
 	std::cout << "FragTrap " << _name << " raises his hand and says: \"Give me five, bro!\"" << std::endl;
 }

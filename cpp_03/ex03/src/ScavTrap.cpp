@@ -6,7 +6,7 @@
 /*   By: badal-la <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/10 15:07:29 by badal-la          #+#    #+#             */
-/*   Updated: 2025/07/16 14:32:20 by badal-la         ###   ########.fr       */
+/*   Updated: 2025/07/21 18:24:20 by badal-la         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,15 @@
 /* --------------------------- Default Constructor -------------------------- */
 
 ScavTrap::ScavTrap( void ) :
-	ClapTrap("Unnamed")
+	ClapTrap("Unnamed"),
+	_scavTrapEnergyPoints(50),
+	_scavTrapAttackDamage(20)
 {
 	std::cout << "ScavTrap Default constructor called" << std::endl;
 	_hitPoints = 100;
 	_energyPoints = 50;
 	_attackDamage = 20;
+	_scavTrapName = "ScavTrap " + _name;
 }
 
 /* ---------------------------- Copy constructor ---------------------------- */
@@ -59,10 +62,54 @@ ScavTrap::~ScavTrap( void )
 /* ------------------------------- Constructor ------------------------------ */
 
 ScavTrap::ScavTrap( std::string name ) :
-	ClapTrap(name)
+	ClapTrap(name),
+	_scavTrapEnergyPoints(50),
+	_scavTrapAttackDamage(20)
 {
 	std::cout << "ScavTrap Constructor called for " << name << std::endl;
 	_hitPoints = 100;
 	_energyPoints = 50;
 	_attackDamage = 20;
+}
+
+/* --------------------------------- Getters -------------------------------- */
+
+unsigned int	ScavTrap::getScavTrapEnergyPoints( void ) const
+{
+	return (_scavTrapEnergyPoints);
+}
+
+unsigned int	ScavTrap::getScavTrapAttackDamage( void ) const
+{
+	return (_scavTrapAttackDamage);
+}
+
+std::string	ScavTrap::getScavTrapName( void ) const
+{
+	return (_scavTrapName);
+}
+
+/* --------------------------------- Methods -------------------------------- */
+
+void	ScavTrap::attack( const std::string& target )
+{
+	if (_energyPoints == 0)
+	{
+		std::cout << "ClapTrap " << _name <<  " is out of energy - Attack denied!" << std::endl;
+		return ;
+	}
+	if (_hitPoints <= 0)
+	{
+		std::cout << "ClapTrap " << _name <<  " is out of hit points - Attack denied!" << std::endl;
+		return ;
+	}
+	_energyPoints--;
+	std::cout << "ScavTrap "
+				<< _name
+				<< " attacks "
+				<< target
+				<< ", causing "
+				<< getScavTrapAttackDamage()
+				<< " points of damage!"
+				<< std::endl;
 }

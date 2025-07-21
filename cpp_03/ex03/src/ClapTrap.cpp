@@ -6,7 +6,7 @@
 /*   By: badal-la <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/09 13:29:05 by badal-la          #+#    #+#             */
-/*   Updated: 2025/07/16 14:30:07 by badal-la         ###   ########.fr       */
+/*   Updated: 2025/07/21 18:08:25 by badal-la         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,7 +96,6 @@ unsigned int	ClapTrap::getAttackDamage( void ) const
 	return (_attackDamage);
 }
 
-
 /* --------------------------------- setters -------------------------------- */
 
 void	ClapTrap::setName( std::string name)
@@ -121,7 +120,7 @@ void	ClapTrap::setAttackDamage( unsigned int attackDamage )
 
 /* --------------------------------- Methods -------------------------------- */
 
-void	ClapTrap::attack(const std::string& target)
+void	ClapTrap::attack( const std::string& target )
 {
 	if (_energyPoints == 0)
 	{
@@ -139,14 +138,13 @@ void	ClapTrap::attack(const std::string& target)
 				<< " attacks "
 				<< target
 				<< ", causing "
-				<< -_attackDamage
+				<< _attackDamage
 				<< " points of damage!"
 				<< std::endl;
 }
 
-void	ClapTrap::beRepaired(unsigned int amount)
+void	ClapTrap::beRepaired( unsigned int amount )
 {
-
 	if (_energyPoints == 0)
 	{
 		std::cout << "ClapTrap " << _name <<  " is out of energy - Repair denied!" << std::endl;
@@ -166,7 +164,7 @@ void	ClapTrap::beRepaired(unsigned int amount)
 				<< std::endl;
 }
 
-void	ClapTrap::takeDamage(unsigned int amount)
+void	ClapTrap::takeDamage( unsigned int amount )
 {
 	if (_hitPoints < amount)
 		_hitPoints = 0;
