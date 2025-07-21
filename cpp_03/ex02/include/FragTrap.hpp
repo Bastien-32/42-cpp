@@ -6,7 +6,7 @@
 /*   By: badal-la <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/10 15:06:41 by badal-la          #+#    #+#             */
-/*   Updated: 2025/07/16 14:51:14 by badal-la         ###   ########.fr       */
+/*   Updated: 2025/07/21 15:23:48 by badal-la         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,6 @@ class FragTrap : public ClapTrap
 
 		FragTrap( std::string name );
 
-		void	highFivesGuys(void);
+		void	highFivesGuys( void );
 
 };

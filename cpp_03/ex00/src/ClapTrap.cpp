@@ -6,7 +6,7 @@
 /*   By: badal-la <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/09 13:29:05 by badal-la          #+#    #+#             */
-/*   Updated: 2025/07/15 21:28:00 by badal-la         ###   ########.fr       */
+/*   Updated: 2025/07/21 15:15:09 by badal-la         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,7 +98,7 @@ unsigned int	ClapTrap::getAttackDamage( void ) const
 
 /* --------------------------------- setters -------------------------------- */
 
-void	ClapTrap::setName( std::string name)
+void	ClapTrap::setName( std::string name )
 {
 	_name = name;
 }
