@@ -6,7 +6,7 @@
 /*   By: badal-la <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/18 15:50:52 by badal-la          #+#    #+#             */
-/*   Updated: 2025/07/19 17:53:31 by badal-la         ###   ########.fr       */
+/*   Updated: 2025/07/19 18:04:28 by badal-la         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 #include <cmath>
 #include <exception>
 
-class Form;
+class AForm;
 
 class Bureaucrat
 {
@@ -41,7 +41,9 @@ class Bureaucrat
 		void				incrementGrade( void );
 		void				decrementGrade( void );
 
-		void	signForm(Form& f);
+		void	signForm(AForm& f);
+		void	executeForm(AForm const & form);
+			
 		class GradeTooHighException : public std::exception
 		{
 			public:

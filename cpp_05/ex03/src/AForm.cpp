@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Form.cpp                                           :+:      :+:    :+:   */
+/*   AForm.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: badal-la <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/19 11:47:31 by badal-la          #+#    #+#             */
-/*   Updated: 2025/07/19 17:59:18 by badal-la         ###   ########.fr       */
+/*   Created: 2025/07/19 14:33:48 by badal-la          #+#    #+#             */
+/*   Updated: 2025/07/19 18:29:31 by badal-la         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/Form.hpp"
+#include "../include/AForm.hpp"
 #include "../include/Bureaucrat.hpp"
 
 /* -------------------------------------------------------------------------- */
@@ -19,7 +19,7 @@
 
 /* --------------------------- Default Constructor -------------------------- */
 
-Form::Form( void ) :
+AForm::AForm( void ) :
 	_name("Unnamed"),
 	_isSigned(false),
 	_gradeToSign(150),
@@ -28,7 +28,7 @@ Form::Form( void ) :
 
 /* ------------------------ Copy assignment operator ------------------------ */
 
-Form&	Form::operator=( const Form& other )
+AForm&	AForm::operator=( const AForm& other )
 {
 	if ( this != &other )
 		_isSigned = other._isSigned;
@@ -37,7 +37,7 @@ Form&	Form::operator=( const Form& other )
 
 /* ---------------------------- Copy constructor ---------------------------- */
 
-Form::Form( const Form& other ) :
+AForm::AForm( const AForm& other ) :
 	_name(other._name),
 	_isSigned(other._isSigned),
 	_gradeToSign(other._gradeToSign),
@@ -46,7 +46,7 @@ Form::Form( const Form& other ) :
 
 /* ------------------------------- Destructor ------------------------------- */
 
-Form::~Form( void )
+AForm::~AForm( void )
 {}
 
 /* -------------------------------------------------------------------------- */
@@ -55,7 +55,7 @@ Form::~Form( void )
 
 /* ------------------------------- Constructor ------------------------------ */
 
-Form::Form( const std::string name, const int gradeToSign, const int gradeToExecute ) :
+AForm::AForm( const std::string name, const int gradeToSign, const int gradeToExecute ) :
 	_name(name),
 	_isSigned(false),
 	_gradeToSign(gradeToSign),
@@ -64,29 +64,29 @@ Form::Form( const std::string name, const int gradeToSign, const int gradeToExec
 
 /* --------------------------------- getters -------------------------------- */
 
-const std::string&	Form::getName() const
+const std::string&	AForm::getName() const
 {
 	return (_name);
 }
 
-bool	Form::getIsSigned() const
+bool	AForm::getIsSigned() const
 {
 	return (_isSigned);
 }
 
-int	Form::getGradeToSign() const
+int	AForm::getGradeToSign() const
 {
 	return (_gradeToSign);
 }
 
-int	Form::getGradeToExecute() const
+int	AForm::getGradeToExecute() const
 {
 	return (_gradeToExecute);
 }
 
 /* --------------------------------- setters -------------------------------- */
 
-void	Form::beSigned( const Bureaucrat& b)
+void	AForm::beSigned( const Bureaucrat& b)
 {
 	if (b.getGrade() > _gradeToSign)
 		throw GradeTooLowException();
@@ -95,21 +95,34 @@ void	Form::beSigned( const Bureaucrat& b)
 
 /* --------------------------------- Methods -------------------------------- */
 
-const char*	Form::GradeTooHighException::what() const throw()
+void	AForm::executionPermission(const Bureaucrat &executor) const
 {
-	return("Grade is too high!");
+	if (_isSigned == false)
+		throw IsSignedException();
+	if (executor.getGrade() > _gradeToExecute)
+		throw GradeTooLowException();
 }
 
-const char*	Form::GradeTooLowException::what() const throw()
+const char*	AForm::GradeTooHighException::what() const throw()
 {
-	return("Grade is too low!");
+	return ("Grade is too high!");
+}
+
+const char*	AForm::GradeTooLowException::what() const throw()
+{
+	return ("Grade is too low!");
+}
+
+const char*	AForm::IsSignedException::what() const throw()
+{
+	return ("Form isn't signed!");
 }
 
 /* -------------------------------------------------------------------------- */
 /*                           Function outside class                           */
 /* -------------------------------------------------------------------------- */
 
-std::ostream&	operator<<(std::ostream& os, const Form& f)
+std::ostream&	operator<<(std::ostream& os, const AForm& f)
 {
 	std::string formSigned;
 
@@ -118,7 +131,7 @@ std::ostream&	operator<<(std::ostream& os, const Form& f)
 		formSigned = "No";
 	else
 		formSigned = "Yes";
-	os << "\t- Form is signed : \t" << formSigned << std::endl;
+	os << "\t- AForm is signed : \t" << formSigned << std::endl;
 	os << "\t- Grade to sign form : \t" << f.getGradeToSign() << std::endl;
 	os << "\t- Grade to execute form : " << f.getGradeToExecute() << std::endl;
 	return (os);
