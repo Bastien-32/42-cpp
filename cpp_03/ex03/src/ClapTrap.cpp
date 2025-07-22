@@ -6,7 +6,7 @@
 /*   By: badal-la <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/09 13:29:05 by badal-la          #+#    #+#             */
-/*   Updated: 2025/07/21 18:08:25 by badal-la         ###   ########.fr       */
+/*   Updated: 2025/07/22 09:37:15 by badal-la         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,6 @@ ClapTrap&	ClapTrap::operator=( const ClapTrap& other )
 
 /* ---------------------------- Copy constructor ---------------------------- */
 
-// cette formulation est valable si l'opérateur = est défini
 ClapTrap::ClapTrap( const ClapTrap& other )
 {
 	std::cout << "ClapTrap Copy constructor called" << std::endl;
