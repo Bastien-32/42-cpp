@@ -6,7 +6,7 @@
 /*   By: badal-la <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/18 15:50:52 by badal-la          #+#    #+#             */
-/*   Updated: 2025/07/18 16:49:25 by badal-la         ###   ########.fr       */
+/*   Updated: 2025/07/22 17:32:45 by badal-la         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@ class Bureaucrat
 
 	private:
 
-		std::string	_name;
-		int			_grade;
+		const std::string	_name;
+		int					_grade;
 
 	public:
 
@@ -55,4 +55,4 @@ class Bureaucrat
 
 };
 
-std::ostream&	operator<<(std::ostream& os, const Bureaucrat& Bureaucrat);
+std::ostream&	operator<<( std::ostream& os, const Bureaucrat& Bureaucrat );

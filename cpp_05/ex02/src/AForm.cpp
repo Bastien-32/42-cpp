@@ -6,7 +6,7 @@
 /*   By: badal-la <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/19 14:33:48 by badal-la          #+#    #+#             */
-/*   Updated: 2025/07/19 21:58:56 by badal-la         ###   ########.fr       */
+/*   Updated: 2025/07/22 17:40:51 by badal-la         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -122,7 +122,7 @@ const char*	AForm::IsSignedException::what() const throw()
 /*                           Function outside class                           */
 /* -------------------------------------------------------------------------- */
 
-std::ostream&	operator<<(std::ostream& os, const AForm& f)
+std::ostream&	operator<<( std::ostream& os, const AForm& f )
 {
 	std::string formSigned;
 
@@ -131,8 +131,8 @@ std::ostream&	operator<<(std::ostream& os, const AForm& f)
 		formSigned = "No";
 	else
 		formSigned = "Yes";
-	os << "\t- Form is signed : \t\t" << formSigned << std::endl;
-	os << "\t- Grade to sign form : \t\t" << f.getGradeToSign() << std::endl;
-	os << "\t- Grade to execute form : \t" << f.getGradeToExecute() << std::endl;
+	os << "\t- Form is signed :\t\t" << formSigned << std::endl;
+	os << "\t- Grade to sign form :\t\t" << f.getGradeToSign() << std::endl;
+	os << "\t- Grade to execute form :\t" << f.getGradeToExecute() << std::endl;
 	return (os);
 }

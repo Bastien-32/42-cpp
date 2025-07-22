@@ -6,7 +6,7 @@
 /*   By: badal-la <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/18 16:22:35 by badal-la          #+#    #+#             */
-/*   Updated: 2025/07/18 17:34:49 by badal-la         ###   ########.fr       */
+/*   Updated: 2025/07/22 17:29:30 by badal-la         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,10 +34,10 @@ Bureaucrat&	Bureaucrat::operator=( const Bureaucrat& other )
 
 /* ---------------------------- Copy constructor ---------------------------- */
 
-Bureaucrat::Bureaucrat( const Bureaucrat& other )
-{
-	*this = other;
-}
+Bureaucrat::Bureaucrat( const Bureaucrat& other ) :
+	_name(other._name),
+	_grade(other._grade)
+{}
 
 /* ------------------------------- Destructor ------------------------------- */
 
@@ -101,7 +101,7 @@ void	Bureaucrat::decrementGrade( void )
 /*                           Function outside class                           */
 /* -------------------------------------------------------------------------- */
 
-std::ostream&	operator<<(std::ostream& os, const Bureaucrat& Bureaucrat)
+std::ostream&	operator<<( std::ostream& os, const Bureaucrat& Bureaucrat )
 {
 	os << Bureaucrat.getName()
 		<< ", bureaucrat grade "

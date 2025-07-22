@@ -6,7 +6,7 @@
 /*   By: badal-la <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/18 17:29:09 by badal-la          #+#    #+#             */
-/*   Updated: 2025/07/19 14:16:18 by badal-la         ###   ########.fr       */
+/*   Updated: 2025/07/22 17:34:53 by badal-la         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ int main(void)
 	Bureaucrat	a("Astérix", 10);
 	Bureaucrat	b("Obélix", 51);
 	Form		d("Laissez passer A-38", 14, 5);
+	std::cout << a << std::endl;
+	std::cout << b << std::endl;
 	std::cout << d << std::endl;
 
 	a.signForm(d);

@@ -6,7 +6,7 @@
 /*   By: badal-la <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/19 14:31:21 by badal-la          #+#    #+#             */
-/*   Updated: 2025/07/19 18:18:53 by badal-la         ###   ########.fr       */
+/*   Updated: 2025/07/22 17:39:56 by badal-la         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,4 +69,4 @@ class AForm
 
 };
 
-std::ostream&	operator<<(std::ostream& os, const AForm& f);
+std::ostream&	operator<<( std::ostream& os, const AForm& f );

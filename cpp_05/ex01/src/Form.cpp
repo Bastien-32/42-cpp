@@ -6,7 +6,7 @@
 /*   By: badal-la <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/19 11:47:31 by badal-la          #+#    #+#             */
-/*   Updated: 2025/07/19 17:59:18 by badal-la         ###   ########.fr       */
+/*   Updated: 2025/07/22 17:49:07 by badal-la         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ Form::Form( const std::string name, const int gradeToSign, const int gradeToExec
 	_name(name),
 	_isSigned(false),
 	_gradeToSign(gradeToSign),
-	_gradeToExecute( gradeToExecute)
+	_gradeToExecute(gradeToExecute)
 {}
 
 /* --------------------------------- getters -------------------------------- */
@@ -109,7 +109,7 @@ const char*	Form::GradeTooLowException::what() const throw()
 /*                           Function outside class                           */
 /* -------------------------------------------------------------------------- */
 
-std::ostream&	operator<<(std::ostream& os, const Form& f)
+std::ostream&	operator<<( std::ostream& os, const Form& f )
 {
 	std::string formSigned;
 
@@ -118,8 +118,8 @@ std::ostream&	operator<<(std::ostream& os, const Form& f)
 		formSigned = "No";
 	else
 		formSigned = "Yes";
-	os << "\t- Form is signed : \t" << formSigned << std::endl;
-	os << "\t- Grade to sign form : \t" << f.getGradeToSign() << std::endl;
-	os << "\t- Grade to execute form : " << f.getGradeToExecute() << std::endl;
+	os << "\t- Form is signed :\t\t" << formSigned << std::endl;
+	os << "\t- Grade to sign form :\t\t" << f.getGradeToSign() << std::endl;
+	os << "\t- Grade to execute form :\t" << f.getGradeToExecute() << std::endl;
 	return (os);
 }
