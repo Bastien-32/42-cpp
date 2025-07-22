@@ -6,7 +6,7 @@
 /*   By: badal-la <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/16 16:52:14 by badal-la          #+#    #+#             */
-/*   Updated: 2025/07/17 10:00:47 by badal-la         ###   ########.fr       */
+/*   Updated: 2025/07/22 14:14:42 by badal-la         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,22 +27,24 @@ int main(void)
 	delete ia;
 	std::cout << std::endl;
 
-	int	nb_animals = 7;
+	int	nb_animals = 5;
 	Animal* animals[nb_animals];
 	
 	for (int i = 0; i < nb_animals; i++)
 	{
-		if (i < nb_animals / 2)
+		if (i <= nb_animals / 2)
 			animals[i] = new Dog;
 		else
 			animals[i] = new Cat;
 	}
+	std::cout << std::endl;
 
 	for (int i = 0; i < nb_animals; i++)
 	{
 		Brain brain = animals[i]->getBrain();
 		std::cout << brain.getIdea(i) << std::endl;
 	}
+	std::cout << std::endl;
 
 	for (int i = 0; i < nb_animals; i++)
 		delete animals[i];

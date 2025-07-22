@@ -30,4 +30,5 @@ class WrongAnimal
 
 		std::string		getType( void ) const;
 		void			makeSound( void ) const;
+
 };

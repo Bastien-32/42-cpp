@@ -27,4 +27,5 @@ class WrongCat : public WrongAnimal
 		~WrongCat( void );
 
 		void	makeSound() const;
+
 };

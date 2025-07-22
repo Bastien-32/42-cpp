@@ -6,7 +6,7 @@
 /*   By: badal-la <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/17 14:52:41 by badal-la          #+#    #+#             */
-/*   Updated: 2025/07/18 14:47:51 by badal-la         ###   ########.fr       */
+/*   Updated: 2025/07/22 15:08:44 by badal-la         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,6 +105,7 @@ void	Character::equip( AMateria* m )
 			return ;
 		}
 	}
+	delete m;
 }
 
 void	Character::unequip( int idx )

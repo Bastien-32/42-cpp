@@ -6,7 +6,7 @@
 /*   By: badal-la <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/17 11:03:40 by badal-la          #+#    #+#             */
-/*   Updated: 2025/07/17 22:55:26 by badal-la         ###   ########.fr       */
+/*   Updated: 2025/07/22 14:23:53 by badal-la         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ class AMateria
 
 		AMateria(std::string const & type);
 
-		std::string const & getType( void ) const; //Returns the materia type
+		std::string const & getType( void ) const;
 		virtual AMateria* clone( void ) const = 0;
 		virtual void use( ICharacter& target );
 
