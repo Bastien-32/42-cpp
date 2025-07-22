@@ -6,7 +6,7 @@
 /*   By: badal-la <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/10 15:07:29 by badal-la          #+#    #+#             */
-/*   Updated: 2025/07/21 15:26:16 by badal-la         ###   ########.fr       */
+/*   Updated: 2025/07/22 09:33:15 by badal-la         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ FragTrap::FragTrap( void ) :
 
 /* ---------------------------- Copy constructor ---------------------------- */
 
-// Cela appelle le constructeur de copie de ClapTrap, qui lui, a le droit d’initialiser _name _hitPoints etc
 FragTrap::FragTrap( const FragTrap& other ) : ClapTrap(other)
 {
 	std::cout << "FragTrap Copy constructor called" << std::endl;
@@ -71,6 +70,8 @@ FragTrap::FragTrap( std::string name ) :
 	_energyPoints = 100;
 	_attackDamage = 30;
 }
+
+/* --------------------------------- Method --------------------------------- */
 
 void	FragTrap::highFivesGuys( void )
 {

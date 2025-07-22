@@ -6,7 +6,7 @@
 /*   By: badal-la <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/10 15:07:29 by badal-la          #+#    #+#             */
-/*   Updated: 2025/07/21 15:18:54 by badal-la         ###   ########.fr       */
+/*   Updated: 2025/07/22 09:29:17 by badal-la         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,8 @@ ScavTrap::ScavTrap( void ) :
 
 /* ---------------------------- Copy constructor ---------------------------- */
 
-// Cela appelle le constructeur de copie de ClapTrap, qui lui, a le droit d’initialiser _name _hitPoints etc
-ScavTrap::ScavTrap( const ScavTrap& other ) : ClapTrap(other)
+ScavTrap::ScavTrap( const ScavTrap& other ) :
+	ClapTrap(other)
 {
 	std::cout << "ScavTrap Copy constructor called" << std::endl;
 }
@@ -39,7 +39,7 @@ ScavTrap::ScavTrap( const ScavTrap& other ) : ClapTrap(other)
 
 ScavTrap&	ScavTrap::operator=( const ScavTrap &other )
 {
-	std::cout << "ScavTrap Assignment operator called" << std::endl;
+	std::cout << "ScavTrap Copy Assignment operator called" << std::endl;
 	if ( this != &other )
 	{
 		ClapTrap::operator=( other );
@@ -74,7 +74,7 @@ ScavTrap::ScavTrap( std::string name ) :
 
 /* --------------------------------- Methods -------------------------------- */
 
-void	ScavTrap::guardGate()
+void	ScavTrap::guardGate( void )
 {
 	std::cout << "ScavTrap " << _name << " has entered in Gate Keeper mode!" << std::endl;
 }

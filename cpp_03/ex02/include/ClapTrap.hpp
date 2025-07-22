@@ -6,7 +6,7 @@
 /*   By: badal-la <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/09 13:58:08 by badal-la          #+#    #+#             */
-/*   Updated: 2025/07/15 22:03:05 by badal-la         ###   ########.fr       */
+/*   Updated: 2025/07/22 09:30:35 by badal-la         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,6 @@ class ClapTrap
 		ClapTrap( const ClapTrap& other );
 		ClapTrap&	operator=( const ClapTrap& other );
 		virtual ~ClapTrap( void );
-		// Le destructeur est virtual pour garantir la destruction complète
-		// d’un objet dérivé via un pointeur vers ClapTrap
 
 		ClapTrap( std::string name );
 

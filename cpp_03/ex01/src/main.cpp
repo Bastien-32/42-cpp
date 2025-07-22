@@ -6,7 +6,7 @@
 /*   By: badal-la <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/09 13:57:57 by badal-la          #+#    #+#             */
-/*   Updated: 2025/07/21 15:21:12 by badal-la         ###   ########.fr       */
+/*   Updated: 2025/07/22 09:24:30 by badal-la         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,8 @@ int	main(void)
 	ScavTrap	player2("Dan");
 	ClapTrap	player3;
 	ScavTrap	player4;
-	
+	std::cout << std::endl;
+
 	player4 = player2;
 	std::cout << std::endl;
 

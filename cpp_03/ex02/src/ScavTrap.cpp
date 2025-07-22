@@ -6,7 +6,7 @@
 /*   By: badal-la <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/10 15:07:29 by badal-la          #+#    #+#             */
-/*   Updated: 2025/07/16 14:28:26 by badal-la         ###   ########.fr       */
+/*   Updated: 2025/07/22 09:33:41 by badal-la         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ ScavTrap::ScavTrap( void ) :
 
 /* ---------------------------- Copy constructor ---------------------------- */
 
-// Cela appelle le constructeur de copie de ClapTrap, qui lui, a le droit d’initialiser _name _hitPoints etc
 ScavTrap::ScavTrap( const ScavTrap& other ) : ClapTrap(other)
 {
 	std::cout << "ScavTrap Copy constructor called" << std::endl;

@@ -6,7 +6,7 @@
 /*   By: badal-la <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/09 13:29:05 by badal-la          #+#    #+#             */
-/*   Updated: 2025/07/16 14:23:20 by badal-la         ###   ########.fr       */
+/*   Updated: 2025/07/22 09:27:47 by badal-la         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,6 @@ ClapTrap&	ClapTrap::operator=( const ClapTrap& other )
 
 /* ---------------------------- Copy constructor ---------------------------- */
 
-// cette formulation est valable si l'opérateur = est défini
 ClapTrap::ClapTrap( const ClapTrap& other )
 {
 	std::cout << "ClapTrap Copy constructor called" << std::endl;
@@ -96,7 +95,6 @@ unsigned int	ClapTrap::getAttackDamage( void ) const
 	return (_attackDamage);
 }
 
-
 /* --------------------------------- setters -------------------------------- */
 
 void	ClapTrap::setName( std::string name)
@@ -146,7 +144,6 @@ void	ClapTrap::attack(const std::string& target)
 
 void	ClapTrap::beRepaired(unsigned int amount)
 {
-
 	if (_energyPoints == 0)
 	{
 		std::cout << "ClapTrap " << _name <<  " is out of energy - Repair denied!" << std::endl;
@@ -165,6 +162,7 @@ void	ClapTrap::beRepaired(unsigned int amount)
 				<< " hit points"
 				<< std::endl;
 }
+
 void	ClapTrap::takeDamage(unsigned int amount)
 {
 	if (_hitPoints < amount)
