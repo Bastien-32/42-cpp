@@ -6,7 +6,7 @@
 /*   By: badal-la <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/16 12:07:50 by badal-la          #+#    #+#             */
-/*   Updated: 2025/07/21 18:05:54 by badal-la         ###   ########.fr       */
+/*   Updated: 2025/07/22 13:40:08 by badal-la         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,9 @@ DiamondTrap::DiamondTrap( void ) :
 /* ---------------------------- Copy constructor ---------------------------- */
 
 DiamondTrap::DiamondTrap( const DiamondTrap& other ) :
-	ClapTrap(other._name + "clap_name")
+	ClapTrap(other._name + "clap_name"),
+	FragTrap(),
+	ScavTrap()
 {
 	std::cout << "DiamondTrap Copy constructor called" << std::endl;
 	_name = other._name;
@@ -82,7 +84,6 @@ DiamondTrap::DiamondTrap( std::string name ) :
 
 /* --------------------------------- getters -------------------------------- */
 
-
 std::string	DiamondTrap::getName( void ) const
 {
 	return (_name);
@@ -90,10 +91,10 @@ std::string	DiamondTrap::getName( void ) const
 
 /* --------------------------------- Methods -------------------------------- */
 
-void	DiamondTrap::attack( const std::string& target )
-{
-	ScavTrap::attack(target);
-}
+// void	DiamondTrap::attack( const std::string& target )
+// {
+// 	ScavTrap::attack(target);
+// }
 
 void	DiamondTrap::whoAmI()
 {

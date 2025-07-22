@@ -6,7 +6,7 @@
 /*   By: badal-la <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/16 17:03:57 by badal-la          #+#    #+#             */
-/*   Updated: 2025/07/16 17:57:45 by badal-la         ###   ########.fr       */
+/*   Updated: 2025/07/22 10:20:12 by badal-la         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,5 +26,5 @@ class Cat : public Animal
 		Cat&	operator=( const Cat& other );
 		~Cat( void );
 
-		void	makeSound() const;
+		void	makeSound( void ) const;
 };

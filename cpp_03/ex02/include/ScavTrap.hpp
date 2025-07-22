@@ -6,7 +6,7 @@
 /*   By: badal-la <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/10 15:06:41 by badal-la          #+#    #+#             */
-/*   Updated: 2025/07/16 14:51:07 by badal-la         ###   ########.fr       */
+/*   Updated: 2025/07/22 13:19:22 by badal-la         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,5 +28,8 @@ class ScavTrap : public ClapTrap
 		~ScavTrap( void );
 
 		ScavTrap( std::string name );
+
+		void	attack(const std::string& target);
+		void	guardGate( void );
 
 };

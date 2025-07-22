@@ -32,7 +32,7 @@ class Animal
 		virtual ~Animal( void );
 
 		std::string		getType( void ) const;
-		virtual void	makeSound() const;
-		virtual Brain&	getBrain() const;
+		virtual void	makeSound( void ) const;
+		virtual Brain&	getBrain( void ) const;
 
 };

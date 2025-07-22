@@ -80,7 +80,7 @@ Brain&	Dog::getBrain( void ) const
 /* --------------------------------- setters -------------------------------- */
 /* --------------------------------- Methods -------------------------------- */
 
-void	Dog::makeSound() const
+void	Dog::makeSound( void ) const
 {
 	std::cout << type << " said : Waouff..." << std::endl;
 }

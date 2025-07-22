@@ -61,7 +61,7 @@ std::string	Animal::getType( void ) const
 	return (type);
 }
 
-Brain& Animal::getBrain() const
+Brain& Animal::getBrain( void ) const
 {
 	std::cerr << "This animal has no brain" << std::endl;
 	std::exit(1);
@@ -70,7 +70,7 @@ Brain& Animal::getBrain() const
 /* --------------------------------- setters -------------------------------- */
 /* --------------------------------- Methods -------------------------------- */
 
-void	Animal::makeSound() const
+void	Animal::makeSound( void ) const
 {
 	std::cout << type << " said : ..." << std::endl;
 }

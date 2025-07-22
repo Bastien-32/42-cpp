@@ -6,7 +6,7 @@
 /*   By: badal-la <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/09 13:57:57 by badal-la          #+#    #+#             */
-/*   Updated: 2025/07/21 18:30:21 by badal-la         ###   ########.fr       */
+/*   Updated: 2025/07/22 14:01:57 by badal-la         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,16 +33,16 @@ int	main(void)
 			<< " --- attack damage = " << player2.getAttackDamage() << std::endl;
 	std::cout << std::endl;
 
-	player1.attack(player2.getName());
+	player2.attack(player1.getName());
 	std::cout << std::endl;
 
-	ScavTrap player3;
-	player3.attack(player2.getName());
+	player2.guardGate();
+	player2.highFivesGuys();
 	std::cout << std::endl;
 
 	player1.whoAmI();
 	std::cout << std::endl;
-	
+
 	player2.whoAmI();
 	std::cout << std::endl;
 

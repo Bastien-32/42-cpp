@@ -6,7 +6,7 @@
 /*   By: badal-la <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/16 12:06:33 by badal-la          #+#    #+#             */
-/*   Updated: 2025/07/21 17:55:35 by badal-la         ###   ########.fr       */
+/*   Updated: 2025/07/22 14:01:12 by badal-la         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,9 @@ class DiamondTrap : public FragTrap, public ScavTrap
 
 		std::string		getName( void ) const;
 
-		void			attack( const std::string& target );
+		using			ScavTrap::attack;
 		void			whoAmI();
+		using			ScavTrap::guardGate;
+		using			FragTrap::highFivesGuys;
 
 };

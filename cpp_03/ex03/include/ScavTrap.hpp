@@ -6,7 +6,7 @@
 /*   By: badal-la <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/10 15:06:41 by badal-la          #+#    #+#             */
-/*   Updated: 2025/07/21 18:21:57 by badal-la         ###   ########.fr       */
+/*   Updated: 2025/07/22 13:14:32 by badal-la         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ class ScavTrap : virtual public ClapTrap
 		unsigned int	getScavTrapAttackDamage( void ) const;
 		std::string		getScavTrapName( void ) const;
 
-		void			attack( const std::string& target );
+		void			attack(const std::string& target);
+		void			guardGate( void );
 
 };

@@ -6,7 +6,7 @@
 /*   By: badal-la <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/16 17:03:57 by badal-la          #+#    #+#             */
-/*   Updated: 2025/07/16 17:58:31 by badal-la         ###   ########.fr       */
+/*   Updated: 2025/07/22 10:20:21 by badal-la         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,5 +26,5 @@ class Dog : public Animal
 		Dog&	operator=( const Dog& other );
 		~Dog( void );
 
-		void	makeSound() const;
+		void	makeSound( void ) const;
 };

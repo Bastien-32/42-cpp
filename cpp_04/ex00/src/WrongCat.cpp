@@ -59,7 +59,7 @@ WrongCat::~WrongCat( void )
 /* --------------------------------- setters -------------------------------- */
 /* --------------------------------- Methods -------------------------------- */
 
-void	WrongCat::makeSound() const
+void	WrongCat::makeSound( void ) const
 {
 	std::cout << type << " said : Miaouw..." << std::endl;
 }

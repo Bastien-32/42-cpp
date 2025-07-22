@@ -63,7 +63,7 @@ std::string	Animal::getType( void ) const
 /* --------------------------------- setters -------------------------------- */
 /* --------------------------------- Methods -------------------------------- */
 
-void	Animal::makeSound() const
+void	Animal::makeSound( void ) const
 {
 	std::cout << type << " said : ..." << std::endl;
 }

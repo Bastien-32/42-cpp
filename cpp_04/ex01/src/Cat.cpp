@@ -81,7 +81,7 @@ Brain&	Cat::getBrain( void ) const
 /* --------------------------------- setters -------------------------------- */
 /* --------------------------------- Methods -------------------------------- */
 
-void	Cat::makeSound() const
+void	Cat::makeSound( void ) const
 {
 	std::cout << type << " said : Miaouw..." << std::endl;
 }

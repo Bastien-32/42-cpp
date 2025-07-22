@@ -6,7 +6,7 @@
 /*   By: badal-la <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/10 15:07:29 by badal-la          #+#    #+#             */
-/*   Updated: 2025/07/22 09:29:17 by badal-la         ###   ########.fr       */
+/*   Updated: 2025/07/22 11:17:57 by badal-la         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,29 @@ ScavTrap::ScavTrap( std::string name ) :
 }
 
 /* --------------------------------- Methods -------------------------------- */
+
+void	ScavTrap::attack(const std::string& target)
+{
+	if (_energyPoints == 0)
+	{
+		std::cout << "ScavTrap " << _name <<  " is out of energy - Attack denied!" << std::endl;
+		return ;
+	}
+	if (_hitPoints <= 0)
+	{
+		std::cout << "ScavTrap " << _name <<  " is out of hit points - Attack denied!" << std::endl;
+		return ;
+	}
+	_energyPoints--;
+	std::cout << "ScavTrap "
+				<< _name
+				<< " attacks "
+				<< target
+				<< ", causing "
+				<< _attackDamage
+				<< " points of damage!"
+				<< std::endl;
+}
 
 void	ScavTrap::guardGate( void )
 {

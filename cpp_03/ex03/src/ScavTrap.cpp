@@ -6,7 +6,7 @@
 /*   By: badal-la <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/10 15:07:29 by badal-la          #+#    #+#             */
-/*   Updated: 2025/07/21 18:24:20 by badal-la         ###   ########.fr       */
+/*   Updated: 2025/07/22 13:57:35 by badal-la         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@ ScavTrap::ScavTrap( void ) :
 	_hitPoints = 100;
 	_energyPoints = 50;
 	_attackDamage = 20;
-	_scavTrapName = "ScavTrap " + _name;
 }
 
 /* ---------------------------- Copy constructor ---------------------------- */
@@ -112,4 +111,9 @@ void	ScavTrap::attack( const std::string& target )
 				<< getScavTrapAttackDamage()
 				<< " points of damage!"
 				<< std::endl;
+}
+
+void	ScavTrap::guardGate( void )
+{
+	std::cout << "ScavTrap " << _name << " has entered in Gate Keeper mode!" << std::endl;
 }
