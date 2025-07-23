@@ -6,7 +6,7 @@
 /*   By: badal-la <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/23 10:37:09 by badal-la          #+#    #+#             */
-/*   Updated: 2025/07/23 14:24:17 by badal-la         ###   ########.fr       */
+/*   Updated: 2025/07/23 16:58:26 by badal-la         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,6 @@
 class Intern
 {
 
-	private:
-
 	public:
 
 		Intern( void );
@@ -36,4 +34,5 @@ class Intern
 		AForm* robotomyF( std::string target );
 		AForm* presidentialF( std::string target );
 		AForm* shrubberyF( std::string target );
+
 };

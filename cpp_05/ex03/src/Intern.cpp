@@ -6,7 +6,7 @@
 /*   By: badal-la <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/23 10:38:03 by badal-la          #+#    #+#             */
-/*   Updated: 2025/07/23 14:37:51 by badal-la         ###   ########.fr       */
+/*   Updated: 2025/07/23 16:59:39 by badal-la         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ AForm*	Intern::makeForm( std::string formName,std::string target )
 			return ((this->*functions[i])(target));
 		}
 	}
-	std::cerr << "Intern cannot creates " << formName << "!" << std::endl;
+	std::cerr << "Intern cannot creates " << formName << std::endl;
 	return (NULL);
 }
 
