@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ShrubberyCreationForm.hpp                                          :+:      :+:    :+:   */
+/*   ShrubberyCreationForm.hpp                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: badal-la <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/19 14:31:21 by badal-la          #+#    #+#             */
-/*   Updated: 2025/07/19 14:55:03 by badal-la         ###   ########.fr       */
+/*   Created: 2025/07/23 14:22:52 by badal-la          #+#    #+#             */
+/*   Updated: 2025/07/23 14:22:55 by badal-la         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,6 @@ class ShrubberyCreationForm : public AForm
 
 		ShrubberyCreationForm( const std::string target );
 
-		void	execute( Bureaucrat const & executor ) const;
+		void	execute( Bureaucrat const& b ) const;
 
 };

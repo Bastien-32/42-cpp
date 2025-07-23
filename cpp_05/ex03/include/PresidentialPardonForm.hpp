@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   PresidentialPardonForm.hpp                                          :+:      :+:    :+:   */
+/*   PresidentialPardonForm.hpp                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: badal-la <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/19 14:31:21 by badal-la          #+#    #+#             */
-/*   Updated: 2025/07/19 14:55:03 by badal-la         ###   ########.fr       */
+/*   Created: 2025/07/23 14:22:36 by badal-la          #+#    #+#             */
+/*   Updated: 2025/07/23 14:22:37 by badal-la         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,6 @@ class PresidentialPardonForm : public AForm
 
 		PresidentialPardonForm( const std::string target );
 
-		void	execute( Bureaucrat const & executor ) const;
+		void	execute( Bureaucrat const& b ) const;
 
 };

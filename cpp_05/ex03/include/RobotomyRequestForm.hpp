@@ -6,7 +6,7 @@
 /*   By: badal-la <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/19 18:39:17 by badal-la          #+#    #+#             */
-/*   Updated: 2025/07/19 18:39:18 by badal-la         ###   ########.fr       */
+/*   Updated: 2025/07/22 18:01:55 by badal-la         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,6 @@ class RobotomyRequestForm : public AForm
 
 		RobotomyRequestForm( const std::string target );
 
-		void	execute( Bureaucrat const & executor ) const;
+		void	execute( Bureaucrat const& b ) const;
 
 };

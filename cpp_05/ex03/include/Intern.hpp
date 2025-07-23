@@ -1,30 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Intern.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: badal-la <marvin@42.fr>                    +#+  +:+       +#+        */
-
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/18 17:29:09 by badal-la          #+#    #+#             */
-/*   Updated: 2025/07/19 19:07:01 by badal-la         ###   ########.fr       */
+/*   Created: 2025/07/23 10:37:09 by badal-la          #+#    #+#             */
+/*   Updated: 2025/07/23 14:24:17 by badal-la         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/Bureaucrat.hpp"
+#pragma once
+
 #include "../include/AForm.hpp"
-#include "../include/ShrubberyCreationForm.hpp"
 #include "../include/RobotomyRequestForm.hpp"
 #include "../include/PresidentialPardonForm.hpp"
-#include "../include/Intern.hpp"
+#include "../include/ShrubberyCreationForm.hpp"
 
-int main(void)
+#include <iostream>
+
+class Intern
 {
-	Intern someRandomIntern;
-	AForm* rrf;
 
-	rrf = someRandomIntern.makeForm("robotomy request", "Bender");
-	std::cout << *rrf << std::endl;
-	rrf = someRandomIntern.makeForm("bullshit", "Bender");
-	std::cout << *rrf << std::endl;
-}
+	private:
+
+	public:
+
+		Intern( void );
+		Intern( const Intern& other );
+		Intern& operator=( const Intern& other );
+		~Intern( void );
+
+		AForm*	makeForm( std::string formName, std::string target );
+
+		AForm* robotomyF( std::string target );
+		AForm* presidentialF( std::string target );
+		AForm* shrubberyF( std::string target );
+};

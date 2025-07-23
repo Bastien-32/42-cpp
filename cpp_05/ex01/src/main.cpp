@@ -6,7 +6,7 @@
 /*   By: badal-la <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/18 17:29:09 by badal-la          #+#    #+#             */
-/*   Updated: 2025/07/22 17:34:53 by badal-la         ###   ########.fr       */
+/*   Updated: 2025/07/23 09:34:42 by badal-la         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,13 @@
 
 int main(void)
 {
-	Bureaucrat	a("Astérix", 10);
-	Bureaucrat	b("Obélix", 51);
+	Bureaucrat	a("Astérix", 14);
+	Bureaucrat	b("Obélix", 15);
 	Form		d("Laissez passer A-38", 14, 5);
 	std::cout << a << std::endl;
 	std::cout << b << std::endl;
 	std::cout << d << std::endl;
 
-	a.signForm(d);
 	try
 	{
 		b.signForm(d);
@@ -31,5 +30,9 @@ int main(void)
 	{
 		std::cerr << "Exception caught 1: " << e.what() << std::endl;
 	}
+	std::cout << d << std::endl;
+
+	a.signForm(d);
+	std::cout << d << std::endl;
 
 }

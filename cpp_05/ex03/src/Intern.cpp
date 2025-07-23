@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.cpp                                            :+:      :+:    :+:   */
+/*   Intern.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: badal-la <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/22 15:14:03 by badal-la          #+#    #+#             */
-/*   Updated: 2025/07/23 10:21:11 by badal-la         ###   ########.fr       */
+/*   Created: 2025/07/23 10:38:03 by badal-la          #+#    #+#             */
+/*   Updated: 2025/07/23 14:37:51 by badal-la         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/Dog.hpp"
+#include "../include/Intern.hpp"
 
 /* -------------------------------------------------------------------------- */
 /*                            Canonical (mandatory)                           */
@@ -18,37 +18,28 @@
 
 /* --------------------------- Default Constructor -------------------------- */
 
-Dog::Dog( void )
-{
-	std::cout << "Dog Default constructor called" << std::endl;
-	type = "Dog";
-}
+Intern::Intern( void )
+{}
 
-/* ------------------------ Assignation operator copy ----------------------- */
+/* ------------------------ Copy assignment operator ------------------------ */
 
-Dog&	Dog::operator=( const Dog& other )
+Intern&	Intern::operator=( const Intern& other )
 {
-	std::cout << "Dog Assignation operator copy called" << std::endl;
-	if ( this != &other )
-		type = other.type;
-	return ( *this );
+	(void)other;
+	return (*this);
 }
 
 /* ---------------------------- Copy constructor ---------------------------- */
 
-Dog::Dog( const Dog& other ) :
-	Animal(other)
+Intern::Intern( const Intern& other )
 {
-	std::cout << "Dog Copy constructor called" << std::endl;
-	*this = other;
+	(void)other;
 }
 
 /* ------------------------------- Destructor ------------------------------- */
 
-Dog::~Dog( void )
-{
-	std::cout << "Dog destructor called" << std::endl;
-}
+Intern::~Intern( void )
+{}
 
 /* -------------------------------------------------------------------------- */
 /*                                not mandatory                               */
@@ -59,9 +50,39 @@ Dog::~Dog( void )
 /* --------------------------------- setters -------------------------------- */
 /* --------------------------------- Methods -------------------------------- */
 
-void	Dog::makeSound( void ) const
+AForm*	Intern::makeForm( std::string formName,std::string target )
 {
-	std::cout << type << " said : Wouaff..." << std::endl;
+	std::string	formToCreate[3] = {"robotomy request",
+									"presidential pardon request",
+									"shrubbery creation request"};
+	AForm*		(Intern::*functions[3])(std::string target) = {&Intern::robotomyF,
+																&Intern::presidentialF,
+																&Intern::shrubberyF};
+	for(int i = 0; i < 3; i++)
+	{
+		if (formToCreate[i] == formName)
+		{
+			std::cout << "Intern creates " << formName << std::endl;
+			return ((this->*functions[i])(target));
+		}
+	}
+	std::cerr << "Intern cannot creates " << formName << "!" << std::endl;
+	return (NULL);
+}
+
+AForm* Intern::robotomyF( std::string target )
+{
+	return (new RobotomyRequestForm(target));
+}
+
+AForm* Intern::presidentialF( std::string target )
+{
+	return (new PresidentialPardonForm(target));
+}
+
+AForm* Intern::shrubberyF( std::string target )
+{
+	return (new ShrubberyCreationForm(target));
 }
 
 /* -------------------------------------------------------------------------- */

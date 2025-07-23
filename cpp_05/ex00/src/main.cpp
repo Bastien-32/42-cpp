@@ -6,7 +6,7 @@
 /*   By: badal-la <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/18 17:29:09 by badal-la          #+#    #+#             */
-/*   Updated: 2025/07/22 17:30:58 by badal-la         ###   ########.fr       */
+/*   Updated: 2025/07/23 09:42:06 by badal-la         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,14 +28,18 @@ int main(void)
 
 	try
 	{
-		Bureaucrat	e("Bob", 2);
-		e.incrementGrade();
-		e.incrementGrade();
+		Bureaucrat	en("Bob", 2);
+		en.incrementGrade();
+		std::cout << en << std::endl;
+		en.incrementGrade();
+		std::cout << en << std::endl;
 	}
 	catch (const std::exception& e)
 	{
 		std::cerr << "Exception caught 1: " << e.what() << std::endl;
 	}
+	
+		std::cout << std::endl;
 
 	try
 	{

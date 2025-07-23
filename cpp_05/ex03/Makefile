@@ -6,6 +6,7 @@ CFLAGS = -Wall -Wextra -Werror -std=c++98 -Wshadow
 SRC =	src/main.cpp \
 		src/AForm.cpp \
 		src/Bureaucrat.cpp \
+		src/Intern.cpp \
 		src/PresidentialPardonForm.cpp \
 		src/RobotomyRequestForm.cpp \
 		src/ShrubberyCreationForm.cpp

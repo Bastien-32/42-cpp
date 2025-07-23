@@ -19,12 +19,11 @@
 
 int main(void)
 {
+	std::cout << "---------------------- Test Shrubbery method ----------------------" << std::endl;
+
 	Bureaucrat	a("Astérix", 10);
 	Bureaucrat	b("Obélix", 138);
 	ShrubberyCreationForm c("pine_tree");
-
-	std::cout << std::endl;
-	std::cout << "---------------------- Test Shrubbery method ----------------------" << std::endl;
 
 	std::cout << c << std::endl;
 	b.executeForm(c);
