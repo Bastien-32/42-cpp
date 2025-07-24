@@ -1,0 +1,67 @@
+CPP_00
+	ex00
+		decouverte bibliotheque <iostream>
+		std::cout  << "..." << std::endl
+		str.length()
+		std::toupper() et syntaxe cast 
+
+	ex01
+		std::getline(std::cin, line);
+		creation des classes(private/public)
+		std::setw(10) -> formater largeur tableau
+		str.substr(0, 9) + '.' -> reduire nombre caracteres pour affichage
+		encapsulation (attributs en private accessibles depuis methodes get et set publiques)
+		tableau statique (contacts[8]) donc pas d'alloc dynamique
+
+	ex02
+		bibliotheque <ctime> recuperation date/heure :
+				time_t now = time(NULL);
+				tm *ltm = gmtime(&now);
+				std::cout << "[" << 1900 + ltm->tm_year << ... << "] ";
+		variables statiques a declarer dans le .cpp
+
+CPP_01
+	ex00
+		utilisation 
+			constructeur : Permet d'initialiser un objet avec valeur(s) spécifique(s) dès sa création
+			destructeur : Detruit un objet a la fin de l'execution du programme
+		allocation  automatique : Zombie z("Bob")
+		allocation dynamique : Zombie* z = newZombie("Bob")
+			> cree un objet durable accessible via son adresse pointee par z.
+			> le detruire manuellement (delete z) lorsqu'on en a plus besoin
+		si un zombie est cree dans une fonction de facon automatique il est detruit lorsqu'on sortira de cette fonction
+
+	ex01
+		allocation dynamique de tableau d'objet : horde = new Zombie[N];
+			> alloue N zombies avec le constructeur par defaut (aucune info sur les zombies renseignees(pas de nom,...))
+			> le detruire manuellement (delete[] Zombie) lorsqu'on en a plus besoin
+
+	ex02
+		pointeur : adresse d’une variable et peut être redirigé vers une autre ou être nul (nullptr),
+					mais nécessite un déréférencement (*ptr) pour accéder à la valeur.
+		reference : alias constant vers une variable existante.
+					Elle ne peut pas être changée pour viser autre chose, ni être null.
+					(permet de créer un deuxième nom pour une même variable 
+					si la valeur de cette variable est modifiée via l’un des deux noms,
+					le changement est visible par l’autre également.)
+
+	ex03
+		implementer des classes avec des attributs  passes par references ou pointeurs
+		Si l'attribut est passe par reference, sa valeur doit etre initialisee lors de la construction ( une ref ne peut pas etre nulle)
+		Si l'attribut est passe par pointeur, sa valeur n'a pas besoin d'etre initialisee lors de la construction et peut donc etre nulle
+
+	ex04
+		bibliotheque <fstream> pour lecture/ecriture d'objets
+		std::ifstream inputFile(argv[1]); -> Création d’un objet inputFile permettant de lire le fichier indiqué par argv[1]
+			-> xx.is_open() : vérifie si le fichier a bien été ouvert avec succès. Ne vérifie pas s’il est en bon état ou lisible, juste s’il est ouvert
+			-> xx.good() : vérifie si le flux de fichier est dans un état valide.
+		std::ofstream outputFile(file_replace.c_str()); (file_replace = nom de l'objet a creer)
+			-> crée un objet outputFile de type std::ofstream (fichier de sortie) ouvert en écriture dans le fichier dont le nom est contenu dans la variable file_replace.
+			-> file_replace.c_str() caste std::string en const char * car ofstream prend en parametre ce dernier type
+		fermer manuellement les objets en lecture/ecriture avant de terminer le programme (inputFile.close() et outputFile.close())
+		verifier si l'objet a ouvrir n'est pas un dossier avec bibibliotheque <sys/stat.h>:
+			stat(path, &path_stat) remplit la structure path_stat avec des infos sur le fichier ou dossier pointé par path.
+			S_ISDIR(path_stat.st_mode) vérifie si l’élément désigné est un répertoire (dossier).
+
+	ex05
+		
