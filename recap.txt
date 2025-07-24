@@ -83,3 +83,7 @@ CPP_02
 			-> constructeur par copie : Crée un nouvel objet en copiant proprement un autre, champ par champ.
 			-> Assignation par operateur de copie (=) : Permet de copier le contenu d’un objet vers un autre déjà existant, tout en évitant les fuites mémoire ou effets indésirables.
 			-> destructeur : Libère proprement les ressources (s’il y en a) à la destruction de l’objet.
+
+	ex02
+		manipulation de bit pour creation des float
+		surcharges d'operateurs
