@@ -64,4 +64,22 @@ CPP_01
 			S_ISDIR(path_stat.st_mode) vérifie si l’élément désigné est un répertoire (dossier).
 
 	ex05
-		
+		Création d’un tableau de pointeurs sur méthodes membres :
+			-> syntaxe → [type de retour] (NomClasse::*)([arguments])
+			-> exemple → void (Harl::*functions[])()
+		Paramètres passés : les adresses des méthodes membres à appeler, sous la forme :
+			-> { &NomClasse::methode1, &NomClasse::methode2, ... }
+
+	ex06
+		outil switch case default
+			-> switch (int ou char) - case [1,2,3,...,a,b,c,...]: Permet de tester une variable entière (souvent int ou char) contre plusieurs valeurs précises.
+			-> break : essentiel pour éviter l’effet de “chute” (fallthrough). Sans break, le programme exécute aussi tous les case suivants, même si leur condition ne correspond pas.
+			-> default : Bloc exécuté si aucun case ne correspond
+
+CPP_02
+	ex01
+		utilisation Forme canonique
+			-> constructeur par defaut : Initialise un objet sans argument, souvent avec une valeur neutre ou par défaut.
+			-> constructeur par copie : Crée un nouvel objet en copiant proprement un autre, champ par champ.
+			-> Assignation par operateur de copie (=) : Permet de copier le contenu d’un objet vers un autre déjà existant, tout en évitant les fuites mémoire ou effets indésirables.
+			-> destructeur : Libère proprement les ressources (s’il y en a) à la destruction de l’objet.

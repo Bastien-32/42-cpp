@@ -6,7 +6,7 @@
 /*   By: badal-la <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/01 12:19:59 by badal-la          #+#    #+#             */
-/*   Updated: 2025/07/01 15:01:59 by badal-la         ###   ########.fr       */
+/*   Updated: 2025/07/24 16:29:10 by badal-la         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int main(int argc, char **argv)
 	if (argc != 2)
 	{
 		std::cout << BRED "Usage : ./harlFilter [level]" RESET << std::endl;
-		std::cout << FBLACK << "Level valid arguments : DEBUG, INFO, WARNING, ERROR" RESET << std::endl;
+		std::cout << FWHITE << "Level valid arguments : DEBUG, INFO, WARNING, ERROR" RESET << std::endl;
 		return (1);
 	}
 	harl.complain(argv[1]);
