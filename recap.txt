@@ -77,13 +77,74 @@ CPP_01
 			-> default : Bloc exécuté si aucun case ne correspond
 
 CPP_02
-	ex01
+	ex00
 		utilisation Forme canonique
 			-> constructeur par defaut : Initialise un objet sans argument, souvent avec une valeur neutre ou par défaut.
 			-> constructeur par copie : Crée un nouvel objet en copiant proprement un autre, champ par champ.
 			-> Assignation par operateur de copie (=) : Permet de copier le contenu d’un objet vers un autre déjà existant, tout en évitant les fuites mémoire ou effets indésirables.
 			-> destructeur : Libère proprement les ressources (s’il y en a) à la destruction de l’objet.
 
+	ex01
+		manipulation de bit pour stockage/transformation des float - précision 1/256 pour float(32 bits)
+			-> int : decalage de 8 bits bruts ( 8 zeros vers la gauche) (_rawBits = entier << 8)
+			-> float : on decale les bits de 8 positions et on arrondi (par exemple partie entiere : 110100101 - partie decimale :10010011 apres decalage 11010010110010011) (_rawBits = roundf(flotant * 256));
+		assignation d'un attribut constant dans le .cpp
+
 	ex02
-		manipulation de bit pour creation des float
 		surcharges d'operateurs
+
+	ex03
+		Exercice d'application des notions du module.
+		Objectif de l'exercice : trouver un point dans un triangle.
+
+CPP_03
+	ex00
+		Mise en situation des tous les exercices précédents
+			forme canonique
+			methodes
+			setters
+			getters
+
+	ex01
+		🧬 Héritage
+			class ScavTrap : public ClapTrap
+			ScavTrap hérite des attributs et méthodes publiques/protégées de ClapTrap.
+				•	Lors de la construction, ClapTrap est construit en premier, puis ScavTrap.
+				•	Pour garantir une destruction correcte via un pointeur de base, le destructeur de ClapTrap doit être virtual.
+		🧠 Polymorphisme dynamique
+			Une méthode marquée virtual permet d’être surchargée dans les classes enfants,
+			et le programme appelle automatiquement la version la plus dérivée à l’exécution.
+				•	La méthode peut être déclarée virtual dans le parent, même si elle n’est pas encore définie.
+				•	Cela permet de manipuler des objets enfants via des pointeurs ou références de classe de base tout en conservant leur comportement propre.
+
+	ex02
+		Idem ex01, on cree une seconde classe FragTrap qui hérite de ClapTrap mais avec des fonctionnalités différentes de ScavTrap
+
+	ex03
+		Héritage multiple
+			class DiamondTrap : public ScavTrap, public FragTrap
+			DiamondTrap hérite deux fois indirectement de ClapTrap (via ScavTrap et FragTrap), ce qui crée une ambiguïté sur les membres hérités.
+			Cela oblige à spécifier le chemin d’accès pour éviter les collisions :
+				ScavTrap::attack(target);
+
+CPP_04
+	ex00
+		héritage et polymorphisme dynamique pour que la fonction makesound soit adaptée a la bonne instance d'animal.
+		effet de l'utilisation de virtual avec la classe wronganimal qui n'utilise pas volontairement void
+			resultat, la fonction de la classe animal et directement utilisé donc les déclarations de cette fonction dans les enfants n'est pas appelé et utilisée.
+
+	ex01
+		utilisation d'une classe (brain) en attributs d'une autre classe
+		initialisation et implémentation de celle-ci 
+
+	ex02
+		L’exercice montre comment intégrer une classe (Brain) comme attribut non-pointeur dans une autre (Dog, Cat)
+		et comment gérer proprement sa construction, destruction et copie, notamment via la forme canonique.
+		Brain est composée dans chaque Dog ou Cat :
+			appeler son constructeur dans le constructeur du Dog ou Cat
+			gérer sa copie profonde dans le constructeur de copie et l’opérateur d’affectation
+			gérer la mémoire (delete)
+			bien respecter l’ordre de construction/destruction
+
+	ex03
+		
