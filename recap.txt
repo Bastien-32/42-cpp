@@ -200,3 +200,16 @@ CPP_05
 			Évite l'usage de if/else à foison
 		Attention, les méthodes doivent t'appartenir à la classe dans laquelle on utilise le tableau sur pointeur.
 		Il faut donc créer les méthodes nécessaires pour exécuter des méthodes déclarés dans d'autres classes.
+
+CPP_06
+	ex00
+		apprentissage des casts : static_cast<T>(d)
+		précision des décimales dans les float et doubles : std::cout << std::fixed << std::setprecision(1);
+		utilisation des fonctions std::stoi,stof,stdod pour convertir une string en int, float ou double
+		définition de scalaire : 
+			•	Un scalaire est une valeur simple, à une dimension, par opposition à un vecteur, une matrice, une structure, etc.
+			•	En C++, on appelle types scalaires : char, int, float, double (mais aussi bool, nullptr_t, les pointeurs, etc.).
+		Ici, le but est de convertir un scalaire d’un type à un autre (par exemple : "42" → char ' * ', int 42, float 42.0f, double 42.0).
+
+	ex01
+		

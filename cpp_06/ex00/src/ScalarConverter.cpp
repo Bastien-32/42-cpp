@@ -6,19 +6,29 @@
 /*   By: badal-la <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/29 16:06:59 by badal-la          #+#    #+#             */
-/*   Updated: 2025/07/30 16:30:27 by badal-la         ###   ########.fr       */
+/*   Updated: 2025/07/30 18:22:26 by badal-la         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/ScalarConverter.hpp"
 
+/* -------------------------------------------------------------------------- */
+/*                            Canonical (mandatory)                           */
+/* -------------------------------------------------------------------------- */
+
+/* --------------------------- Default Constructor -------------------------- */
+
 ScalarConverter::ScalarConverter( void )
 {}
+
+/* ---------------------------- Copy constructor ---------------------------- */
 
 ScalarConverter::ScalarConverter( const ScalarConverter& other )
 {
 	(void)other;
 }
+
+/* ------------------------ Copy assignment operator ------------------------ */
 
 ScalarConverter&	ScalarConverter::operator=( const ScalarConverter& other )
 {
@@ -26,8 +36,19 @@ ScalarConverter&	ScalarConverter::operator=( const ScalarConverter& other )
 	return (*this);
 }
 
+/* ------------------------------- Destructor ------------------------------- */
+
 ScalarConverter::~ScalarConverter( void )
 {}
+
+/* -------------------------------------------------------------------------- */
+/*                                not mandatory                               */
+/* -------------------------------------------------------------------------- */
+
+/* ------------------------------- Constructor ------------------------------ */
+/* --------------------------------- getters -------------------------------- */
+/* --------------------------------- setters -------------------------------- */
+/* --------------------------------- Methods -------------------------------- */
 
 static bool	checkChar(const std::string& literal)
 {
@@ -238,3 +259,7 @@ void	ScalarConverter::convert( const std::string& literal )
 			std::cerr << "Invalid type" << std::endl;
 	}
 }
+
+/* -------------------------------------------------------------------------- */
+/*                           Function outside class                           */
+/* -------------------------------------------------------------------------- */
