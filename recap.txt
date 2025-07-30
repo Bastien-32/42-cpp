@@ -138,6 +138,7 @@ CPP_04
 		initialisation et implémentation de celle-ci 
 
 	ex02
+		Notion de classe abstraite
 		L’exercice montre comment intégrer une classe (Brain) comme attribut non-pointeur dans une autre (Dog, Cat)
 		et comment gérer proprement sa construction, destruction et copie, notamment via la forme canonique.
 		Brain est composée dans chaque Dog ou Cat :
@@ -147,4 +148,55 @@ CPP_04
 			bien respecter l’ordre de construction/destruction
 
 	ex03
-		
+		Notion de classes purements abstraites : l'interface
+			Tous les éléments sont des méthodes virtuelles pures déclarées en virtual ... = 0;
+			Seules ses classes dérivées peuvent être utilisées et elles doivent obligatoirement implémenter toutes ses méthodes.
+
+CPP_05
+	ex00
+		Apprendre à créer une classe avec des valeurs contraintes et à gérer les erreurs avec des exceptions personnalisées.
+		Permet d’afficher une erreur sans utiliser de return ou de booléens, en gérant proprement l’exception 
+		Creation d'une classe dans un classe (.hpp):
+			class GradeTooHighException : public std::exception {
+			public:
+				const char* what() const throw();};
+
+		Declaratin de la méthodev(pièces spécifié toutes les classes  dans lesquelles elle se trouve) :
+			const char* Bureaucrat::GradeTooHighException::what() const throw()
+			{
+				return ("Grade is too high!");
+			}
+
+		Exemple d'appel à une exception :
+			if (_grade < 1)
+				throw GradeTooHighException();
+
+		Exemple de test à effectuer. On teste la fonction si ça fonctionne ça sort sinon ça applique les particularités du catch:
+			try {
+			Bureaucrat b("Jean", 0); // Exception ici
+			}
+			catch (const std::exception& e) {
+				std::cerr << e.what() << std::endl;
+			}
+
+	ex01
+		•	Une classe peut agir sur une autre
+			→ Ici : Bureaucrat agit sur un Form via la méthode beSigned(Bureaucrat&).
+		•	Gestion d’erreur à l’intérieur d’une méthode via throw
+			→ Si le grade du bureaucrate est trop bas, beSigned() lance une exception.
+			→ C’est ensuite au code appelant de gérer l’exception avec try / catch.
+		•	Structure multi-classe :
+			•	Chaque .cpp n’a besoin que de l’#include du .hpp des classes qu’il utilise
+			•	Bien gérer les inclusions croisées (ex : #include "Bureaucrat.hpp" dans form.cpp et "class Bureaucrat;" dans Form.hpp)
+		•	Attributs constants (const)
+			→ Doivent être initialisés dans le constructeur, jamais modifiés ensuite.
+
+	ex02
+		Création de formulaires héritants la classe form transformée en Aform car la méthode execute est abstraite pour que les méthodes enfants aient leurs propres exécution de cette méthode
+		Vérification des conditions d'exécution du formulaire : grade suffisant + signé
+
+	ex03
+		Continuité de l'apprentissage des tableaux sur pointeurs de méthodes
+			Évite l'usage de if/else à foison
+		Attention, les méthodes doivent t'appartenir à la classe dans laquelle on utilise le tableau sur pointeur.
+		Il faut donc créer les méthodes nécessaires pour exécuter des méthodes déclarés dans d'autres classes.
