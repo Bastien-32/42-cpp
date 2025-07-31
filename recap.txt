@@ -212,4 +212,28 @@ CPP_06
 		Ici, le but est de convertir un scalaire d’un type à un autre (par exemple : "42" → char ' * ', int 42, float 42.0f, double 42.0).
 
 	ex01
+		uintptr_t
+		  → Type entier non signé capable de contenir une adresse mémoire.
+		  → Permet de convertir un pointeur en entier brut (ex. pour sérialisation/transmission).
+		reinterpret_cast<T>(ptr)
+		  → Cast bas niveau pour convertir entre types très différents (ex. Data* ↔ uintptr_t).
+		  → ⚠️ À utiliser avec précaution (aucune vérification à la compilation).
+		Sérialisation de pointeur
+		  → Un pointeur ne peut pas être écrit/lu/transmis proprement.
+		  → En le convertissant en entier (uintptr_t), il devient manipulable comme une valeur.
+		Classe non instanciable
+		  → En rendant le constructeur privé, on empêche toute création d’objet de la classe.
+
+	ex02
+		Génération aléatoire d’une classe héritée (A, B ou C)
+		Identification via pointeur :
+			→ dynamic_cast<Classe*>(ptr)
+			→ Testable avec if car retourne nullptr si le cast échoue
+		Identification via référence :
+			→ dynamic_cast<Classe&>(ref)
+			→ Nécessite un try/catch car un cast invalide déclenche une exception (std::bad_cast)
+			→ Une référence ne pouvant être null, le cast ne peut pas être testé avec if
+
+CPP_07
+	ex00
 		
