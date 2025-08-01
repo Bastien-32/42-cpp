@@ -236,4 +236,9 @@ CPP_06
 
 CPP_07
 	ex00
-		
+		::min(x, y) 
+			C++ va chercher min en suivant un ordre de priorité :
+				1.	D’abord dans les fonctions locales ou définies dans une classe, s’il y en a une.
+				2.	Ensuite dans les namespaces actifs (via using namespace).
+				3.	Enfin dans l’espace global.
+			donc le fait d'avoir ici "::" permet d'aller directement chercher dans l'espace global où sont stockés les templates
