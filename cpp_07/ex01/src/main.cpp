@@ -6,7 +6,7 @@
 /*   By: badal-la <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/01 10:05:19 by badal-la          #+#    #+#             */
-/*   Updated: 2025/08/01 11:11:35 by badal-la         ###   ########.fr       */
+/*   Updated: 2025/08/01 11:26:51 by badal-la         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,12 +32,12 @@ void	rotone(char& c)
 	}
 }
 
-void addone(float& f)
+void	addone(float& f)
 {
 	f += 1.0f;
 }
 
-int main(void)
+int	main(void)
 {
 	char array[] = {'H', 'e', 'l', 'l', 'o'};
 	size_t length = sizeof(array) / sizeof(array[0]);
@@ -52,5 +52,6 @@ int main(void)
 	::iter(flow, length, addone);
 	::iter(flow, length, print);
 	std::cout << std::endl;
+
 	return (0);
 }
