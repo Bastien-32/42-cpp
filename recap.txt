@@ -236,9 +236,24 @@ CPP_06
 
 CPP_07
 	ex00
-		::min(x, y) 
-			C++ va chercher min en suivant un ordre de priorité :
-				1.	D’abord dans les fonctions locales ou définies dans une classe, s’il y en a une.
-				2.	Ensuite dans les namespaces actifs (via using namespace).
-				3.	Enfin dans l’espace global.
-			donc le fait d'avoir ici "::" permet d'aller directement chercher dans l'espace global où sont stockés les templates
+		::min(x, y)
+			 → force l’appel à la fonction globale min,
+			  évite les conflits avec std::min ou d’autres min() locaux.
+		template <typename T>
+			 → à placer avant chaque fonction template,
+			  sert à déclarer un type générique utilisé dans la fonction.
+		T remplace un type réel au moment de l’appel.
+			 → évite de dupliquer la fonction pour chaque type.
+			 → tous les paramètres doivent être du même type (même T).
+
+	ex01
+		Une fonction template peut prendre une fonction en paramètre :
+	 		→ type : void (*f)(T&) ou void (*f)(const T&).
+		Les fonctions templates peuvent être surchargées :
+			 → ici, deux versions de iter nécessaires pour gérer T& et const T&.
+		Les templates fonctionnent aussi avec des fonctions passées en pointeurs (callback).
+		Le compilateur instancie le template selon la signature exacte de la fonction passée :
+			 → iter avec T& ≠ iter avec const T&.
+
+	ex02
+		

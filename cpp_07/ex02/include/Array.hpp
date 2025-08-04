@@ -6,11 +6,14 @@
 /*   By: badal-la <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/01 11:31:27 by badal-la          #+#    #+#             */
-/*   Updated: 2025/08/01 12:29:51 by badal-la         ###   ########.fr       */
+/*   Updated: 2025/08/04 10:45:44 by badal-la         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
+
+#include <exception>
+#include <iostream>
 
 template <typename T>
 class Array

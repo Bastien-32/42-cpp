@@ -6,7 +6,7 @@
 /*   By: badal-la <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/01 11:32:54 by badal-la          #+#    #+#             */
-/*   Updated: 2025/08/01 12:25:41 by badal-la         ###   ########.fr       */
+/*   Updated: 2025/08/04 10:54:07 by badal-la         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,10 +41,10 @@ Array<T>::Array(const Array& other) :
 }
 
 template<typename T>
-Array<T>& Array<T>::operator=(const Array& other)
+Array<T>&	Array<T>::operator=(const Array& other)
 {
 	
-	if (_arrayAddress != other._arrayAddress)
+	if (this != &other)
 	{
 		if (_arrayAddress)
 			delete[] _arrayAddress;
@@ -52,7 +52,7 @@ Array<T>& Array<T>::operator=(const Array& other)
 		if (_size == 0)
 		{
 			_arrayAddress = nullptr;
-			return *this;
+			return (*this);
 		}
 		_arrayAddress = new T[_size];
 		for (unsigned int i = 0; i < _size; ++i)
@@ -76,7 +76,29 @@ Array<T>::Array(unsigned int n) :
 }
 
 template <typename T>
-unsigned int Array<T>::size() const
+unsigned int	Array<T>::size() const
 {
 	return (_size);
+}
+
+template <typename T>
+T&	Array<T>::operator[](unsigned int index)
+{
+	if (index >= _size)
+		throw OutOfBoundsException();
+	return (_arrayAddress[index]);
+}
+
+template <typename T>
+const T&	Array<T>::operator[](unsigned int index) const
+{
+	if (index >= _size)
+		throw OutOfBoundsException();
+	return (_arrayAddress[index]);
+}
+
+template <typename T>
+const char*	Array<T>::OutOfBoundsException::what() const throw()
+{
+	return ("Index out of bounds");
 }
