@@ -198,7 +198,7 @@ CPP_05
 	ex03
 		Continuité de l'apprentissage des tableaux sur pointeurs de méthodes
 			Évite l'usage de if/else à foison
-		Attention, les méthodes doivent t'appartenir à la classe dans laquelle on utilise le tableau sur pointeur.
+		Attention, les méthodes doivent appartenir à la classe dans laquelle on utilise le tableau sur pointeur.
 		Il faut donc créer les méthodes nécessaires pour exécuter des méthodes déclarés dans d'autres classes.
 
 CPP_06
@@ -213,16 +213,16 @@ CPP_06
 
 	ex01
 		uintptr_t
-		  → Type entier non signé capable de contenir une adresse mémoire.
-		  → Permet de convertir un pointeur en entier brut (ex. pour sérialisation/transmission).
+			 → Type entier non signé capable de contenir une adresse mémoire.
+			 → Permet de convertir un pointeur en entier brut (ex. pour sérialisation/transmission).
 		reinterpret_cast<T>(ptr)
-		  → Cast bas niveau pour convertir entre types très différents (ex. Data* ↔ uintptr_t).
-		  → ⚠️ À utiliser avec précaution (aucune vérification à la compilation).
+			 → Cast bas niveau pour convertir entre types très différents (ex. Data* ↔ uintptr_t).
+			 → ⚠️ À utiliser avec précaution (aucune vérification à la compilation).
 		Sérialisation de pointeur
-		  → Un pointeur ne peut pas être écrit/lu/transmis proprement.
-		  → En le convertissant en entier (uintptr_t), il devient manipulable comme une valeur.
+			 → Un pointeur ne peut pas être écrit/lu/transmis proprement.
+			 → En le convertissant en entier (uintptr_t), il devient manipulable comme une valeur.
 		Classe non instanciable
-		  → En rendant le constructeur privé, on empêche toute création d’objet de la classe.
+			 → En rendant le constructeur privé, on empêche toute création d’objet de la classe.
 
 	ex02
 		Génération aléatoire d’une classe héritée (A, B ou C)
@@ -256,4 +256,6 @@ CPP_07
 			 → iter avec T& ≠ iter avec const T&.
 
 	ex02
-		ecire une classe  avec des template 
+		ecrire une classe générique via template <typename T>
+		surcharge d'opertateur []
+		manipulation new[] / delete[]

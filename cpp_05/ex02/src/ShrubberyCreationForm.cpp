@@ -6,7 +6,7 @@
 /*   By: badal-la <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/19 15:05:46 by badal-la          #+#    #+#             */
-/*   Updated: 2025/07/19 22:03:17 by badal-la         ###   ########.fr       */
+/*   Updated: 2025/08/04 18:18:38 by badal-la         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ void	ShrubberyCreationForm::execute( Bureaucrat const& b ) const
 	executionPermission(b);
 	std::string	of_name = _target +  "_shrubbery";
 	std::ofstream of(of_name.c_str());
-	of <<"             *\n"
+	of << "             *\n"
 		<< "            /.\\\n"
 		<< "           /..'\\\n"
 		<< "           /'.'\\\n"

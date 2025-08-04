@@ -6,7 +6,7 @@
 /*   By: badal-la <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/19 14:31:21 by badal-la          #+#    #+#             */
-/*   Updated: 2025/07/22 17:41:17 by badal-la         ###   ########.fr       */
+/*   Updated: 2025/08/04 18:08:46 by badal-la         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ class AForm
 		class	GradeTooHighException : public std::exception
 		{
 			public:
-			
+
 				virtual const char*	what() const throw();
 		};
 

@@ -6,7 +6,7 @@
 /*   By: badal-la <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/18 18:36:53 by badal-la          #+#    #+#             */
-/*   Updated: 2025/07/23 11:39:12 by badal-la         ###   ########.fr       */
+/*   Updated: 2025/08/04 18:05:19 by badal-la         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ class Form
 		~Form( void );
 
 		Form( const std::string name, const int gradeToSign, const int gradeToExecute );
-		
+
 		const std::string&	getName() const;
 		bool				getIsSigned() const;
 		int					getGradeToSign() const;
@@ -46,7 +46,7 @@ class Form
 		class	GradeTooHighException : public std::exception
 		{
 			public:
-			
+
 				virtual const char*	what() const throw();
 		};
 

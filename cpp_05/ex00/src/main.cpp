@@ -6,7 +6,7 @@
 /*   By: badal-la <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/18 17:29:09 by badal-la          #+#    #+#             */
-/*   Updated: 2025/07/23 17:59:55 by badal-la         ###   ########.fr       */
+/*   Updated: 2025/08/04 17:52:26 by badal-la         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ int main(void)
 	{
 		std::cerr << "Exception caught 1: " << e.what() << std::endl;
 	}
-	std::cerr << en << std::endl;
+	std::cout << en << std::endl;
 	std::cout << std::endl;
 
 	Bureaucrat	f("Gérard", 149);
@@ -49,7 +49,7 @@ int main(void)
 	{
 		std::cerr << "Exception caught 2: " << e.what() << std::endl;
 	}
-	std::cerr << f << std::endl;
+	std::cout << f << std::endl;
 	std::cout << std::endl;
 
 	try
