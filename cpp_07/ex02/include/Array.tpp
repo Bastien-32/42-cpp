@@ -6,7 +6,7 @@
 /*   By: badal-la <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/01 11:32:54 by badal-la          #+#    #+#             */
-/*   Updated: 2025/08/04 10:54:07 by badal-la         ###   ########.fr       */
+/*   Updated: 2025/08/04 16:01:19 by badal-la         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 
 template <typename T>
 Array<T>::Array() :
-	_arrayAddress(nullptr),
+	_arrayAddress(NULL),
 	_size(0)
 {}
 
@@ -32,7 +32,7 @@ Array<T>::Array(const Array& other) :
 {
 	if (_size == 0)
 	{
-		_arrayAddress = nullptr;
+		_arrayAddress = NULL;
 		return;
 	}
 	_arrayAddress = new T[_size];
@@ -51,7 +51,7 @@ Array<T>&	Array<T>::operator=(const Array& other)
 		_size = other._size;
 		if (_size == 0)
 		{
-			_arrayAddress = nullptr;
+			_arrayAddress = NULL;
 			return (*this);
 		}
 		_arrayAddress = new T[_size];
@@ -67,7 +67,7 @@ Array<T>::Array(unsigned int n) :
 {
 	if (n == 0)
 	{
-		_arrayAddress = nullptr;
+		_arrayAddress = NULL;
 		return;
 	}
 	_arrayAddress = new T[n];

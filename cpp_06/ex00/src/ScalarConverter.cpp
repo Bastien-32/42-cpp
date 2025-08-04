@@ -6,7 +6,7 @@
 /*   By: badal-la <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/29 16:06:59 by badal-la          #+#    #+#             */
-/*   Updated: 2025/07/30 18:22:26 by badal-la         ###   ########.fr       */
+/*   Updated: 2025/08/04 17:21:35 by badal-la         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,7 @@ static bool	checkFloat(const std::string& literal)
 	size_t	pointCount = 0;
 	size_t	fCount = 0;
 
-	if (literal.length() < 3 || literal.back() != 'f')
+	if (literal.length() < 3 || literal[literal.length() - 1] != 'f')
 		return (false);
 	for (size_t i = 0; i < literal.length() - 1; ++i)
 	{
@@ -115,7 +115,9 @@ static bool	checkDouble(const std::string& literal)
 {
 	size_t	pointCount = 0;
 
-	if (literal.length() < 3 || (literal.back() == 'f' && literal[literal.length() - 2] == '.'))
+	if (literal.length() < 3
+		|| (literal[literal.length() - 1] == 'f'
+			&& literal[literal.length() - 2] == '.'))
 		return (false);
 	for (size_t i = 0; i < literal.length(); ++i)
 	{
@@ -173,7 +175,7 @@ void	convertInChar(const std::string& literal)
 
 void	convertInInt(const std::string& literal)
 {
-	int i = std::stoi(literal);
+	int i = std::atoi(literal.c_str());
 
 	if (i < 0 || i > 127)
 		std::cout << "char: \tImpossible" << std::endl;
@@ -189,9 +191,9 @@ void	convertInInt(const std::string& literal)
 
 void	convertInFloat(const std::string& literal)
 {
-	float f = std::stof(literal);
+	float f = std::atof(literal.c_str());
 
-	if (f < 0 || f > 127)
+	if (f < 0 || f > 127 || f != static_cast<int>(f))
 		std::cout << "char: \tImpossible" << std::endl;
 	else if (!std::isprint(f))
 		std::cout << "char: \tNon displayable" << std::endl;
@@ -205,9 +207,9 @@ void	convertInFloat(const std::string& literal)
 
 void	convertInDouble(const std::string& literal)
 {
-	double d = std::stod(literal);
+	double d = std::atof(literal.c_str());
 
-	if (d < 0 || d > 127)
+	if (d < 0 || d > 127 || d != static_cast<int>(d))
 		std::cout << "char: \tImpossible" << std::endl;
 	else if (!std::isprint(d))
 		std::cout << "char: \tNon displayable" << std::endl;

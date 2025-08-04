@@ -6,7 +6,7 @@
 /*   By: badal-la <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/29 16:03:05 by badal-la          #+#    #+#             */
-/*   Updated: 2025/07/30 16:31:35 by badal-la         ###   ########.fr       */
+/*   Updated: 2025/08/04 16:39:14 by badal-la         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 #include <exception>
 #include <string>
 #include <iomanip>
+#include <cstdlib>
 
 enum type
 {

@@ -6,7 +6,7 @@
 /*   By: badal-la <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/30 18:32:17 by badal-la          #+#    #+#             */
-/*   Updated: 2025/07/30 18:36:25 by badal-la         ###   ########.fr       */
+/*   Updated: 2025/08/04 16:18:24 by badal-la         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 #include "../include/Data.hpp"
 
 #include <iostream>
+#include <stdint.h>
 
 class Serializer
 {

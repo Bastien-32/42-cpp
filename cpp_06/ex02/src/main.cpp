@@ -6,7 +6,7 @@
 /*   By: badal-la <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/30 19:20:38 by badal-la          #+#    #+#             */
-/*   Updated: 2025/07/31 17:50:21 by badal-la         ###   ########.fr       */
+/*   Updated: 2025/08/04 16:24:29 by badal-la         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,9 @@
 #include "../include/Base.hpp"
 
 #include <iostream>
+#include <cstdlib>
+#include <ctime>
+#include <typeinfo> 
 
 Base* generate(void)
 {
@@ -40,7 +43,7 @@ Base* generate(void)
 		default:
 			std::cout << "Unknown type generated" << std::endl;
 	}
-	return (nullptr);
+	return (NULL);
 }
 
 void identify(Base* p)
@@ -85,7 +88,7 @@ int main(void)
 	Base* instance = generate();
 	if (!instance)
 	{
-		std::cerr << "generate() returned nullptr!" << std::endl;
+		std::cerr << "generate() returned NULL!" << std::endl;
 		return 1;
 	}
 
@@ -102,7 +105,7 @@ int main(void)
 	instance = generate();
 	if (!instance)
 	{
-		std::cerr << "generate() returned nullptr!" << std::endl;
+		std::cerr << "generate() returned NULL!" << std::endl;
 		return 1;
 	}
 

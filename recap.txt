@@ -256,4 +256,4 @@ CPP_07
 			 → iter avec T& ≠ iter avec const T&.
 
 	ex02
-		
+		ecire une classe  avec des template 
