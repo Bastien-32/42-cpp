@@ -22,8 +22,13 @@ int main(void)
 {
 	Intern someRandomIntern;
 	AForm* rrf;
+	Bureaucrat b1("Bob", 1);
 
-	rrf = someRandomIntern.makeForm("robotomy request", "Bender");
-	rrf = someRandomIntern.makeForm("bullshit", "Bender");
+	rrf = someRandomIntern.makeForm("bullshit", "John");
+	delete rrf;
+	rrf = someRandomIntern.makeForm("robotomy request", "Lennon");
 
+	b1.signForm(*rrf);
+	b1.executeForm(*rrf);
+	delete rrf;
 }
