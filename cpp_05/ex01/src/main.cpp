@@ -6,7 +6,7 @@
 /*   By: badal-la <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/18 17:29:09 by badal-la          #+#    #+#             */
-/*   Updated: 2025/07/23 09:34:42 by badal-la         ###   ########.fr       */
+/*   Updated: 2025/08/07 13:37:44 by badal-la         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,17 +22,20 @@ int main(void)
 	std::cout << b << std::endl;
 	std::cout << d << std::endl;
 
-	try
-	{
-		b.signForm(d);
-	}
-	catch (const std::exception& e)
-	{
-		std::cerr << "Exception caught 1: " << e.what() << std::endl;
-	}
+	b.signForm(d);
 	std::cout << d << std::endl;
 
 	a.signForm(d);
 	std::cout << d << std::endl;
 
+	try
+	{
+		Form		e("Laissez passer A-38", 5, -5);
+		std::cout << e << std::endl;
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << "Exception caugh 1 : " << e.what() << '\n';
+	}
+	return (0);
 }

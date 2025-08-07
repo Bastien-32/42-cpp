@@ -59,8 +59,8 @@ int main(void)
 	std::cout << i << std::endl;
 	h.executeForm(i);
 	g.signForm(i);
-	h.executeForm(i);
 	std::cout << i << std::endl;
+	h.executeForm(i);
 	g.executeForm(i);
 
 }

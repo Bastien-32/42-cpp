@@ -6,7 +6,7 @@
 /*   By: badal-la <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/19 11:47:31 by badal-la          #+#    #+#             */
-/*   Updated: 2025/07/22 17:49:07 by badal-la         ###   ########.fr       */
+/*   Updated: 2025/08/07 13:41:33 by badal-la         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,12 @@ Form::Form( const std::string name, const int gradeToSign, const int gradeToExec
 	_isSigned(false),
 	_gradeToSign(gradeToSign),
 	_gradeToExecute(gradeToExecute)
-{}
+{
+	if (gradeToSign < 1 || gradeToExecute < 1)
+		throw GradeTooHighException();
+	if (gradeToSign > 150 || gradeToExecute  > 150)
+		throw GradeTooLowException();
+}
 
 /* --------------------------------- getters -------------------------------- */
 
@@ -111,7 +116,7 @@ const char*	Form::GradeTooLowException::what() const throw()
 
 std::ostream&	operator<<( std::ostream& os, const Form& f )
 {
-	std::string formSigned;
+	std::string	formSigned;
 
 	os << "info about \" "<< f.getName() << " \" form :" << std::endl;
 	if (f.getIsSigned() == false)

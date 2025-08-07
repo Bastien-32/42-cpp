@@ -6,7 +6,7 @@
 /*   By: badal-la <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/30 19:20:38 by badal-la          #+#    #+#             */
-/*   Updated: 2025/08/04 16:24:29 by badal-la         ###   ########.fr       */
+/*   Updated: 2025/08/07 13:54:38 by badal-la         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 #include <iostream>
 #include <cstdlib>
 #include <ctime>
-#include <typeinfo> 
+#include <typeinfo>
 
 Base* generate(void)
 {
@@ -89,7 +89,7 @@ int main(void)
 	if (!instance)
 	{
 		std::cerr << "generate() returned NULL!" << std::endl;
-		return 1;
+		return (1);
 	}
 
 	std::cout << "Identifying type using pointer: ";
@@ -106,7 +106,7 @@ int main(void)
 	if (!instance)
 	{
 		std::cerr << "generate() returned NULL!" << std::endl;
-		return 1;
+		return (1);
 	}
 
 	std::cout << "Identifying type using pointer: ";
