@@ -6,7 +6,7 @@
 /*   By: badal-la <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/01 10:05:19 by badal-la          #+#    #+#             */
-/*   Updated: 2025/08/01 14:50:41 by badal-la         ###   ########.fr       */
+/*   Updated: 2025/08/07 14:20:34 by badal-la         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ int main(void)
 	std::cout << std::endl;
 
 	float pi = 3.14f;
-	float e  = 2.71f;
+	float e = 2.71f;
 
 	std::cout << "Before swap: pi = " << pi << ", e = " << e << std::endl;
 	::swap(pi, e);
