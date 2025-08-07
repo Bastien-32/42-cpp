@@ -26,8 +26,8 @@ int main(void)
 
 	rrf = someRandomIntern.makeForm("bullshit", "John");
 	delete rrf;
-	rrf = someRandomIntern.makeForm("robotomy request", "Lennon");
 
+	rrf = someRandomIntern.makeForm("robotomy request", "Lennon");
 	b1.signForm(*rrf);
 	b1.executeForm(*rrf);
 	delete rrf;

@@ -161,7 +161,7 @@ CPP_05
 			public:
 				const char* what() const throw();};
 
-		Declaratin de la méthodev(pièces spécifié toutes les classes  dans lesquelles elle se trouve) :
+		Declaratin de la méthode(pièces spécifié toutes les classes  dans lesquelles elle se trouve) :
 			const char* Bureaucrat::GradeTooHighException::what() const throw()
 			{
 				return ("Grade is too high!");
@@ -172,10 +172,12 @@ CPP_05
 				throw GradeTooHighException();
 
 		Exemple de test à effectuer. On teste la fonction si ça fonctionne ça sort sinon ça applique les particularités du catch:
-			try {
-			Bureaucrat b("Jean", 0); // Exception ici
+			try
+			{
+				Bureaucrat b("Jean", 0); // Exception ici
 			}
-			catch (const std::exception& e) {
+			catch (const std::exception& e)
+			{
 				std::cerr << e.what() << std::endl;
 			}
 
