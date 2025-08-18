@@ -6,7 +6,7 @@
 /*   By: badal-la <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/29 16:06:59 by badal-la          #+#    #+#             */
-/*   Updated: 2025/08/04 17:21:35 by badal-la         ###   ########.fr       */
+/*   Updated: 2025/08/18 17:10:07 by badal-la         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,13 +84,18 @@ static bool	checkFloat(const std::string& literal)
 {
 	size_t	pointCount = 0;
 	size_t	fCount = 0;
+	size_t	i = 0;
 
 	if (literal.length() < 3 || literal[literal.length() - 1] != 'f')
 		return (false);
-	for (size_t i = 0; i < literal.length() - 1; ++i)
+	if (i == 0 && (literal[i] == '-' || literal[i] == '+'))
 	{
-		if (i == 0 && (literal[i] == '-' || literal[i] == '+'))
-			continue;
+		if (literal.length() < 4 && !isdigit(i + 1))
+			return (false);
+		i++;
+	}
+	for (; i < literal.length() - 1; ++i)
+	{
 		if (literal[i] == '.')
 		{
 			if (pointCount > 0)
@@ -114,12 +119,19 @@ static bool	checkFloat(const std::string& literal)
 static bool	checkDouble(const std::string& literal)
 {
 	size_t	pointCount = 0;
+	size_t	i = 0;
 
 	if (literal.length() < 3
 		|| (literal[literal.length() - 1] == 'f'
 			&& literal[literal.length() - 2] == '.'))
 		return (false);
-	for (size_t i = 0; i < literal.length(); ++i)
+	if (i == 0 && (literal[i] == '-' || literal[i] == '+'))
+	{
+		if (literal.length() < 4 && !isdigit(i + 1))
+			return (false);
+		i++;
+	}
+	for (; i < literal.length(); ++i)
 	{
 		if (i == 0 && (literal[i] == '-' || literal[i] == '+'))
 			continue;

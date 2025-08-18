@@ -6,7 +6,7 @@
 /*   By: badal-la <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/30 19:20:38 by badal-la          #+#    #+#             */
-/*   Updated: 2025/08/07 13:54:38 by badal-la         ###   ########.fr       */
+/*   Updated: 2025/08/18 17:30:08 by badal-la         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 #include <ctime>
 #include <typeinfo>
 
-Base* generate(void)
+Base*	generate(void)
 {
 	static int r = 0;
 	if (!r)
@@ -46,7 +46,7 @@ Base* generate(void)
 	return (NULL);
 }
 
-void identify(Base* p)
+void	identify(Base* p)
 {
 	if (dynamic_cast<A*>(p))
 		std::cout << "A" << std::endl;
@@ -58,7 +58,7 @@ void identify(Base* p)
 		std::cout << "Unknown type" << std::endl;
 }
 
-void identify(Base& p)
+void	identify(Base& p)
 {
 	try
 	{
