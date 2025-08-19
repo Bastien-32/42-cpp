@@ -6,7 +6,7 @@
 /*   By: badal-la <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/30 19:20:38 by badal-la          #+#    #+#             */
-/*   Updated: 2025/08/18 17:30:08 by badal-la         ###   ########.fr       */
+/*   Updated: 2025/08/19 09:27:55 by badal-la         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,13 +91,10 @@ int main(void)
 		std::cerr << "generate() returned NULL!" << std::endl;
 		return (1);
 	}
-
 	std::cout << "Identifying type using pointer: ";
 	identify(instance);
-
 	std::cout << "Identifying type using reference: ";
 	identify(*instance);
-
 	delete instance;
 
 	std::cout << std::endl;
@@ -108,13 +105,10 @@ int main(void)
 		std::cerr << "generate() returned NULL!" << std::endl;
 		return (1);
 	}
-
 	std::cout << "Identifying type using pointer: ";
 	identify(instance);
-
 	std::cout << "Identifying type using reference: ";
 	identify(*instance);
-	
 	delete instance;
 
 	return (0);
