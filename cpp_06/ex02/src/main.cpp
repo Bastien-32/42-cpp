@@ -6,7 +6,7 @@
 /*   By: badal-la <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/30 19:20:38 by badal-la          #+#    #+#             */
-/*   Updated: 2025/08/19 10:03:18 by badal-la         ###   ########.fr       */
+/*   Updated: 2025/08/19 11:23:04 by badal-la         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,6 +80,7 @@ void	identify(Base& p)
 	}
 	catch (...)
 	{}
+	std::cout << "Unknown type" << std::endl;
 }
 
 int main(void)
