@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScalarConverter.cpp                                :+:      :+:    :+:   */
+/*   ScalarConverter copy.cpp                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: badal-la <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/29 16:06:59 by badal-la          #+#    #+#             */
-/*   Updated: 2025/08/19 17:45:21 by badal-la         ###   ########.fr       */
+/*   Updated: 2025/08/19 16:21:35 by badal-la         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -189,22 +189,13 @@ void	convertInInt(const std::string& literal)
 {
 	int i = std::atoi(literal.c_str());
 
-	if (std::atof(literal.c_str()) > std::numeric_limits<int>::max()
-		|| std::atof(literal.c_str()) < - std::numeric_limits<int>::max() - 1)
-	{
-		std::cout << "Number is overflow or underflow for this type" << std::endl;
-		return ;
-	}
-
 	if (i < 0 || i > 127)
 		std::cout << "char: \tImpossible" << std::endl;
 	else if (!std::isprint(i))
 		std::cout << "char: \tNon displayable" << std::endl;
 	else
 		std::cout << "char: \t'" << static_cast<char>(i) << "'" << std::endl;
-
 	std::cout << "int:\t" << i << std::endl;
-
 	std::cout << std::fixed << std::setprecision(1);
 	std::cout << "float:\t" << static_cast<float>(i) << "f" << std::endl;
 	std::cout << "double:\t" << static_cast<double>(i) << std::endl;
@@ -212,16 +203,7 @@ void	convertInInt(const std::string& literal)
 
 void	convertInFloat(const std::string& literal)
 {
-	float f = std::strtof(literal.c_str(), NULL);
-	double d = std::strtod(literal.c_str(),NULL);
-
-	//std::cout << std::fixed << std::setprecision(1) << std::numeric_limits<float>::max() << std::endl;
-	if (d > std::numeric_limits<float>::max()
-		|| d < - std::numeric_limits<float>::max() - 1)
-	{
-		std::cout << "Number is overflow or underflow for this type" << std::endl;
-		return ;
-	}
+	float f = std::atof(literal.c_str());
 
 	if (f < 0 || f > 127 || f != static_cast<int>(f))
 		std::cout << "char: \tImpossible" << std::endl;
@@ -229,29 +211,15 @@ void	convertInFloat(const std::string& literal)
 		std::cout << "char: \tNon displayable" << std::endl;
 	else
 		std::cout << "char: \t'" << static_cast<char>(f) << "'" << std::endl;
-
-	if (d > static_cast<double>(std::numeric_limits<int>::max())
-		|| d < - static_cast<double>(std::numeric_limits<int>::max()) - 1)
-		std::cout << "int:\tImpossible" << std::endl;
-	else
-		std::cout << "int:\t" << static_cast<int>(f) << std::endl;
-
+	std::cout << "int:\t" << static_cast<int>(f) << std::endl;
 	std::cout << std::fixed << std::setprecision(1);
 	std::cout << "float:\t" << f << "f" << std::endl;
-	std::cout << "double:\t" << d << std::endl;
+	std::cout << "double:\t" << static_cast<double>(f) << std::endl;
 }
 
 void	convertInDouble(const std::string& literal)
 {
-	double d = std::strtod(literal.c_str(),NULL);
-
-	//std::cout << std::fixed << std::setprecision(1) << std::numeric_limits<double>::max() << std::endl;
-	if (d > std::numeric_limits<double>::max()
-		|| d < - std::numeric_limits<double>::max() - 1)
-	{
-		std::cout << "Number is overflow or underflow for this type" << std::endl;
-		return ;
-	}
+	double d = std::atof(literal.c_str());
 
 	if (d < 0 || d > 127 || d != static_cast<int>(d))
 		std::cout << "char: \tImpossible" << std::endl;
@@ -259,21 +227,9 @@ void	convertInDouble(const std::string& literal)
 		std::cout << "char: \tNon displayable" << std::endl;
 	else
 		std::cout << "char: \t'" << static_cast<char>(d) << "'" << std::endl;
-
-	if (d > static_cast<double>(std::numeric_limits<int>::max())
-		|| d < - static_cast<double>(std::numeric_limits<int>::max()) - 1)
-		std::cout << "int:\tImpossible" << std::endl;
-	else
-		std::cout << "int:\t" << static_cast<int>(d) << std::endl;
-
+	std::cout << "int:\t" << static_cast<int>(d) << std::endl;
 	std::cout << std::fixed << std::setprecision(1);
-
-	if (d > static_cast<double>(std::numeric_limits<float>::max())
-		|| d < - static_cast<double>(std::numeric_limits<float>::max()) - 1)
-		std::cout << "float:\tImpossible" << std::endl;
-	else
-		std::cout << "float:\t" << static_cast<float>(d) << std::endl;
-
+	std::cout << "float:\t" << static_cast<float>(d) << "f" << std::endl;
 	std::cout << "double:\t" << d << std::endl;
 }
 
@@ -281,7 +237,6 @@ void	convertInPseudoLiterals(const std::string& literal)
 {
 	std::cout << "char: \tImpossible" << std::endl;
 	std::cout << "int:\tImpossible" << std::endl;
-
 	if (literal == "nan" || literal == "nanf")
 	{
 		std::cout << "float:\tnanf" << std::endl;
