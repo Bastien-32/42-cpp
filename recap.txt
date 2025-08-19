@@ -233,8 +233,8 @@ CPP_06
 			→ Testable avec if car retourne nullptr si le cast échoue
 		Identification via référence :
 			→ dynamic_cast<Classe&>(ref)
-			→ Nécessite un try/catch car un cast invalide déclenche une exception (std::bad_cast)
 			→ Une référence ne pouvant être null, le cast ne peut pas être testé avec if
+			→ Nécessite un try/catch car un cast invalide déclenche une exception
 
 CPP_07
 	ex00

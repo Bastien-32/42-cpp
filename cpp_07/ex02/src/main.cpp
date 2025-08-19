@@ -6,7 +6,7 @@
 /*   By: badal-la <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/01 16:07:17 by badal-la          #+#    #+#             */
-/*   Updated: 2025/08/07 15:18:18 by badal-la         ###   ########.fr       */
+/*   Updated: 2025/08/19 10:54:44 by badal-la         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int	main(void)
 	std::cout << "Size of empty array after intArray copy : " << emptyArray.size() << std::endl;
 	std::cout << std::endl;
 
-	Array <int> intArray2(intArray);
+	Array<int> intArray2(intArray);
 	std::cout << "Size of intArray2 : " << intArray2.size() << std::endl;
 	std::cout << std::endl;
 

@@ -6,7 +6,7 @@
 /*   By: badal-la <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/01 10:05:19 by badal-la          #+#    #+#             */
-/*   Updated: 2025/08/07 14:20:34 by badal-la         ###   ########.fr       */
+/*   Updated: 2025/08/19 10:31:17 by badal-la         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ int main(void)
 	int a = 42;
 	int b = 21;
 
+	std::cout << "--------------------- int ---------------------" << std::endl;
 	std::cout << "Before swap: a = " << a << ", b = " << b << std::endl;
 	::swap(a, b);
 	std::cout << "After swap: a = " << a << ", b = " << b << std::endl;
@@ -30,6 +31,7 @@ int main(void)
 	double m = 123.456;
 	double n = 654.321;
 
+	std::cout << "-------------------- double -------------------" << std::endl;
 	std::cout << "Before swap: m = " << m << ", n = " << n << std::endl;
 	::swap(m, n);
 	std::cout << "After swap: m = " << m << ", n = " << n << std::endl;
@@ -41,6 +43,7 @@ int main(void)
 	float pi = 3.14f;
 	float e = 2.71f;
 
+	std::cout << "-------------------- float --------------------" << std::endl;
 	std::cout << "Before swap: pi = " << pi << ", e = " << e << std::endl;
 	::swap(pi, e);
 	std::cout << "After swap: pi = " << pi << ", e = " << e << std::endl;
@@ -51,6 +54,8 @@ int main(void)
 
 	char x = 'x';
 	char y = 'y';
+
+	std::cout << "--------------------- char --------------------" << std::endl;
 	std::cout << "Before swap: x = " << x << ", y = " << y << std::endl;
 	::swap(x, y);
 	std::cout << "After swap: x = " << x << ", y = " << y << std::endl;
@@ -61,6 +66,8 @@ int main(void)
 
 	std::string aaa = "aaa";
 	std::string aab = "aab";
+
+	std::cout << "-------------------- string -------------------" << std::endl;
 	std::cout << "Before swap: aaa = " << aaa << ", aab = " << aab << std::endl;
 	::swap(aaa, aab);
 	std::cout << "After swap: aaa = " << aaa << ", aab = " << aab << std::endl;
