@@ -6,11 +6,12 @@
 /*   By: badal-la <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/01 14:50:27 by badal-la          #+#    #+#             */
-/*   Updated: 2025/08/01 14:50:28 by badal-la         ###   ########.fr       */
+/*   Updated: 2025/08/20 10:58:51 by badal-la         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#pragma once
+#ifndef WHATEVER_HPP
+# define WHATEVER_HPP
 
 template <typename T>
 void swap(T& a, T& b)
@@ -31,3 +32,5 @@ T	max(T a, T b)
 {
 	return (a > b ? a : b);
 }
+
+#endif

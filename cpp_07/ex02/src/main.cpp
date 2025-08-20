@@ -6,7 +6,7 @@
 /*   By: badal-la <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/01 16:07:17 by badal-la          #+#    #+#             */
-/*   Updated: 2025/08/19 10:54:44 by badal-la         ###   ########.fr       */
+/*   Updated: 2025/08/20 11:35:28 by badal-la         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,18 @@
 
 int	main(void)
 {
+	std::cout << "================= Subject tip =================" << std::endl;
+
+	int*	a = new int();
+	std::cout << "Array content at the first pos : " << a[0] << std::endl;
+	delete a;
+	
 	std::cout << "=========== Basics Canonicals tests ===========" << std::endl;
-	Array<int> emptyArray;
+	Array<int>	emptyArray;
 	std::cout << "Size of empty array : " << emptyArray.size() << std::endl;
 	std::cout << std::endl;
 
-	Array<int> intArray(5);
+	Array<int>	intArray(5);
 	for (unsigned int i = 0; i < intArray.size(); i++)
 		intArray[i] = i;
 	emptyArray = intArray;
@@ -53,8 +59,11 @@ int	main(void)
 	std::cout << std::endl;
 
 	std::cout << "============== String Array tests =============" << std::endl;
-	Array<std::string> stringArray(7);
-	std::cout << "Size = " << stringArray.size() << std::endl;
+	Array<std::string>	stringArray(7);
+	Array<std::string>	stringArray2;
+	
+	std::cout << "Size Array = " << stringArray.size() << std::endl;
+	std::cout << "Size Array2 = " << stringArray2.size() << std::endl;
 
 	stringArray[0] = "Hello";
 	stringArray[1] = "World";
@@ -63,9 +72,17 @@ int	main(void)
 	stringArray[4] = "is";
 	stringArray[5] = "Array";
 	stringArray[6] = "!";
-	std::cout << "Array content at the first pos : " << stringArray[0] << std::endl;
-	stringArray[0] = "Goodbye";
-	std::cout << "Array content at the first pos : " << stringArray[0] << std::endl;
+
+	stringArray2 = stringArray;
+	stringArray2[0] = "Goodbye";
+	stringArray2[3] = "That";
+	stringArray2[4] = "was";
+	for (unsigned int i = 0; i < stringArray.size(); i++)
+		std::cout << stringArray[i] << " ";
+	std::cout << std::endl;
+	for (unsigned int i = 0; i < stringArray2.size(); i++)
+		std::cout << stringArray2[i] << " ";
+	std::cout << std::endl;
 
 	try
 	{

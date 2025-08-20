@@ -6,13 +6,17 @@
 /*   By: badal-la <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/01 11:32:54 by badal-la          #+#    #+#             */
-/*   Updated: 2025/08/19 17:57:11 by badal-la         ###   ########.fr       */
+/*   Updated: 2025/08/20 11:16:12 by badal-la         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#pragma once
-
 #include "../include/Array.hpp"
+
+/* -------------------------------------------------------------------------- */
+/*                            Canonical (mandatory)                           */
+/* -------------------------------------------------------------------------- */
+
+/* --------------------------- Default Constructor -------------------------- */
 
 template <typename T>
 Array<T>::Array() :
@@ -20,11 +24,15 @@ Array<T>::Array() :
 	_arrayLengh(0)
 {}
 
+/* ------------------------------- Destructor ------------------------------- */
+
 template <typename T>
 Array<T>::~Array()
 {
 	delete[] _arrayAddress;
 }
+
+/* ---------------------------- Copy constructor ---------------------------- */
 
 template <typename T>
 Array<T>::Array(const Array& other) :
@@ -39,6 +47,8 @@ Array<T>::Array(const Array& other) :
 	for (unsigned int i = 0; i < _arrayLengh; ++i)
 		_arrayAddress[i] = other._arrayAddress[i];
 }
+
+/* ------------------------ Copy assignment operator ------------------------ */
 
 template<typename T>
 Array<T>&	Array<T>::operator=(const Array& other)
@@ -61,6 +71,12 @@ Array<T>&	Array<T>::operator=(const Array& other)
 	return (*this);
 }
 
+/* -------------------------------------------------------------------------- */
+/*                                not mandatory                               */
+/* -------------------------------------------------------------------------- */
+
+/* ------------------------------- Constructor ------------------------------ */
+
 template <typename T>
 Array<T>::Array(unsigned int n) :
 	_arrayLengh(n)
@@ -75,11 +91,16 @@ Array<T>::Array(unsigned int n) :
 		_arrayAddress[i] = T();
 }
 
+/* --------------------------------- getters -------------------------------- */
+
 template <typename T>
 unsigned int	Array<T>::size() const
 {
 	return (_arrayLengh);
 }
+
+/* --------------------------------- setters -------------------------------- */
+/* --------------------------------- Methods -------------------------------- */
 
 template <typename T>
 T&	Array<T>::operator[](unsigned int index)
@@ -97,8 +118,14 @@ const T&	Array<T>::operator[](unsigned int index) const
 	return (_arrayAddress[index]);
 }
 
+/* ------------------------------- Exceptions ------------------------------- */
+
 template <typename T>
 const char*	Array<T>::OutOfBoundsException::what() const throw()
 {
 	return ("Index out of bounds");
 }
+
+/* -------------------------------------------------------------------------- */
+/*                           Function outside class                           */
+/* -------------------------------------------------------------------------- */

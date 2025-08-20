@@ -6,13 +6,14 @@
 /*   By: badal-la <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/01 10:00:00 by badal-la          #+#    #+#             */
-/*   Updated: 2025/08/07 14:25:10 by badal-la         ###   ########.fr       */
+/*   Updated: 2025/08/20 10:55:49 by badal-la         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#pragma once
+#ifndef ITER_HPP
+# define ITER_HPP
 
-#include <iostream>
+# include <iostream>
 
 template <typename T>
 void iter(T* array, size_t length, void (*func)(T&))
@@ -37,3 +38,5 @@ void print(const T& c)
 {
 	std::cout << c << " ";
 }
+
+#endif

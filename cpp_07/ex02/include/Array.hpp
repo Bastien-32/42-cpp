@@ -6,11 +6,12 @@
 /*   By: badal-la <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/01 11:31:27 by badal-la          #+#    #+#             */
-/*   Updated: 2025/08/19 17:57:11 by badal-la         ###   ########.fr       */
+/*   Updated: 2025/08/20 11:05:02 by badal-la         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#pragma once
+#ifndef ARRAY_HPP
+#define ARRAY_HPP
 
 #include <exception>
 #include <iostream>
@@ -45,3 +46,5 @@ class Array
 };
 
 #include "Array.tpp"
+
+#endif
