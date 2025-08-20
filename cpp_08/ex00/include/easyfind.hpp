@@ -6,11 +6,25 @@
 /*   By: badal-la <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/07 16:12:03 by badal-la          #+#    #+#             */
-/*   Updated: 2025/08/07 16:13:28 by badal-la         ###   ########.fr       */
+/*   Updated: 2025/08/20 15:08:34 by badal-la         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#pragma once
+#ifndef EASYFIND_HPP
+#define EASYFIND_HPP
 
-template <typename T>
-typename T& intern ::easyfind()
+#include <algorithm>
+#include <stdexcept>
+
+template<typename T>
+typename T::iterator	easyfind(T& container, int value)
+{
+	typename T::iterator	it;
+
+	it = std::find(container.begin(), container.end(), value);
+	if (it == container.end())
+		throw std::runtime_error("value not found");
+	return (it);
+}
+
+#endif

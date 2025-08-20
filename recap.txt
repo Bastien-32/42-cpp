@@ -261,3 +261,37 @@ CPP_07
 		ecrire une classe générique via template <typename T>
 		surcharge d'opertateur []
 		manipulation new[] / delete[]
+
+CPP_08
+	ex00
+		container ? boite qui peut contenir des donnees de differents types
+			1. vector (<vector>)
+				Stocke les donnees comme dans un tableau.
+				On implemente le containeur avec push_back(|value|),
+				on ne peut donc rajouter des donnees qu'a la fin du tableau (push_front impossible)
+				On peut acceder aux donnees par indices
+			2. liste chainee (<list>)
+				Stocke les donnees comme dans une liste.
+				On implemente le containeur avec push_back(|value|) ou push_front(|value|),
+				On ne peut pas acceder aux donnees par indices
+			3. deque (<deque>) (file double)
+				Combine les avantages du tableau et de la liste.
+				On implémente le conteneur avec push_back(|value|) ou push_front(|value|),
+				Mais aussi ajouter et retirer des éléments au début comme dans une list.
+				On peut accéder aux données par indices comme dans un vector,
+		syntaxe : std::vector<int>::iterator	it; (main)
+			std::vector<int> -> type de conteneur qu'on veut parcourir
+			::iterator -> type d’itérateur associé à ce conteneur
+			it -> nom de la variable
+		syntaxe : typename T::iterator	easyfind(T& container, int value) (.hpp)
+			typename T::iterator -> type d’itérateur associé au conteneur générique T
+				- typename est obligatoire pour dire au compilateur que c’est un "type dépendant"
+				- T est un conteneur (ex : std::vector<int>, std::list<int>, etc.)
+				- T::iterator est le type utilisé pour le parcourir
+			easyfind -> nom de la fonction template
+			(T& container, int value) -> arguments :
+				- container : une référence vers un conteneur générique de type T
+				- value : la valeur entière à chercher dans ce conteneur
+		bibliotheque <stdexcept> introduit la fonction std::runtime_error
+	ex01
+		
