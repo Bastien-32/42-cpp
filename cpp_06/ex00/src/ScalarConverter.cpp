@@ -6,7 +6,7 @@
 /*   By: badal-la <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/29 16:06:59 by badal-la          #+#    #+#             */
-/*   Updated: 2025/08/19 17:45:21 by badal-la         ###   ########.fr       */
+/*   Updated: 2025/08/20 09:58:22 by badal-la         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -215,7 +215,6 @@ void	convertInFloat(const std::string& literal)
 	float f = std::strtof(literal.c_str(), NULL);
 	double d = std::strtod(literal.c_str(),NULL);
 
-	//std::cout << std::fixed << std::setprecision(1) << std::numeric_limits<float>::max() << std::endl;
 	if (d > std::numeric_limits<float>::max()
 		|| d < - std::numeric_limits<float>::max() - 1)
 	{
@@ -243,15 +242,18 @@ void	convertInFloat(const std::string& literal)
 
 void	convertInDouble(const std::string& literal)
 {
-	double d = std::strtod(literal.c_str(),NULL);
+	long double			lim;
+	std::stringstream	ss(literal);
 
-	//std::cout << std::fixed << std::setprecision(1) << std::numeric_limits<double>::max() << std::endl;
-	if (d > std::numeric_limits<double>::max()
-		|| d < - std::numeric_limits<double>::max() - 1)
+	ss >> lim;
+	if (lim > std::numeric_limits<double>::max()
+		|| lim < - std::numeric_limits<double>::max() - 1)
 	{
 		std::cout << "Number is overflow or underflow for this type" << std::endl;
 		return ;
 	}
+
+	double d = std::strtod(literal.c_str(),NULL);
 
 	if (d < 0 || d > 127 || d != static_cast<int>(d))
 		std::cout << "char: \tImpossible" << std::endl;
