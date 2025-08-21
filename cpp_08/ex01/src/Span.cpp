@@ -6,23 +6,78 @@
 /*   By: badal-la <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/20 17:48:56 by badal-la          #+#    #+#             */
-/*   Updated: 2025/08/20 17:58:47 by badal-la         ###   ########.fr       */
+/*   Updated: 2025/08/21 11:29:19 by badal-la         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/Span.hpp"
+#include <iostream>
 
-Span::Span(void)
-{
-}
+Span::Span(void) :
+	_N(0),
+	_numbers()
+{}
 
 Span::Span(const Span& other)
 {
-	
+	_N = other._N;
+}
+
+Span&	Span::operator=(const Span& other)
+{
+	if (this != &other)
+	{
+		_N = other._N;
+		for (unsigned int i = 0; i < _numbers.size(); i++)
+			_numbers[i] = other._numbers[i];
+	}
+	return (*this);
 }
 
 Span::~Span(void)
+{}
+
+Span::Span( unsigned int N ) :
+	_N(N)
 {
-	//voir plus tard s'il faut clear le vecteur
 }
 
+int	Span::getN( void ) const
+{
+	return (_N);
+}
+
+void	Span::printNumbers( void ) const
+{
+	for (unsigned int i = 0; i < _numbers.size(); i++)
+		std::cout << "vector " << i << " = " << _numbers[i] << std::endl;
+}
+
+void	Span::addNumber( int number )
+{
+	static int n = 0;
+	n++;
+	if (n > static_cast<int>(_N))
+		throw std::runtime_error("Out of bound!");
+	_numbers.push_back(number);
+}
+
+/* int	Span::longestSpan( void )const
+{
+	int	min = _numbers[0];
+	int	max= _numbers[0];
+
+	for (unsigned int i = 1; i < _numbers.size(); i++)
+	{
+		if (_numbers[i] < min)
+			min = _numbers[i];
+		if (_numbers[i] > max)
+			max = _numbers[i];
+	}
+	return (abs(max - min));
+} */
+
+int	Span::longestSpan( void )const
+{
+	return (abs(max - min));
+}

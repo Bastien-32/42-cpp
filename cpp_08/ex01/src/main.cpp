@@ -6,7 +6,7 @@
 /*   By: badal-la <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/20 17:19:19 by badal-la          #+#    #+#             */
-/*   Updated: 2025/08/20 17:41:16 by badal-la         ###   ########.fr       */
+/*   Updated: 2025/08/21 11:26:22 by badal-la         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,33 @@
 #include <iostream>
 
 int main()
+{
+	Span s;
+	Span t(5);
+
+	s = t;
+	std::cout << s.getN() << std::endl;
+	try
+	{
+		s.addNumber(5);
+		s.addNumber(15);
+		s.addNumber(-5);
+		s.addNumber(7);
+		s.addNumber(42);
+		s.addNumber(8);
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
+
+	s.printNumbers();
+	std::cout << "Longest span = " << s.longestSpan() << std::endl;
+
+	return (0);
+}
+
+/* int main()
 {
 	Span sp = Span(5);
 
@@ -27,4 +54,4 @@ int main()
 	std::cout << sp.longestSpan() << std::endl;
 
 	return (0);
-}
+} */
