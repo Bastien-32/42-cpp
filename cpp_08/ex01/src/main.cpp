@@ -6,7 +6,7 @@
 /*   By: badal-la <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/20 17:19:19 by badal-la          #+#    #+#             */
-/*   Updated: 2025/08/21 11:26:22 by badal-la         ###   ########.fr       */
+/*   Updated: 2025/08/21 18:56:34 by badal-la         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ int main()
 
 	s.printNumbers();
 	std::cout << "Longest span = " << s.longestSpan() << std::endl;
+	std::cout << "Shortest span = " << s.shortestSpan() << std::endl;
 
 	return (0);
 }

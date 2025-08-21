@@ -6,15 +6,17 @@
 /*   By: badal-la <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/20 17:25:59 by badal-la          #+#    #+#             */
-/*   Updated: 2025/08/21 11:25:36 by badal-la         ###   ########.fr       */
+/*   Updated: 2025/08/21 18:50:20 by badal-la         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SPAN_HPP
 #define SPAN_HPP
 
+#include <iostream>
 #include <vector>
 #include <cmath>
+#include <algorithm>
 
 class Span
 {
@@ -38,7 +40,7 @@ class Span
 
 		void		addNumber( int number );
 
-		// int		shortestSpan( void ) const;
+		int		shortestSpan( void ) const;
 		int		longestSpan( void )const;
 		// Span&	fillRandomly(unsigned int quantity );
 

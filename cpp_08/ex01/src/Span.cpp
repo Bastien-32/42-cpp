@@ -6,12 +6,11 @@
 /*   By: badal-la <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/20 17:48:56 by badal-la          #+#    #+#             */
-/*   Updated: 2025/08/21 11:29:19 by badal-la         ###   ########.fr       */
+/*   Updated: 2025/08/21 18:57:57 by badal-la         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/Span.hpp"
-#include <iostream>
 
 Span::Span(void) :
 	_N(0),
@@ -76,8 +75,27 @@ void	Span::addNumber( int number )
 	}
 	return (abs(max - min));
 } */
+int	Span::shortestSpan( void )const
+{
+	std::vector<int> sortedV =_numbers;
+	std::sort(sortedV.begin(), sortedV.end());
+	int shortest = INT_MAX;
+	
+	for (unsigned int i = 0; i < sortedV.size() - 1; i++)
+	{
+		int span = sortedV[i + 1] - sortedV[i];
+		if (span < shortest)
+			shortest = span;
+	}
+	return (shortest);
+}
 
 int	Span::longestSpan( void )const
 {
-	return (abs(max - min));
+	if (_numbers.size() < 2)
+		throw std::runtime_error("Not enough numbers to calculate span");
+	std::vector<int>::const_iterator itMin = std::min_element(_numbers.begin(), _numbers.end());
+	std::vector<int>::const_iterator itMax = std::max_element(_numbers.begin(), _numbers.end());
+
+	return (abs(*itMax - *itMin));
 }
