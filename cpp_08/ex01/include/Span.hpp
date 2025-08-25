@@ -6,7 +6,7 @@
 /*   By: badal-la <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/20 17:25:59 by badal-la          #+#    #+#             */
-/*   Updated: 2025/08/21 18:50:20 by badal-la         ###   ########.fr       */
+/*   Updated: 2025/08/25 13:11:18 by badal-la         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,15 @@
 #include <vector>
 #include <cmath>
 #include <algorithm>
+#include <climits>
+#include <cstdlib>
 
 class Span
 {
 
 	private:
 
-		unsigned int		_N;
+		unsigned int		_maxSize;
 		std::vector<int>	_numbers;
 
 	public:
@@ -35,15 +37,27 @@ class Span
 
 		Span( unsigned int N );
 
-		int	getN( void ) const;				//delete before corr
-		void	printNumbers( void ) const;
 
-		void		addNumber( int number );
+		void	addNumber( int number );
 
 		int		shortestSpan( void ) const;
 		int		longestSpan( void )const;
-		// Span&	fillRandomly(unsigned int quantity );
+
+		void	printNumbers( void ) const;
+
+		template <typename Iterator>
+		void	addFromContainer(Iterator begin, Iterator end);
 
 };
+
+template <typename Iterator>
+void	Span::addFromContainer(Iterator begin, Iterator end)
+{
+	if (std::distance(begin, end) + _numbers.size() > _maxSize)
+		throw std::runtime_error("Cannot add numbers : the vector will exceed its max size");
+	_numbers.insert(_numbers.end(), begin, end);
+}
+
+std::vector<int>	fillRandomly(unsigned int quantity, int min, int max);
 
 #endif

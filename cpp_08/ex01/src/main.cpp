@@ -6,24 +6,43 @@
 /*   By: badal-la <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/20 17:19:19 by badal-la          #+#    #+#             */
-/*   Updated: 2025/08/21 18:56:34 by badal-la         ###   ########.fr       */
+/*   Updated: 2025/08/25 12:48:10 by badal-la         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/Span.hpp"
 #include <iostream>
 
-int main()
+int	main()
 {
 	Span s;
 	Span t(5);
+	std::cout << "======== Test with empty Span ========" << std::endl;
+	try
+	{
+		std::cout << "Longest span = " << s.longestSpan() << std::endl;
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
 
+	std::cout << "\n======== Test with only one number in Span ========" << std::endl;
 	s = t;
-	std::cout << s.getN() << std::endl;
 	try
 	{
 		s.addNumber(5);
-		s.addNumber(15);
+		std::cout << "Longest span = " << s.longestSpan() << std::endl;
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
+
+	std::cout << "\n======== Add too much numbers in Span ========" << std::endl;
+	try
+	{
+		s.addNumber(2147483647);
 		s.addNumber(-5);
 		s.addNumber(7);
 		s.addNumber(42);
@@ -34,9 +53,26 @@ int main()
 		std::cerr << e.what() << '\n';
 	}
 
+	std::cout << "\n======== Test methods Span ========" << std::endl;
 	s.printNumbers();
-	std::cout << "Longest span = " << s.longestSpan() << std::endl;
-	std::cout << "Shortest span = " << s.shortestSpan() << std::endl;
+	try
+	{
+		std::cout << "Shortest span = " << s.shortestSpan() << std::endl;
+		std::cout << "Longest span = " << s.longestSpan() << std::endl;
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
+
+	std::cout << "\n======== Big Span ========" << std::endl;
+	Span				bigger(10000);
+	std::vector<int>	randomValues;
+
+	randomValues = fillRandomly(100, -1000, 1000);
+	bigger.addFromContainer(randomValues.begin(), randomValues.end());
+	std::cout << "Shortest span = " << bigger.shortestSpan() << std::endl;
+	std::cout << "Longest span = " << bigger.longestSpan() << std::endl;
 
 	return (0);
 }

@@ -6,29 +6,28 @@
 /*   By: badal-la <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/20 17:48:56 by badal-la          #+#    #+#             */
-/*   Updated: 2025/08/21 18:57:57 by badal-la         ###   ########.fr       */
+/*   Updated: 2025/08/25 13:00:38 by badal-la         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/Span.hpp"
 
 Span::Span(void) :
-	_N(0),
+	_maxSize(0),
 	_numbers()
 {}
 
-Span::Span(const Span& other)
-{
-	_N = other._N;
-}
+Span::Span(const Span& other) :
+	_maxSize(other._maxSize),
+	_numbers(other._numbers)
+{}
 
 Span&	Span::operator=(const Span& other)
 {
 	if (this != &other)
 	{
-		_N = other._N;
-		for (unsigned int i = 0; i < _numbers.size(); i++)
-			_numbers[i] = other._numbers[i];
+		_maxSize = other._maxSize;
+		_numbers = other._numbers;
 	}
 	return (*this);
 }
@@ -37,14 +36,8 @@ Span::~Span(void)
 {}
 
 Span::Span( unsigned int N ) :
-	_N(N)
-{
-}
-
-int	Span::getN( void ) const
-{
-	return (_N);
-}
+	_maxSize(N)
+{}
 
 void	Span::printNumbers( void ) const
 {
@@ -54,29 +47,15 @@ void	Span::printNumbers( void ) const
 
 void	Span::addNumber( int number )
 {
-	static int n = 0;
-	n++;
-	if (n > static_cast<int>(_N))
-		throw std::runtime_error("Out of bound!");
+	if (_numbers.size() >= _maxSize)
+		throw std::runtime_error("Cannot add number : the vector is full");
 	_numbers.push_back(number);
 }
 
-/* int	Span::longestSpan( void )const
-{
-	int	min = _numbers[0];
-	int	max= _numbers[0];
-
-	for (unsigned int i = 1; i < _numbers.size(); i++)
-	{
-		if (_numbers[i] < min)
-			min = _numbers[i];
-		if (_numbers[i] > max)
-			max = _numbers[i];
-	}
-	return (abs(max - min));
-} */
 int	Span::shortestSpan( void )const
 {
+	if (_numbers.size() < 2)
+		throw std::runtime_error("Not enough numbers to calculate span");
 	std::vector<int> sortedV =_numbers;
 	std::sort(sortedV.begin(), sortedV.end());
 	int shortest = INT_MAX;
@@ -94,8 +73,26 @@ int	Span::longestSpan( void )const
 {
 	if (_numbers.size() < 2)
 		throw std::runtime_error("Not enough numbers to calculate span");
+	
 	std::vector<int>::const_iterator itMin = std::min_element(_numbers.begin(), _numbers.end());
 	std::vector<int>::const_iterator itMax = std::max_element(_numbers.begin(), _numbers.end());
 
-	return (abs(*itMax - *itMin));
+	long n = static_cast<long>(*itMax) - static_cast<long>(*itMin);
+	if (n > INT_MAX)
+		throw std::runtime_error("The longest span is too big to be represented by an int");
+
+		return (abs(*itMax - *itMin));
+}
+
+std::vector<int>	fillRandomly(unsigned int quantity, int min, int max)
+{
+	std::vector<int> vector;
+	
+	srand(time(NULL));
+	for (unsigned int i = 0; i < quantity; i++)
+	{
+		int randomNum = rand() % (max - min + 1) + min;
+		vector.push_back(randomNum);
+	}
+	return (vector);
 }
