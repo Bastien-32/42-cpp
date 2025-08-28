@@ -285,7 +285,9 @@ CPP_08
 			it -> nom de la variable
 		syntaxe : typename T::iterator	easyfind(T& container, int value) (.hpp)
 			typename T::iterator -> type d’itérateur associé au conteneur générique T
-				- typename est obligatoire pour dire au compilateur que c’est un "type dépendant"
+				- typename est obligatoire pour dire au compilateur que c’est un "type dépendant".
+					Étant donné que le compilateur ne sait pas encore quel type est T on aurait un message d'erreur à la compilation
+					On signifie auteur que ça te variable sera un type.
 				- T est un conteneur (ex : std::vector<int>, std::list<int>, etc.)
 				- T::iterator est le type utilisé pour le parcourir
 			easyfind -> nom de la fonction template
@@ -293,5 +295,28 @@ CPP_08
 				- container : une référence vers un conteneur générique de type T
 				- value : la valeur entière à chercher dans ce conteneur
 		bibliotheque <stdexcept> introduit la fonction std::runtime_error
+
 	ex01
 		
+
+
+	ex02
+		std::stack : c’est un adaptateur de conteneur qui implémente une pile (LIFO).
+			Il repose par défaut sur un std::deque, mais peut aussi être basé sur un vector ou une list.
+			L’interface est volontairement restreinte : seules push, pop, top et size sont accessibles.
+			Contrairement aux conteneurs bruts (vector, list, deque), il n’est pas possible d’accéder
+			ou d’insérer librement aux positions intermédiaires : on ne manipule que le sommet de la pile.
+			Même si std::stack masque volontairement l’accès direct aux éléments,
+			les données sont en réalité stockées dans un conteneur sous-jacent (deque par défaut).
+			Cet attribut est protégé (c), ce qui permet à une classe héritée comme MutantStack
+			de réexposer begin() et end() et donc d’itérer sur les données.
+		typename : indique explicitement au compilateur que l’élément qui suit est un type.
+			Dans un contexte de template, sans ce mot-clé, le compilateur ne pourrait pas distinguer si c’est un type ou un membre (variable/fonction).
+		typedef : On crée des alias pour réutiliser les itérateurs du conteneur interne de std::stack.
+			L’écriture typedef typename std::stack<T>::container_type::iterator iterator;
+			permet d’aller chercher directement le type iterator du conteneur sous-jacent (par défaut deque).
+			Le mot-clé typename est obligatoire car iterator est un type dépendant du template T.
+		Dans un .tpp, quand on définit les fonctions d’une classe template, on doit préciser le nom complet
+		de la classe. On retrouve donc MutantStack<T>:: deux fois :
+			- une fois pour indiquer le type de retour (iterator défini dans la classe),
+			- une fois pour rattacher la fonction à la classe (begin()).

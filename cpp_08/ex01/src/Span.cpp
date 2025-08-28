@@ -6,7 +6,7 @@
 /*   By: badal-la <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/20 17:48:56 by badal-la          #+#    #+#             */
-/*   Updated: 2025/08/25 13:00:38 by badal-la         ###   ########.fr       */
+/*   Updated: 2025/08/25 17:41:55 by badal-la         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 
 Span::Span(void) :
 	_maxSize(0),
-	_numbers()
+	_vec()
 {}
 
 Span::Span(const Span& other) :
 	_maxSize(other._maxSize),
-	_numbers(other._numbers)
+	_vec(other._vec)
 {}
 
 Span&	Span::operator=(const Span& other)
@@ -27,7 +27,7 @@ Span&	Span::operator=(const Span& other)
 	if (this != &other)
 	{
 		_maxSize = other._maxSize;
-		_numbers = other._numbers;
+		_vec = other._vec;
 	}
 	return (*this);
 }
@@ -36,27 +36,28 @@ Span::~Span(void)
 {}
 
 Span::Span( unsigned int N ) :
-	_maxSize(N)
+	_maxSize(N),
+	_vec()
 {}
 
 void	Span::printNumbers( void ) const
 {
-	for (unsigned int i = 0; i < _numbers.size(); i++)
-		std::cout << "vector " << i << " = " << _numbers[i] << std::endl;
+	for (unsigned int i = 0; i < _vec.size(); i++)
+		std::cout << "vector " << i << " = " << _vec[i] << std::endl;
 }
 
 void	Span::addNumber( int number )
 {
-	if (_numbers.size() >= _maxSize)
+	if (_vec.size() >= _maxSize)
 		throw std::runtime_error("Cannot add number : the vector is full");
-	_numbers.push_back(number);
+	_vec.push_back(number);
 }
 
 int	Span::shortestSpan( void )const
 {
-	if (_numbers.size() < 2)
+	if (_vec.size() < 2)
 		throw std::runtime_error("Not enough numbers to calculate span");
-	std::vector<int> sortedV =_numbers;
+	std::vector<int> sortedV =_vec;
 	std::sort(sortedV.begin(), sortedV.end());
 	int shortest = INT_MAX;
 	
@@ -71,11 +72,11 @@ int	Span::shortestSpan( void )const
 
 int	Span::longestSpan( void )const
 {
-	if (_numbers.size() < 2)
+	if (_vec.size() < 2)
 		throw std::runtime_error("Not enough numbers to calculate span");
 	
-	std::vector<int>::const_iterator itMin = std::min_element(_numbers.begin(), _numbers.end());
-	std::vector<int>::const_iterator itMax = std::max_element(_numbers.begin(), _numbers.end());
+	std::vector<int>::const_iterator itMin = std::min_element(_vec.begin(), _vec.end());
+	std::vector<int>::const_iterator itMax = std::max_element(_vec.begin(), _vec.end());
 
 	long n = static_cast<long>(*itMax) - static_cast<long>(*itMin);
 	if (n > INT_MAX)
