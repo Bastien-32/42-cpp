@@ -6,7 +6,7 @@
 /*   By: badal-la <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/01 14:16:40 by badal-la          #+#    #+#             */
-/*   Updated: 2025/09/01 14:16:41 by badal-la         ###   ########.fr       */
+/*   Updated: 2025/09/01 14:59:22 by badal-la         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,7 @@ int main()
 
 	std::list<int>::iterator itList = lst.begin();
 	std::list<int>::iterator iteList = lst.end();
+	// std::list<int>::const_iterator it2List = lst.end();
 
 	++itList;
 	--itList;
@@ -76,5 +77,7 @@ int main()
 		++itList;
 	}
 
-	return 0;
+	// std::cout << "\n" << *it2List<< std::endl;
+
+	return (0);
 }
