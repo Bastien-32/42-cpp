@@ -6,7 +6,7 @@
 /*   By: badal-la <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/20 17:19:19 by badal-la          #+#    #+#             */
-/*   Updated: 2025/08/25 12:48:10 by badal-la         ###   ########.fr       */
+/*   Updated: 2025/09/01 14:13:20 by badal-la         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ int	main()
 		std::cerr << e.what() << '\n';
 	}
 
-	std::cout << "\n======== Add too much numbers in Span ========" << std::endl;
+	std::cout << "\n======== Exceeding Span with addNumber ========" << std::endl;
 	try
 	{
 		s.addNumber(2147483647);
@@ -53,7 +53,7 @@ int	main()
 		std::cerr << e.what() << '\n';
 	}
 
-	std::cout << "\n======== Test methods Span ========" << std::endl;
+	std::cout << "\n======== Span Test methods ========" << std::endl;
 	s.printNumbers();
 	try
 	{
@@ -71,8 +71,22 @@ int	main()
 
 	randomValues = fillRandomly(100, -1000, 1000);
 	bigger.addFromContainer(randomValues.begin(), randomValues.end());
+	randomValues = fillRandomly(100, 3000, 6000);
+	bigger.addFromContainer(randomValues.begin(), randomValues.end());
+
 	std::cout << "Shortest span = " << bigger.shortestSpan() << std::endl;
 	std::cout << "Longest span = " << bigger.longestSpan() << std::endl;
+
+	std::cout << "\n======== Exceeding Span with addFromContainer() ========" << std::endl;
+	try
+	{
+		randomValues = fillRandomly(9801, 3000, 6000);
+		bigger.addFromContainer(randomValues.begin(), randomValues.end());
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
 
 	return (0);
 }

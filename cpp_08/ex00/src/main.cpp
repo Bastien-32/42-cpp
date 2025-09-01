@@ -6,7 +6,7 @@
 /*   By: badal-la <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/20 14:21:26 by badal-la          #+#    #+#             */
-/*   Updated: 2025/08/25 17:04:01 by badal-la         ###   ########.fr       */
+/*   Updated: 2025/09/01 09:45:21 by badal-la         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ int	main(void)
 		it = easyfind(v, 30);
 		std::cout << "Position of value in vector : " << *it << std::endl;
 		it = easyfind(v, 60);
+		std::cout << "Position of value in vector : " << *it << std::endl;
 	}
 	catch(std::exception& e)
 	{

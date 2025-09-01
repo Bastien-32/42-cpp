@@ -6,7 +6,7 @@
 /*   By: badal-la <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/29 16:06:59 by badal-la          #+#    #+#             */
-/*   Updated: 2025/08/20 09:58:22 by badal-la         ###   ########.fr       */
+/*   Updated: 2025/09/01 11:24:43 by badal-la         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -188,6 +188,8 @@ void	convertInChar(const std::string& literal)
 void	convertInInt(const std::string& literal)
 {
 	int i = std::atoi(literal.c_str());
+	double d = std::strtod(literal.c_str(),NULL);
+	
 
 	if (std::atof(literal.c_str()) > std::numeric_limits<int>::max()
 		|| std::atof(literal.c_str()) < - std::numeric_limits<int>::max() - 1)
@@ -206,7 +208,7 @@ void	convertInInt(const std::string& literal)
 	std::cout << "int:\t" << i << std::endl;
 
 	std::cout << std::fixed << std::setprecision(1);
-	std::cout << "float:\t" << static_cast<float>(i) << "f" << std::endl;
+	std::cout << "float:\t" << static_cast<float>(d) << "f" << std::endl;
 	std::cout << "double:\t" << static_cast<double>(i) << std::endl;
 }
 
@@ -274,7 +276,7 @@ void	convertInDouble(const std::string& literal)
 		|| d < - static_cast<double>(std::numeric_limits<float>::max()) - 1)
 		std::cout << "float:\tImpossible" << std::endl;
 	else
-		std::cout << "float:\t" << static_cast<float>(d) << std::endl;
+		std::cout << "float:\t" << static_cast<float>(d) << "f" << std::endl;
 
 	std::cout << "double:\t" << d << std::endl;
 }
@@ -299,6 +301,8 @@ void	convertInPseudoLiterals(const std::string& literal)
 
 void	ScalarConverter::convert( const std::string& literal )
 {
+	std::cout << std::fixed << std::setprecision(1);
+	std::cout << MAXFLOAT<< std::endl;
 	switch (findType(literal))
 	{
 		case CHAR:

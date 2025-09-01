@@ -6,7 +6,7 @@
 /*   By: badal-la <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/20 17:48:56 by badal-la          #+#    #+#             */
-/*   Updated: 2025/08/25 17:41:55 by badal-la         ###   ########.fr       */
+/*   Updated: 2025/09/01 13:19:05 by badal-la         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ void	Span::printNumbers( void ) const
 void	Span::addNumber( int number )
 {
 	if (_vec.size() >= _maxSize)
-		throw std::runtime_error("Cannot add number : the vector is full");
+		throw std::runtime_error("Cannot add numbers : the vector will exceed its max size");
 	_vec.push_back(number);
 }
 
@@ -82,7 +82,7 @@ int	Span::longestSpan( void )const
 	if (n > INT_MAX)
 		throw std::runtime_error("The longest span is too big to be represented by an int");
 
-		return (abs(*itMax - *itMin));
+	return (abs(*itMax - *itMin));
 }
 
 std::vector<int>	fillRandomly(unsigned int quantity, int min, int max)
