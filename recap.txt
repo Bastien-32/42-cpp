@@ -320,3 +320,15 @@ CPP_08
 		de la classe. On retrouve donc MutantStack<T>:: deux fois :
 			- une fois pour indiquer le type de retour (iterator défini dans la classe),
 			- une fois pour rattacher la fonction à la classe (begin()).
+
+cpp_09
+	ex00
+		gerer date < au lancement de la monnaie -> Error
+		annees non bisextile -> Error
+		0 < valeur monnaie < 1000 -> Error
+
+	ex01
+		site avec legrand dedans pour le calcul algo polonais
+
+	ex02
+		principe de recursivite obligatoire!!!

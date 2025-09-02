@@ -55,6 +55,14 @@ void BitcoinExchange::parseLineDB(std::string line, char sep)
 	_data[date] = std::strtod(value.c_str(), NULL);
 }
 
+void	BitcoinExchange::transformInput(const char* nameInputFile)
+{
+	std::ifstream	inputFile(nameInputFile);
+	if (!inputFile.is_open() || !inputFile.good() || is_directory(nameInputFile))
+		throw std::runtime_error("Cannot open file " + std::string(nameInputFile));
+}
+
+
 bool	is_directory(const char* path)
 {
 	struct stat path_stat;

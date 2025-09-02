@@ -24,6 +24,7 @@ class BitcoinExchange
 
 		void	parseDB( const char* dBPath );
 		void	parseLineDB(std::string line, char sep);
+		void	transformInput(const char* inputFile);
 
 		void	printDB( void ) const;
 
