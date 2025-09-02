@@ -2,8 +2,11 @@
 #define BITCOINEXCHANGE_HPP
 
 #include <iostream>
+#include <fstream>
+#include <sys/stat.h>
 #include <map>
-#include <sstream>
+#include <stdexcept>
+#include <cstdlib>
 
 class BitcoinExchange
 {
@@ -19,8 +22,15 @@ class BitcoinExchange
 		BitcoinExchange&	operator=( const BitcoinExchange& other );
 		~BitcoinExchange( void );
 
+		void	parseDB( const char* dBPath );
+		void	parseLineDB(std::string line, char sep);
+
+		void	printDB( void ) const;
+
 
 
 };
+
+bool	is_directory(const char* path);
 
 #endif

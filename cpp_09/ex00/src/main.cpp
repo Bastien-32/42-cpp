@@ -1,17 +1,27 @@
-#include <iostream>
-#include <map>
 
 #include "../include/BitcoinExchange.hpp"
 
+
+
 int	main(int argc, char **argv)
 {
-	if (argc != 2)
+	if (argc != 2 || std::string(argv[1]).empty())
 	{
-		std::cerr << "Usage :btc [file with values].txt";
+		std::cerr << "Usage : btc [file with values].txt" << std::endl;
 		return (1);
 	}
 
-	BitcoinExchange	crypto;
+	try
+	{
+		BitcoinExchange	crypto;
+		crypto.printDB();														// a supp avant rendu
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
+	
 
-
+	
+	return (0);
 }
