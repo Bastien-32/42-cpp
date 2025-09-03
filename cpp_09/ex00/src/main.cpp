@@ -14,7 +14,7 @@ int	main(int argc, char **argv)
 	try
 	{
 		BitcoinExchange	crypto;
-		crypto.printDB();														// a supp avant rendu
+		// crypto.printDB();														// a supp avant rendu
 		crypto.transformInput(argv[1]);
 	}
 	catch(const std::exception& e)
