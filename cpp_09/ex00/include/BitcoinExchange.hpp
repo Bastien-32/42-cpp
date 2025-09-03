@@ -7,7 +7,6 @@
 #include <map>
 #include <stdexcept>
 #include <cstdlib>
-#include <cctype>
 
 class BitcoinExchange
 {
@@ -16,6 +15,12 @@ class BitcoinExchange
 
 		std::map<std::string, double> _data;
 
+		void	handleLine(std::string line, char sep);
+		void	checkdate(std::string date);
+		double	checkvalue(std::string value);
+		void	parseDB( const char* dBPath );
+		void	parseLineDB(std::string line, char sep);
+
 	public:
 
 		BitcoinExchange( void );
@@ -23,17 +28,9 @@ class BitcoinExchange
 		BitcoinExchange&	operator=( const BitcoinExchange& other );
 		~BitcoinExchange( void );
 
-		void	parseDB( const char* dBPath );
-		void	parseLineDB(std::string line, char sep);
 		void	transformInput(const char* inputFile);
-		void	handleLine(std::string line, char sep);
-		void	checkdate(std::string date);
-		double	checkvalue(std::string value);
-
 
 		void	printDB( void ) const;
-
-
 
 };
 
