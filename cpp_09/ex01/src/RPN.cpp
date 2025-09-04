@@ -21,7 +21,7 @@ RPN::~RPN()
 void	RPN::makeOperation(char op)
 {
 	if (_stack.size() < 2)
-		throw std::runtime_error("Error: Not enough values in the stack for operation.");
+		throw std::runtime_error("Error");
 
 	int	top1 = _stack.top();
 	_stack.pop();
@@ -42,7 +42,7 @@ void	RPN::makeOperation(char op)
 			break;
 		case '/':
 			if (top1 == 0)
-				throw std::runtime_error("Error:");
+				throw std::runtime_error("Error");
 			result = top2 / top1;
 			break;
 		default:
