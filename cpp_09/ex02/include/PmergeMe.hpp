@@ -6,14 +6,17 @@
 #include <vector>
 #include <deque>
 #include <cstdlib>
+#include <ctime>
+#include <algorithm>
 
 
 class PmergeMe
 {
 	private:
 
-	std::vector<int>	_vector;
-	std::deque<int>		_deque;
+		std::vector<int>	_vector;
+		std::deque<int>		_deque;
+		std::vector<int>	dispatchMinMax( std::vector<int> &vector );
 
 	public:
 
@@ -23,8 +26,8 @@ class PmergeMe
 		~PmergeMe();
 
 		void	parse(char **argv, int argc);
-/* 		void	sortVector( void );
-		void	sortDeque( void ); */
+		void	sortVector( void );
+/* 		void	sortDeque( void ); */
 
 		std::vector<int>	getVector( void ) const;
 		std::deque<int>		getDeque( void ) const;

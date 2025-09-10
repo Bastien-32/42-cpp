@@ -11,11 +11,13 @@ int	main(int argc, char **argv)
 	PmergeMe pmergeMe;
 	try
 	{
+		std::cout << "Parsing input..." << std::endl;
 		pmergeMe.parse(argv, argc);
+		std::cout << "Display container before..." << std::endl;
 		pmergeMe.displayContainer(pmergeMe.getVector());
 		pmergeMe.displayContainer(pmergeMe.getDeque());
-/* 		pmergeMe.sortVector();
-		pmergeMe.sortDeque();*/
+		pmergeMe.sortVector();
+/* 		pmergeMe.sortDeque();*/
 	}
 	catch (const std::exception &e)
 	{
