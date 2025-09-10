@@ -16,7 +16,8 @@ class PmergeMe
 
 		std::vector<int>	_vector;
 		std::deque<int>		_deque;
-		std::vector<int>	dispatchMinMax( std::vector<int> &vector );
+		std::vector<int>	FordJohnsonVector( std::vector<int>& vector );
+		std::deque<int>		FordJohnsonDeque( std::deque<int>& deque );
 
 	public:
 
@@ -27,10 +28,7 @@ class PmergeMe
 
 		void	parse(char **argv, int argc);
 		void	sortVector( void );
-/* 		void	sortDeque( void ); */
-
-		std::vector<int>	getVector( void ) const;
-		std::deque<int>		getDeque( void ) const;
+		void	sortDeque( void );
 
 		template <typename T>
 		void	displayContainer( const T& container ) const
