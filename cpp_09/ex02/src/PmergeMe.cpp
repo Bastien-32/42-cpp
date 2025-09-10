@@ -96,6 +96,11 @@ std::deque<int>	buildjacobsthalorderDeque( int lenMin )
 
 void	binarySearchInsertVector( std::vector<int> &result, int max, int value )
 {
+	if (value > result.back())
+	{
+		result.push_back(value);
+		return ;
+	}
 	std::vector<int>::iterator itTarget;
 	itTarget = std::lower_bound(result.begin(), result.end(), max);
 	int left = 0;
@@ -114,6 +119,11 @@ void	binarySearchInsertVector( std::vector<int> &result, int max, int value )
 
 void	binarySearchInsertDeque( std::deque<int> &result, int max, int value )
 {
+	if (value > result.back())
+	{
+		result.push_back(value);
+		return ;
+	}
 	std::deque<int>::iterator itTarget;
 	itTarget = std::lower_bound(result.begin(), result.end(), max);
 	int left = 0;
