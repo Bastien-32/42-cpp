@@ -57,13 +57,13 @@ size_t RPN::addNumbers(size_t i, const std::string &str)
 	while (str[i + length] && str[i + length] != ' ')
 		length++;
 	std::string numStr = str.substr(i, length);
-	int number = std::stoi(numStr);
-	/* if (number < 0 || number > 9)
+	int number = std::atoi(numStr.c_str());
+	if (number < 0 || number > 9)
 		throw std::runtime_error("Error: Numbers must be digit (0-9).");
-	if (number < -9 || number > 9)
-		throw std::runtime_error("Error: Numbers must be digit between -9 and 9."); */
+	/* if (number < -9 || number > 9)
+		throw std::runtime_error("Error: Numbers must be digit between -9 and 9.");
 	if (number > 9)
-		throw std::runtime_error("Error: Numbers must be digit < 10.");
+		// throw std::runtime_error("Error: Numbers must be digit < 10."); */
 	_stack.push(number);
 	return (length - 1);
 }

@@ -8,7 +8,7 @@
 #include <cstdlib>
 #include <ctime>
 #include <algorithm>
-
+#include <iomanip>
 
 class PmergeMe
 {
@@ -16,8 +16,16 @@ class PmergeMe
 
 		std::vector<int>	_vector;
 		std::deque<int>		_deque;
+
 		std::vector<int>	FordJohnsonVector( std::vector<int>& vector );
 		std::deque<int>		FordJohnsonDeque( std::deque<int>& deque );
+
+		std::vector<int>	buildjacobsthalorderVector( int lenMin );
+		std::deque<int>		buildjacobsthalorderDeque( int lenMin );
+
+		void				binarySearchInsertVector( std::vector<int> &result, int max, int value );
+		void				binarySearchInsertDeque( std::deque<int> &result, int max, int value );
+
 
 	public:
 
