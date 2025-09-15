@@ -101,7 +101,7 @@ void	PmergeMe::binarySearchInsertVector( std::vector<int> &result, int max, int 
 		result.push_back(value);
 		return ;
 	}
-	std::vector<int>::iterator itTarget;
+	std::vector<int>::iterator	itTarget;
 	itTarget = std::lower_bound(result.begin(), result.end(), max);
 	int left = 0;
 	int right =  itTarget - result.begin();
@@ -146,7 +146,7 @@ std::vector<int>	PmergeMe::FordJohnsonVector( std::vector<int> &vector )
 		return (vector);
 	std::vector<int>	min;
 	std::vector<int>	max;
-	int stock;
+	int					stock;
 
 	for (size_t i = 0; i < vector.size(); i += 2)
 	{

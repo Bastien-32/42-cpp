@@ -6,7 +6,7 @@
 /*   By: badal-la <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/10 15:47:08 by badal-la          #+#    #+#             */
-/*   Updated: 2025/09/10 15:47:09 by badal-la         ###   ########.fr       */
+/*   Updated: 2025/09/15 09:27:45 by badal-la         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -144,6 +144,7 @@ void BitcoinExchange::handleLine(std::string line, char sep)
 		--it;
 	std::cout << date << " => " << val << " = " << (val * it->second) << std::endl;
 }
+
 void	BitcoinExchange::transformInput(const char* nameInputFile)
 {
 	std::ifstream	inputFile(nameInputFile);
