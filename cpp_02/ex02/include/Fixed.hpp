@@ -6,7 +6,7 @@
 /*   By: badal-la <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/01 18:25:58 by badal-la          #+#    #+#             */
-/*   Updated: 2025/07/09 11:04:04 by badal-la         ###   ########.fr       */
+/*   Updated: 2025/09/17 15:20:58 by badal-la         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@ class	Fixed
 
 	private:
 
-	int					_rawBits;
-	static const int	_fractionalBits;
+		int					_rawBits;
+		static const int	_fractionalBits;
 
 	public:
 

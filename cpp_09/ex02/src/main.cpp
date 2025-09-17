@@ -8,9 +8,9 @@ int	main(int argc, char **argv)
 		return (1);
 	}
 
-	PmergeMe pmergeMe;
 	try
 	{
+		PmergeMe pmergeMe;
 		pmergeMe.parse(argv, argc);
 		pmergeMe.sortVector();
 		pmergeMe.sortDeque();

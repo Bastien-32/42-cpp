@@ -6,7 +6,7 @@
 /*   By: badal-la <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/10 15:47:08 by badal-la          #+#    #+#             */
-/*   Updated: 2025/09/15 09:27:45 by badal-la         ###   ########.fr       */
+/*   Updated: 2025/09/16 14:48:59 by badal-la         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,17 +35,13 @@ BitcoinExchange::~BitcoinExchange( void )
 
 void BitcoinExchange::parseLineDB(std::string line, char sep)
 {
-	std::string date;
-	std::string value;
+	std::size_t	pos_sep = line.find(sep);
+	if (pos_sep == std::string::npos)
+		throw std::runtime_error("Bad input, separator not find");
 
-	unsigned long j = 0;
-	for (; j < line.size(); j++)
-	{
-		if(line[j] == sep)
-			break;
-	}
-	date = std::string(line.begin(), line.begin() + j);
-	value = std::string(line.begin() + j + 1, line.end());
+	std::string	date = line.substr(0, pos_sep);
+	std::string	value = line.substr(pos_sep + 1);
+
 	_data[date] = std::strtod(value.c_str(), NULL);
 }
 

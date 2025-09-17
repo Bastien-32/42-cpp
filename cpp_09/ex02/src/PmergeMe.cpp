@@ -39,8 +39,8 @@ void	PmergeMe::parse(char **argv, int argc)
 std::vector<int>	PmergeMe::buildjacobsthalorderVector( int lenMin )
 {
 	std::vector<int>	jacobsthal_index;
-	int j0 = 0;
-	int j1 = 1;
+	int					j0 = 0;
+	int					j1 = 1;
 	jacobsthal_index.push_back(1);
 	while(1)
 	{
@@ -68,8 +68,8 @@ std::vector<int>	PmergeMe::buildjacobsthalorderVector( int lenMin )
 std::deque<int>	PmergeMe::buildjacobsthalorderDeque( int lenMin )
 {
 	std::deque<int>	jacobsthal_index;
-	int j0 = 0;
-	int j1 = 1;
+	int				j0 = 0;
+	int				j1 = 1;
 	jacobsthal_index.push_back(1);
 	while(1)
 	{
@@ -103,8 +103,9 @@ void	PmergeMe::binarySearchInsertVector( std::vector<int> &result, int max, int 
 	}
 	std::vector<int>::iterator	itTarget;
 	itTarget = std::lower_bound(result.begin(), result.end(), max);
-	int left = 0;
-	int right =  itTarget - result.begin();
+
+	int	left = 0;
+	int	right =  itTarget - result.begin();
 
 	while (left < right)
 	{
@@ -126,8 +127,9 @@ void	PmergeMe::binarySearchInsertDeque( std::deque<int> &result, int max, int va
 	}
 	std::deque<int>::iterator itTarget;
 	itTarget = std::lower_bound(result.begin(), result.end(), max);
-	int left = 0;
-	int right =  itTarget - result.begin();
+
+	int	left = 0;
+	int	right =  itTarget - result.begin();
 
 	while (left < right)
 	{
@@ -183,7 +185,7 @@ std::deque<int>	PmergeMe::FordJohnsonDeque( std::deque<int> &deque )
 		return (deque);
 	std::deque<int>	min;
 	std::deque<int>	max;
-	int stock;
+	int				stock;
 
 	for (size_t i = 0; i < deque.size(); i += 2)
 	{
@@ -216,10 +218,10 @@ std::deque<int>	PmergeMe::FordJohnsonDeque( std::deque<int> &deque )
 
 void	PmergeMe::sortVector( void )
 {
-	clock_t time_start = clock();
+	clock_t				time_start = clock();
 	std::vector<int>	sorted = FordJohnsonVector(_vector);
-	clock_t time_end = clock();
-	double time_diff = (double)(time_end - time_start) * 1000000 / CLOCKS_PER_SEC;
+	clock_t				time_end = clock();
+	double				time_diff = (double)(time_end - time_start) * 1000000 / CLOCKS_PER_SEC;
 
 	std::cout << "Before:\t";
 	displayContainer(_vector);
@@ -232,10 +234,10 @@ void	PmergeMe::sortVector( void )
 
 void	PmergeMe::sortDeque( void )
 {
-	clock_t time_start = clock();
+	clock_t			time_start = clock();
 	std::deque<int>	sorted = FordJohnsonDeque(_deque);
-	clock_t time_end = clock();
-	double time_diff = (double)(time_end - time_start) * 1000000 / CLOCKS_PER_SEC;
+	clock_t			time_end = clock();
+	double			time_diff = (double)(time_end - time_start) * 1000000 / CLOCKS_PER_SEC;
 
 	std::cout << std::fixed << std::setprecision(3)
 		<< "Time to process a range of " << std::setw(4) << _deque.size()

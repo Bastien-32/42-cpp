@@ -6,7 +6,7 @@
 /*   By: badal-la <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/10 15:46:54 by badal-la          #+#    #+#             */
-/*   Updated: 2025/09/10 15:46:55 by badal-la         ###   ########.fr       */
+/*   Updated: 2025/09/16 14:49:49 by badal-la         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,14 @@
 #include <map>
 #include <stdexcept>
 #include <cstdlib>
+#include <string>
 
 class BitcoinExchange
 {
 
 	private:
 
-		std::map<std::string, double> _data;
+		std::map<std::string, double>	_data;
 
 		void	handleLine(std::string line, char sep);
 		void	checkdate(std::string date);
@@ -41,7 +42,6 @@ class BitcoinExchange
 		~BitcoinExchange( void );
 
 		void	transformInput(const char* inputFile);
-
 		void	printDB( void ) const;
 
 };

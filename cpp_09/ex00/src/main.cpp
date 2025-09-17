@@ -6,7 +6,7 @@
 /*   By: badal-la <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/10 15:47:19 by badal-la          #+#    #+#             */
-/*   Updated: 2025/09/10 15:47:26 by badal-la         ###   ########.fr       */
+/*   Updated: 2025/09/16 14:29:46 by badal-la         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ int	main(int argc, char **argv)
 	try
 	{
 		BitcoinExchange	crypto;
-		// crypto.printDB();														// a supp avant rendu
 		crypto.transformInput(argv[1]);
 	}
 	catch(const std::exception& e)
